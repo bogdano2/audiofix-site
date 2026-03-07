@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Audio Devices on Windows | AudioFix.tools</title>
+<meta name="description" content="Learn how to find every audio device Windows is managing, identify which ones matter, and check your defaults. The first step to fixing broken audio.">
+<meta property="og:title" content="Find Your Audio Devices on Windows | AudioFix.tools">
+<meta property="og:description" content="See what your OS sees. Find every audio device Windows is managing, spot the impostors, and verify your defaults.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/find-your-devices.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Find Your Audio Devices on Windows | AudioFix.tools">
+<meta name="twitter:description" content="See what your OS sees. Find every audio device Windows is managing, spot the impostors, and verify your defaults.">
+<link rel="canonical" href="https://audiofix.tools/guide/find-your-devices.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/find-your-devices.html#webpage",
+      "url": "https://audiofix.tools/guide/find-your-devices.html",
+      "name": "Find Your Audio Devices on Windows | AudioFix.tools",
+      "description": "Learn how to find every audio device Windows is managing, identify which ones matter, and check your defaults.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/find-your-devices.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Find Your Devices"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://audiofix.tools/guide/find-your-devices.html#howto",
+      "name": "How to find and verify your audio devices on Windows",
+      "description": "Open Windows Sound Settings, identify your output and input devices, check which is set as default, and verify volume levels.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Open Sound Settings",
+          "text": "Press Win + R, type ms-settings:sound, and press Enter to open Windows Sound Settings."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Find your output devices",
+          "text": "Look at the Output section at the top of the Sound page. Click the dropdown to see all available output devices."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Find your input devices",
+          "text": "Scroll down to the Input section to see which microphone Windows is currently listening to."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Check what is set as default",
+          "text": "Verify that the device marked DEFAULT for both output and input is the device you actually want to use."
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+/* Device mockup card styling */
+.device-mockup { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="true">Guide</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
+              <li><a class="dropdown-item active" href="/guide/find-your-devices.html" aria-current="page">Find your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
+            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
+          </a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item">Guide</li>
+      <li class="breadcrumb-item active" aria-current="page">Find Your Devices</li>
+    </ol>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 720px;">
+      <h1 id="page-heading" class="display-5 fw-bold mb-3">Find your devices</h1>
+      <p class="lead" style="color: var(--bs-secondary-color);">Before you fix anything, you need to see what your OS sees. Windows might be managing a dozen audio devices you didn't know existed.</p>
+    </div>
+  </section>
+
+  <!-- Nugget 1: Open Sound Settings -->
+  <section class="pb-5" aria-labelledby="open-settings-heading" id="open-settings">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="open-settings-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-lightning-charge me-2 text-warning" aria-hidden="true"></i>Open Sound Settings in 3 seconds</h2>
+
+      <p>The fastest way to get there. Three keystrokes, no clicking through menus.</p>
+
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-3 fs-5">
+        <kbd>Win</kbd> <span aria-hidden="true">+</span><span class="visually-hidden">plus</span> <kbd>R</kbd>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        <span>type <code>ms-settings:sound</code></span>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        <kbd>Enter</kbd>
+      </div>
+
+      <div class="alert alert-info py-2" role="alert">
+        <i class="bi bi-bookmark me-2" aria-hidden="true"></i>Bookmark this URI. You'll use it often.
+      </div>
+
+      <div class="accordion" id="uriAccordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uriList" aria-expanded="false" aria-controls="uriList">
+              Other useful URIs
+            </button>
+          </h3>
+          <div id="uriList" class="accordion-collapse collapse" data-bs-parent="#uriAccordion">
+            <div class="accordion-body p-0">
+              <table class="table table-bordered mb-0" aria-label="Windows Settings URIs for audio">
+                <thead>
+                  <tr>
+                    <th scope="col">URI</th>
+                    <th scope="col">Opens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>ms-settings:sound</code></td>
+                    <td>Sound main page</td>
+                  </tr>
+                  <tr>
+                    <td><code>ms-settings:sound-defaultoutputproperties</code></td>
+                    <td>Default output properties</td>
+                  </tr>
+                  <tr>
+                    <td><code>ms-settings:sound-defaultinputproperties</code></td>
+                    <td>Default input properties</td>
+                  </tr>
+                  <tr>
+                    <td><code>ms-settings:sound-devices</code></td>
+                    <td>All devices (enable/disable)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 2: Find your output devices -->
+  <section class="pb-5" aria-labelledby="output-heading" id="output-devices">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="output-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-speaker me-2 text-info" aria-hidden="true"></i>Find your output devices</h2>
+
+      <p>The Output section at the top of the Sound page shows which device Windows is currently sending sound to. Click the dropdown to see all available output devices.</p>
+
+      <div class="card border mb-3">
+        <div class="card-body device-mockup">
+          <p class="text-uppercase small fw-semibold mb-2" style="color: var(--bs-secondary-color);">Choose where to play sound:</p>
+          <div class="mb-1"><i class="bi bi-caret-right-fill me-1 text-success" aria-hidden="true"></i> Speakers (Realtek(R) Audio) <span class="badge text-bg-success ms-2">DEFAULT</span></div>
+          <div class="mb-1 ps-3" style="color: var(--bs-secondary-color);">LG TV (Intel(R) Display Audio)</div>
+          <div class="mb-1 ps-3" style="color: var(--bs-secondary-color);">Digital Audio (S/PDIF)</div>
+          <div class="ps-3" style="color: var(--bs-secondary-color);">Speakers (USB PnP Audio Device)</div>
+        </div>
+      </div>
+
+      <p><strong>The one marked DEFAULT is where your sound is going right now.</strong></p>
+    </div>
+  </section>
+
+  <!-- Nugget 3: Find your input devices -->
+  <section class="pb-5" aria-labelledby="input-heading" id="input-devices">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="input-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-mic me-2 text-info" aria-hidden="true"></i>Find your input devices</h2>
+
+      <p>Scroll down to the Input section. This shows which microphone Windows is currently listening to.</p>
+
+      <div class="card border mb-3">
+        <div class="card-body device-mockup">
+          <p class="text-uppercase small fw-semibold mb-2" style="color: var(--bs-secondary-color);">Choose a device for speaking or recording:</p>
+          <div class="mb-1"><i class="bi bi-caret-right-fill me-1 text-success" aria-hidden="true"></i> Microphone (Realtek(R) Audio) <span class="badge text-bg-success ms-2">DEFAULT</span></div>
+          <div class="mb-1 ps-3" style="color: var(--bs-secondary-color);">Microphone (USB PnP Audio Device)</div>
+          <div class="ps-3" style="color: var(--bs-secondary-color);">Stereo Mix (Realtek(R) Audio)</div>
+        </div>
+      </div>
+
+      <div class="alert alert-warning py-2" role="alert">
+        <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i><strong>Stereo Mix is not a microphone.</strong> It captures whatever plays through your speakers. If this is your default, that's probably your problem.
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 4: Spot the impostors -->
+  <section class="pb-5" aria-labelledby="impostors-heading" id="impostors">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="impostors-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-search me-2 text-warning" aria-hidden="true"></i>Spot the impostors</h2>
+
+      <p>Not everything in the list is a real audio device you'd want to use. Here's a quick cheat sheet.</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped" aria-label="Audio device identification cheat sheet">
+          <thead>
+            <tr>
+              <th scope="col">Device name pattern</th>
+              <th scope="col">What it actually is</th>
+              <th scope="col">Usually want it?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Speakers (Realtek)</td>
+              <td>Built-in laptop/motherboard speakers</td>
+              <td><span class="badge text-bg-success" aria-label="Yes, often">Often</span></td>
+            </tr>
+            <tr>
+              <td>Headphones (Realtek)</td>
+              <td>The 3.5mm headphone jack</td>
+              <td><span class="badge text-bg-success" aria-label="Yes, if you use wired headphones">If wired</span></td>
+            </tr>
+            <tr>
+              <td>LG TV / Display Audio</td>
+              <td>HDMI audio through your monitor</td>
+              <td><span class="badge text-bg-danger" aria-label="No, unless you use monitor speakers">Rarely</span></td>
+            </tr>
+            <tr>
+              <td>Digital Audio (S/PDIF)</td>
+              <td>Optical audio output</td>
+              <td><span class="badge text-bg-danger" aria-label="No, rarely used on consumer PCs">Rarely</span></td>
+            </tr>
+            <tr>
+              <td>USB PnP Audio Device</td>
+              <td>Docking station, webcam, or USB hub with audio</td>
+              <td><span class="badge text-bg-warning text-dark" aria-label="Maybe, depends on your setup">Depends</span></td>
+            </tr>
+            <tr>
+              <td>Stereo Mix</td>
+              <td>Loopback &mdash; records system audio</td>
+              <td><span class="badge text-bg-danger" aria-label="No, almost never as default">Almost never</span></td>
+            </tr>
+            <tr>
+              <td>Bluetooth headset</td>
+              <td>Wireless headphones/earbuds</td>
+              <td><span class="badge text-bg-success" aria-label="Yes, when connected">When connected</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 5: Check what's set as default -->
+  <section class="pb-5" aria-labelledby="defaults-heading" id="check-defaults">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="defaults-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-check2-circle me-2 text-success" aria-hidden="true"></i>Check what's set as default</h2>
+
+      <p>The device with the checkmark or "DEFAULT" label is where Windows routes all sound (output) or listens (input). If this is wrong, everything downstream is wrong.</p>
+
+      <p><strong>Look at your Sound settings right now.</strong> Is the default output device the one connected to your actual speakers? Is the default input device your actual microphone?</p>
+
+      <div class="alert alert-success py-2" role="alert">
+        <i class="bi bi-check-circle me-2" aria-hidden="true"></i>If the defaults look right and you still have problems, the issue might be volume, a mute switch, or an app override. We'll cover testing next.
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 6: Quick volume and mute check -->
+  <section class="pb-5" aria-labelledby="volume-heading" id="volume-check">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="volume-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-sliders me-2 text-info" aria-hidden="true"></i>Quick volume and mute check</h2>
+
+      <p>While you're here, verify the basics.</p>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i>Output volume slider is above zero</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i>Output device is not muted (check the speaker icon)</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i>Input volume/sensitivity slider is above zero</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i>Microphone is not muted (check software AND any hardware mute button)</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i>Physical device is actually powered on</li>
+      </ul>
+
+      <p><strong>These account for more "broken audio" reports than you'd expect.</strong></p>
+    </div>
+  </section>
+
+  <!-- Next Step Card -->
+  <section class="pb-5" aria-labelledby="next-step-heading">
+    <div class="container" style="max-width: 720px;">
+      <div class="card border">
+        <div class="card-body text-center py-4">
+          <h2 id="next-step-heading" class="fs-4 fw-semibold mb-2">Defaults look suspicious?</h2>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">Let's prove which device is actually working.</p>
+          <a href="/guide/test-your-devices.html" class="btn btn-primary btn-lg px-4">
+            Test your devices <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-3">
+        <a href="/guide/why-it-happens.html" class="text-decoration-none" style="color: var(--bs-secondary-color);">
+          <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>Why it happens
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lock It Down — Disable Unused Audio Devices | AudioFix.tools</title>
+<meta name="description" content="Disable unused audio devices on Windows to prevent silent default switching. Set your tested device as default, disable the rest, and lock your audio config.">
+<meta property="og:title" content="Lock It Down — Disable Unused Audio Devices | AudioFix.tools">
+<meta property="og:description" content="Disable unused audio devices on Windows to prevent silent default switching. Set defaults, disable the rest, lock your config.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/lock-it-down.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lock It Down — Disable Unused Audio Devices | AudioFix.tools">
+<meta name="twitter:description" content="Disable unused audio devices on Windows to prevent silent default switching. Set defaults, disable the rest, lock your config.">
+<link rel="canonical" href="https://audiofix.tools/guide/lock-it-down.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/lock-it-down.html#webpage",
+      "url": "https://audiofix.tools/guide/lock-it-down.html",
+      "name": "Lock It Down — Disable Unused Audio Devices | AudioFix.tools",
+      "description": "Disable unused audio devices on Windows to prevent silent default switching. Set your tested device as default, disable the rest, and lock your audio config.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#page-heading", "#lead-text"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/lock-it-down.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Lock It Down"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://audiofix.tools/guide/lock-it-down.html#howto",
+      "name": "How to disable unused audio devices on Windows",
+      "description": "Set your tested audio device as the system default, then disable all unused output and input devices to prevent Windows from silently switching defaults.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Set your tested device as default",
+          "text": "Open Sound Settings (Win+R, ms-settings:sound), select your tested device as the default output, and repeat for input. Check all three audio roles: Console, Multimedia, and Communications."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Open the full device list",
+          "text": "Press Win+R, type ms-settings:sound-devices, and press Enter to open the All Sound Devices page showing every output and input device including disabled ones."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Disable unused output devices",
+          "text": "For each output device that is not the one you tested and confirmed, click the device name, then click Don't allow or Disable on its properties page. Repeat for each unwanted output device."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Disable unused input devices",
+          "text": "Disable Stereo Mix, unused webcam microphones, and any input device that showed 0% in your mic test. Set your real microphone as default."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Verify your cleanup",
+          "text": "Return to Sound Settings (ms-settings:sound) and confirm: output dropdown shows only your real devices, input dropdown shows only your real microphone, both are marked as default, and volume is at a reasonable level."
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guide</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
+              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
+              <li><a class="dropdown-item active" href="/guide/lock-it-down.html" aria-current="page">Lock it down</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
+            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
+          </a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item">Guide</li>
+      <li class="breadcrumb-item active" aria-current="page">Lock It Down</li>
+    </ol>
+  </nav>
+
+  <!-- Page Content -->
+  <article class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 720px;">
+
+      <!-- H1 & Lead -->
+      <h1 id="page-heading" class="display-5 fw-bold mb-3">Lock it down</h1>
+      <p id="lead-text" class="lead mb-5" style="color: var(--bs-secondary-color);">You've identified your real devices. Now disable everything else so Windows can't silently switch to the wrong one.</p>
+
+      <!-- Nugget 1: This is the most important step -->
+      <section class="mb-5" aria-labelledby="nugget-important">
+        <h2 id="nugget-important" class="fs-4 fw-bold mb-3"><i class="bi bi-exclamation-diamond me-2" aria-hidden="true"></i>This is the most important step</h2>
+
+        <p><strong>Disabling unused devices is the single most effective thing you can do to prevent audio problems.</strong></p>
+
+        <p>Remember from the <a href="/guide/why-it-happens.html">first guide</a>: the more active devices Windows sees, the more likely it is that the default will silently change. By reducing the list to only what you actually use, you eliminate the opportunities for drift.</p>
+
+        <div class="alert alert-info" role="alert">
+          <i class="bi bi-lightbulb me-2" aria-hidden="true"></i>
+          <strong>Think of it like TV remotes on a couch</strong> &mdash; the more there are, the more likely someone grabs the wrong one. Remove the ones you never use.
+        </div>
+      </section>
+
+      <!-- Nugget 2: Set your tested device as default first -->
+      <section class="mb-5" aria-labelledby="nugget-default">
+        <h2 id="nugget-default" class="fs-4 fw-bold mb-3"><i class="bi bi-star me-2" aria-hidden="true"></i>Set your tested device as default first</h2>
+
+        <p>Before disabling anything, make sure the device you tested is set as the system default.</p>
+
+        <h3 class="fs-5 fw-semibold mb-3">Steps</h3>
+        <ol class="mb-4">
+          <li class="mb-2">Open Sound Settings: press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>ms-settings:sound</code>, press <kbd>Enter</kbd></li>
+          <li class="mb-2">In the <strong>Output</strong> section, select your tested device from the dropdown</li>
+          <li class="mb-2">Click the device name to open its properties</li>
+          <li class="mb-2">Under <strong>"Set as default sound device,"</strong> ensure it says <strong>"Used as default"</strong></li>
+          <li class="mb-2">Repeat for the <strong>Input</strong> section with your tested microphone</li>
+        </ol>
+
+        <div class="alert alert-warning" role="alert">
+          <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>
+          <strong>Three audio roles.</strong> Windows has three: Console, Multimedia, and Communications. The Settings UI usually sets Console and Multimedia together, but Communications may need to be set separately. Check all three if available.
+        </div>
+
+        <!-- Accordion: Keyboard-only steps -->
+        <div class="accordion mb-3" id="accordionDefaultKbd">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDefaultKbd" aria-expanded="false" aria-controls="collapseDefaultKbd">
+                <i class="bi bi-keyboard me-2" aria-hidden="true"></i>Keyboard-only steps
+              </button>
+            </h3>
+            <div id="collapseDefaultKbd" class="accordion-collapse collapse" data-bs-parent="#accordionDefaultKbd">
+              <div class="accordion-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered mb-0" aria-label="Keyboard steps for setting default device">
+                    <thead>
+                      <tr><th scope="col">Action</th><th scope="col">Keys</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Open Sound Settings</td><td><kbd>Win</kbd> + <kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd></td></tr>
+                      <tr><td>Move to Output dropdown</td><td><kbd>Tab</kbd> until you reach the output device dropdown</td></tr>
+                      <tr><td>Select device</td><td><kbd>Space</kbd> to open, <kbd>Arrow keys</kbd> to choose, <kbd>Enter</kbd> to confirm</td></tr>
+                      <tr><td>Open device properties</td><td><kbd>Tab</kbd> to the device name link, <kbd>Enter</kbd></td></tr>
+                      <tr><td>Set as default</td><td><kbd>Tab</kbd> to "Set as default sound device" dropdown, <kbd>Space</kbd>, <kbd>Arrow keys</kbd>, <kbd>Enter</kbd></td></tr>
+                      <tr><td>Go back</td><td><kbd>Alt</kbd> + <kbd>Left Arrow</kbd></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion: Three audio roles -->
+        <div class="accordion mb-3" id="accordionRoles">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRoles" aria-expanded="false" aria-controls="collapseRoles">
+                <i class="bi bi-diagram-3 me-2" aria-hidden="true"></i>What are the three audio roles?
+              </button>
+            </h3>
+            <div id="collapseRoles" class="accordion-collapse collapse" data-bs-parent="#accordionRoles">
+              <div class="accordion-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered mb-3" aria-label="Windows audio roles explained">
+                    <thead>
+                      <tr><th scope="col">Role</th><th scope="col">What uses it</th><th scope="col">Examples</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>Console</strong></td><td>System sounds, most desktop apps</td><td>Windows notifications, web browsers, games</td></tr>
+                      <tr><td><strong>Multimedia</strong></td><td>Media playback apps</td><td>Spotify, VLC, Windows Media Player</td></tr>
+                      <tr><td><strong>Communications</strong></td><td>Voice and video call apps</td><td>Zoom, Teams, Discord, Skype</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="mb-0">This is why Zoom might work but Spotify doesn't, or vice versa. If different roles point to different devices, some apps will use the "wrong" one. Setting all three roles to the same device ensures consistency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nugget 3: Open the full device list -->
+      <section class="mb-5" aria-labelledby="nugget-devicelist">
+        <h2 id="nugget-devicelist" class="fs-4 fw-bold mb-3"><i class="bi bi-list-ul me-2" aria-hidden="true"></i>Open the full device list</h2>
+
+        <p>The regular Sound page only shows active devices. To disable devices, you need the full list.</p>
+
+        <p>Press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>ms-settings:sound-devices</code>, press <kbd>Enter</kbd>.</p>
+
+        <p>This opens <strong>"All sound devices"</strong> &mdash; every output and input device, including disabled ones.</p>
+      </section>
+
+      <!-- Nugget 4: Disable output devices you don't use -->
+      <section class="mb-5" aria-labelledby="nugget-output">
+        <h2 id="nugget-output" class="fs-4 fw-bold mb-3"><i class="bi bi-volume-mute me-2" aria-hidden="true"></i>Disable output devices you don't use</h2>
+
+        <p>For each output device that is <strong>NOT</strong> the one you tested and confirmed:</p>
+
+        <ol class="mb-4">
+          <li class="mb-2">Click the device name</li>
+          <li class="mb-2">On its properties page, click <strong>"Don't allow"</strong> (or <strong>"Disable"</strong>)</li>
+          <li class="mb-2">Go back and repeat for each unwanted output device</li>
+        </ol>
+
+        <h3 class="fs-5 fw-semibold mb-3">What to disable</h3>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered" aria-label="Output devices and whether to disable them">
+            <thead>
+              <tr>
+                <th scope="col">Device</th>
+                <th scope="col">Usually disable?</th>
+                <th scope="col">Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HDMI / DisplayPort audio (monitor speakers)</td>
+                <td><span class="badge text-bg-success">Yes</span></td>
+                <td>Unless you actually use your monitor's speakers</td>
+              </tr>
+              <tr>
+                <td>Digital Audio (S/PDIF)</td>
+                <td><span class="badge text-bg-success">Yes</span></td>
+                <td>Optical output &mdash; rarely used on consumer PCs</td>
+              </tr>
+              <tr>
+                <td>USB PnP Audio Device</td>
+                <td><span class="badge text-bg-warning text-dark">Check</span></td>
+                <td>Could be a docking station, webcam, or hub. Disable if you don't use it for sound</td>
+              </tr>
+              <tr>
+                <td>Extra Realtek entries</td>
+                <td><span class="badge text-bg-warning text-dark">Check</span></td>
+                <td>Some PCs show duplicate entries. Keep only the one that passed your test</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-success" role="alert">
+          <i class="bi bi-arrow-repeat me-2" aria-hidden="true"></i>
+          <strong>Disabling does NOT uninstall the device.</strong> You can re-enable it anytime from this same page.
+        </div>
+
+        <!-- Accordion: Keyboard-only steps for disabling -->
+        <div class="accordion" id="accordionDisableKbd">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisableKbd" aria-expanded="false" aria-controls="collapseDisableKbd">
+                <i class="bi bi-keyboard me-2" aria-hidden="true"></i>Keyboard-only steps
+              </button>
+            </h3>
+            <div id="collapseDisableKbd" class="accordion-collapse collapse" data-bs-parent="#accordionDisableKbd">
+              <div class="accordion-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered mb-0" aria-label="Keyboard steps for disabling output devices">
+                    <thead>
+                      <tr><th scope="col">Action</th><th scope="col">Keys</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Open All Sound Devices</td><td><kbd>Win</kbd> + <kbd>R</kbd>, type <code>ms-settings:sound-devices</code>, <kbd>Enter</kbd></td></tr>
+                      <tr><td>Navigate to a device</td><td><kbd>Tab</kbd> until you reach the device name</td></tr>
+                      <tr><td>Open device properties</td><td><kbd>Enter</kbd></td></tr>
+                      <tr><td>Disable the device</td><td><kbd>Tab</kbd> to "Don't allow" / "Disable" button, <kbd>Enter</kbd></td></tr>
+                      <tr><td>Go back to list</td><td><kbd>Alt</kbd> + <kbd>Left Arrow</kbd></td></tr>
+                      <tr><td>Repeat</td><td>Navigate to the next device and repeat</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nugget 5: Disable input devices you don't use -->
+      <section class="mb-5" aria-labelledby="nugget-input">
+        <h2 id="nugget-input" class="fs-4 fw-bold mb-3"><i class="bi bi-mic-mute me-2" aria-hidden="true"></i>Disable input devices you don't use</h2>
+
+        <p>Same process, now for microphones. Common devices to disable:</p>
+
+        <ul class="mb-4">
+          <li class="mb-2"><strong>Stereo Mix</strong> &mdash; this is not a microphone. It captures whatever plays through your speakers. Disable it unless you specifically need to record system audio.</li>
+          <li class="mb-2"><strong>Webcam microphone</strong> &mdash; if you use a dedicated USB mic, disable the webcam's built-in mic to prevent accidental switching.</li>
+          <li class="mb-2"><strong>Any input device that showed 0% in your mic test</strong> &mdash; it's not picking up your voice.</li>
+        </ul>
+
+        <div class="alert alert-danger" role="alert">
+          <i class="bi bi-exclamation-octagon me-2" aria-hidden="true"></i>
+          <strong>Stereo Mix as your default mic is one of the most common causes of "nobody can hear me on calls."</strong> If this was your default, disabling it and setting your real mic as default will likely fix the problem immediately.
+        </div>
+      </section>
+
+      <!-- Nugget 6: Verify your cleanup -->
+      <section class="mb-5" aria-labelledby="nugget-verify">
+        <h2 id="nugget-verify" class="fs-4 fw-bold mb-3"><i class="bi bi-check2-square me-2" aria-hidden="true"></i>Verify your cleanup</h2>
+
+        <p>Go back to the main Sound page (<code>ms-settings:sound</code>) and check:</p>
+
+        <ul class="list-group mb-4">
+          <li class="list-group-item border"><i class="bi bi-square me-2" aria-hidden="true"></i>Output dropdown shows only the device(s) you actually use</li>
+          <li class="list-group-item border"><i class="bi bi-square me-2" aria-hidden="true"></i>Input dropdown shows only your actual microphone</li>
+          <li class="list-group-item border"><i class="bi bi-square me-2" aria-hidden="true"></i>Your chosen output is marked as default</li>
+          <li class="list-group-item border"><i class="bi bi-square me-2" aria-hidden="true"></i>Your chosen input is marked as default</li>
+          <li class="list-group-item border"><i class="bi bi-square me-2" aria-hidden="true"></i>Volume sliders are at a reasonable level (not zero)</li>
+        </ul>
+
+        <p><strong>That's it for the OS layer.</strong> Your defaults are set and the noise is gone.</p>
+      </section>
+
+      <!-- Nugget 7: What if it breaks again? -->
+      <section class="mb-5" aria-labelledby="nugget-breaks">
+        <h2 id="nugget-breaks" class="fs-4 fw-bold mb-3"><i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>What if it breaks again?</h2>
+
+        <p>If audio stops working after a Windows update, driver change, or plugging in new hardware, come back to this page. The process is the same every time: check defaults, test, disable what shouldn't be there.</p>
+
+        <div class="alert alert-info" role="alert">
+          <i class="bi bi-terminal me-2" aria-hidden="true"></i>
+          <strong>Our free script automates this entire process in about 2 minutes.</strong> It plays test tones, shows mic meters, sets all three audio roles, and disables devices &mdash; interactively.
+        </div>
+
+        <div class="text-center">
+          <a href="/tool/" class="btn btn-primary btn-lg px-4">
+            Get the script <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Completion Card -->
+      <section class="mb-5" aria-labelledby="nugget-complete">
+        <div class="card border-success">
+          <div class="card-body py-4 px-4 text-center">
+            <i class="bi bi-shield-check fs-1 text-success mb-3 d-block" aria-hidden="true"></i>
+            <h2 id="nugget-complete" class="fs-4 fw-bold mb-3">You've completed the OS-level audio fix.</h2>
+            <p style="color: var(--bs-secondary-color);">Your defaults are set, your unused devices are disabled, and Windows has far fewer opportunities to silently switch on you.</p>
+            <p class="small mb-0" style="color: var(--bs-tertiary-color);">App-level audio settings (Zoom, Teams, Discord, etc.) are a separate layer. That guide is coming soon.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation links -->
+      <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+        <a href="/guide/test-your-devices.html" class="btn btn-outline-secondary px-4">
+          <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Test your devices
+        </a>
+        <a href="/guide/why-it-happens.html" class="btn btn-outline-secondary px-4">
+          Start over from the beginning <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

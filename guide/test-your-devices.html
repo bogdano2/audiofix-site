@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Your Devices — AudioFix.tools</title>
+<meta name="description" content="Prove which audio device is your real speakers and microphone. Play sound, switch outputs, watch the mic level meter, and confirm with Windows' built-in test.">
+<meta property="og:title" content="Test Your Devices — AudioFix.tools">
+<meta property="og:description" content="Prove which audio device is your real speakers and microphone using Windows Sound Settings.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/test-your-devices.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Test Your Devices — AudioFix.tools">
+<meta name="twitter:description" content="Prove which audio device is your real speakers and microphone using Windows Sound Settings.">
+<link rel="canonical" href="https://audiofix.tools/guide/test-your-devices.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/test-your-devices.html#webpage",
+      "url": "https://audiofix.tools/guide/test-your-devices.html",
+      "name": "Test Your Devices — AudioFix.tools",
+      "description": "Prove which audio device is your real speakers and microphone. Play sound, switch outputs, watch the mic level meter, and confirm with Windows' built-in test.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#page-heading", "#lead-text"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/test-your-devices.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test Your Devices"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://audiofix.tools/guide/test-your-devices.html#howto",
+      "name": "How to test your audio devices on Windows",
+      "description": "Play sound and switch output devices to identify your real speakers, then speak into each input device and use the built-in mic test to confirm your real microphone.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Test output devices",
+          "text": "Play audio from any source, open Sound Settings (Win+R, ms-settings:sound), switch between output devices in the dropdown, and listen for which one produces sound from your actual speakers or headphones."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Test input devices",
+          "text": "In Sound Settings, scroll to the Input section, select each microphone from the dropdown, speak at normal volume, and watch the level indicator bar to see which device picks up your voice."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Confirm with the built-in mic test",
+          "text": "Click on the input device name to open its properties, scroll to Test your microphone, click Start test, speak for 3-5 seconds, then click Stop test. Any result above 0% confirms this mic hears you."
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guide</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
+              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
+              <li><a class="dropdown-item active" href="/guide/test-your-devices.html" aria-current="page">Test your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
+            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
+          </a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item">Guide</li>
+      <li class="breadcrumb-item active" aria-current="page">Test Your Devices</li>
+    </ol>
+  </nav>
+
+  <!-- Page Heading -->
+  <section class="py-5 pb-3" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 720px;">
+      <h1 id="page-heading" class="display-5 fw-bold mb-3">Test your devices</h1>
+      <p id="lead-text" class="lead" style="color: var(--bs-secondary-color);">You found your devices and defaults in the last step. Now let's prove which device is actually your speakers and which is actually your microphone.</p>
+    </div>
+  </section>
+
+  <!-- Nugget 1: Testing output -->
+  <section class="pb-4" aria-labelledby="test-output">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="test-output" class="fs-3 fw-bold mb-3"><i class="bi bi-volume-up me-2" aria-hidden="true"></i>Testing output: play sound, switch devices, listen</h2>
+      <p style="color: var(--bs-secondary-color);"><strong>The simplest test.</strong> Play audio from any source (YouTube, Spotify, a video file), then switch between output devices one at a time. Listen for which one produces sound from your actual speakers or headphones.</p>
+
+      <div class="card border mb-3">
+        <div class="card-body">
+          <h3 class="fs-5 fw-semibold mb-3">Steps</h3>
+          <ol class="mb-0">
+            <li class="mb-2">Start playing any audio</li>
+            <li class="mb-2">Open Sound Settings &mdash; <kbd>Win</kbd> + <kbd>R</kbd> &rarr; type <code>ms-settings:sound</code> &rarr; press <kbd>Enter</kbd></li>
+            <li class="mb-2">Click each output device in the dropdown</li>
+            <li>Listen &mdash; which one plays through your intended speakers?</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="alert alert-info" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+        <strong>Keep the audio playing the whole time.</strong> When you switch devices, the sound should jump to the new device instantly.
+      </div>
+
+      <div class="accordion mb-4" id="accordionOutput">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutputKb" aria-expanded="false" aria-controls="collapseOutputKb">
+              <i class="bi bi-keyboard me-2" aria-hidden="true"></i>Keyboard-only steps
+            </button>
+          </h3>
+          <div id="collapseOutputKb" class="accordion-collapse collapse" data-bs-parent="#accordionOutput">
+            <div class="accordion-body">
+              <table class="table table-sm mb-0" aria-label="Keyboard steps for testing output devices">
+                <thead>
+                  <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><kbd>Win</kbd> + <kbd>R</kbd></td><td>Open Run dialog</td></tr>
+                  <tr><td>Type <code>ms-settings:sound</code>, press <kbd>Enter</kbd></td><td>Opens Sound Settings</td></tr>
+                  <tr><td><kbd>Tab</kbd> until you reach the output device dropdown</td><td>Focus the output selector</td></tr>
+                  <tr><td><kbd>Enter</kbd> or <kbd>Space</kbd></td><td>Open the dropdown</td></tr>
+                  <tr><td><kbd>&uarr;</kbd> / <kbd>&darr;</kbd></td><td>Move between devices</td></tr>
+                  <tr><td><kbd>Enter</kbd></td><td>Select the device</td></tr>
+                  <tr><td>Listen</td><td>Did the audio move to this device?</td></tr>
+                  <tr><td>Repeat <kbd>Tab</kbd> &rarr; <kbd>Enter</kbd> &rarr; <kbd>&uarr;</kbd>/<kbd>&darr;</kbd></td><td>Try each device until you find the right one</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 2: No sound? -->
+  <section class="pb-4" aria-labelledby="no-sound">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="no-sound" class="fs-3 fw-bold mb-3"><i class="bi bi-volume-mute me-2" aria-hidden="true"></i>No sound from any device?</h2>
+      <p style="color: var(--bs-secondary-color);">If you can't hear audio from any output device, check these first:</p>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><i class="bi bi-sliders me-2" aria-hidden="true"></i>Is the <strong>volume slider above zero</strong> in Sound Settings?</li>
+        <li class="list-group-item"><i class="bi bi-volume-mute-fill me-2" aria-hidden="true"></i>Is the speaker icon showing a <strong>mute symbol</strong>? Click to unmute.</li>
+        <li class="list-group-item"><i class="bi bi-plug me-2" aria-hidden="true"></i>Are your speakers/headphones <strong>physically powered on</strong>?</li>
+        <li class="list-group-item"><i class="bi bi-bluetooth me-2" aria-hidden="true"></i>For Bluetooth: is the device actually <strong>connected</strong> (not just paired)? Check <strong>Settings &rarr; Bluetooth &amp; devices</strong>.</li>
+        <li class="list-group-item"><i class="bi bi-app-indicator me-2" aria-hidden="true"></i>Try a <strong>different audio source</strong> (browser vs. media player) &mdash; some apps override the OS default.</li>
+      </ul>
+
+      <div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>
+        <strong>If nothing works from any device,</strong> the problem may be a driver issue. Try: <strong>Settings &rarr; Windows Update &rarr; Check for updates.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 3: Testing input -->
+  <section class="pb-4" aria-labelledby="test-input">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="test-input" class="fs-3 fw-bold mb-3"><i class="bi bi-mic me-2" aria-hidden="true"></i>Testing input: speak, watch the level meter</h2>
+      <p style="color: var(--bs-secondary-color);"><strong>Switch to each input device, speak into your microphone, and watch the input level bar</strong> in Sound Settings. The bar moves when the active device picks up your voice.</p>
+
+      <div class="card border mb-3">
+        <div class="card-body">
+          <h3 class="fs-5 fw-semibold mb-3">Steps</h3>
+          <ol class="mb-0">
+            <li class="mb-2">In Sound Settings, scroll to the <strong>Input</strong> section</li>
+            <li class="mb-2">Select the first microphone from the dropdown</li>
+            <li class="mb-2">Speak at normal volume</li>
+            <li class="mb-2">Watch the level indicator &mdash; does the bar move?</li>
+            <li>If not, try the next device</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="accordion mb-4" id="accordionInput">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInputKb" aria-expanded="false" aria-controls="collapseInputKb">
+              <i class="bi bi-keyboard me-2" aria-hidden="true"></i>Keyboard-only steps
+            </button>
+          </h3>
+          <div id="collapseInputKb" class="accordion-collapse collapse" data-bs-parent="#accordionInput">
+            <div class="accordion-body">
+              <table class="table table-sm mb-0" aria-label="Keyboard steps for testing input devices">
+                <thead>
+                  <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><kbd>Tab</kbd> until you reach the input device dropdown</td><td>Focus the input selector</td></tr>
+                  <tr><td><kbd>Enter</kbd> or <kbd>Space</kbd></td><td>Open the dropdown</td></tr>
+                  <tr><td><kbd>&uarr;</kbd> / <kbd>&darr;</kbd></td><td>Move between microphones</td></tr>
+                  <tr><td><kbd>Enter</kbd></td><td>Select the device</td></tr>
+                  <tr><td>Speak</td><td>Watch the level bar for movement</td></tr>
+                  <tr><td>Repeat</td><td>Try each device until the bar responds</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 4: Built-in mic test -->
+  <section class="pb-4" aria-labelledby="mic-test">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="mic-test" class="fs-3 fw-bold mb-3"><i class="bi bi-check-circle me-2" aria-hidden="true"></i>Use the built-in mic test for confirmation</h2>
+      <p style="color: var(--bs-secondary-color);"><strong>Windows has a built-in microphone test</strong> that gives you a definitive answer. No guessing, no squinting at a level bar.</p>
+
+      <div class="card border mb-3">
+        <div class="card-body">
+          <h3 class="fs-5 fw-semibold mb-3">Steps</h3>
+          <ol class="mb-0">
+            <li class="mb-2">Click on the input device name to open its <strong>properties</strong></li>
+            <li class="mb-2">Scroll to <strong>"Test your microphone"</strong></li>
+            <li class="mb-2">Click <strong>"Start test"</strong> &rarr; speak for 3&ndash;5 seconds &rarr; click <strong>"Stop test"</strong></li>
+            <li>Any result above <strong>0%</strong> confirms this mic hears you</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="alert alert-success" role="alert">
+        <i class="bi bi-check-circle me-2" aria-hidden="true"></i>
+        <strong>This is the most reliable test.</strong> The level meter can be subtle &mdash; the percentage doesn't lie.
+      </div>
+
+      <div class="accordion mb-4" id="accordionMicTest">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMicTestKb" aria-expanded="false" aria-controls="collapseMicTestKb">
+              <i class="bi bi-keyboard me-2" aria-hidden="true"></i>Keyboard-only steps
+            </button>
+          </h3>
+          <div id="collapseMicTestKb" class="accordion-collapse collapse" data-bs-parent="#accordionMicTest">
+            <div class="accordion-body">
+              <p class="mb-2"><strong>Shortcut:</strong> <kbd>Win</kbd> + <kbd>R</kbd> &rarr; <code>ms-settings:sound-defaultinputproperties</code> opens the input device properties directly.</p>
+              <table class="table table-sm mb-0" aria-label="Keyboard steps for the built-in mic test">
+                <thead>
+                  <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><kbd>Tab</kbd> until you reach the input device name link</td><td>Focus the device properties link</td></tr>
+                  <tr><td><kbd>Enter</kbd></td><td>Open device properties</td></tr>
+                  <tr><td><kbd>Tab</kbd> to <strong>"Start test"</strong></td><td>Focus the test button</td></tr>
+                  <tr><td><kbd>Enter</kbd></td><td>Begin recording</td></tr>
+                  <tr><td>Speak for 3&ndash;5 seconds</td><td>Let the mic capture your voice</td></tr>
+                  <tr><td><kbd>Tab</kbd> to <strong>"Stop test"</strong>, then <kbd>Enter</kbd></td><td>End recording and see the result</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nugget 5: Mic test shows 0%? -->
+  <section class="pb-4" aria-labelledby="mic-zero">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="mic-zero" class="fs-3 fw-bold mb-3"><i class="bi bi-exclamation-diamond me-2" aria-hidden="true"></i>Mic test shows 0% on every device?</h2>
+      <p style="color: var(--bs-secondary-color);"><strong>If no input device registers your voice,</strong> the issue is likely hardware or connection, not software. Check these:</p>
+
+      <ul class="list-group mb-4">
+        <li class="list-group-item">
+          <i class="bi bi-mic-mute me-2" aria-hidden="true"></i><strong>Is the mic muted?</strong> Check for a physical mute button on the mic or headset.
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-plug me-2" aria-hidden="true"></i><strong>Wired mic: is it in the right jack?</strong> Usually pink for mic, green for speakers.
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-usb-plug me-2" aria-hidden="true"></i><strong>USB mic:</strong> try a different USB port.
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-bluetooth me-2" aria-hidden="true"></i><strong>Bluetooth:</strong> confirm it's connected, not just paired. Some Bluetooth headsets have separate audio profiles &mdash; make sure "Hands-Free" or "Headset" profile is active, not just "Stereo."
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-sliders me-2" aria-hidden="true"></i><strong>Is the input volume/sensitivity slider above zero?</strong>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Nugget 6: Write down what works -->
+  <section class="pb-4" aria-labelledby="write-it-down">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="write-it-down" class="fs-3 fw-bold mb-3"><i class="bi bi-pencil-square me-2" aria-hidden="true"></i>Write down what works</h2>
+      <p style="color: var(--bs-secondary-color);"><strong>Now you know which output device and which input device are real.</strong> Write down their exact names from the Sound Settings dropdown.</p>
+      <p><strong>You'll need these names in the next step when you disable everything else.</strong></p>
+
+      <div class="alert alert-info" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+        <strong>The device names in Settings don't always match what you'd expect.</strong> "Speakers (Realtek(R) Audio)" could be your laptop speakers OR a docking station's audio. The test you just did is the only reliable way to know.
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Step Card -->
+  <section class="pb-5" aria-labelledby="next-step-heading">
+    <div class="container" style="max-width: 720px;">
+      <div class="card border">
+        <div class="card-body text-center py-4">
+          <h2 id="next-step-heading" class="fs-4 fw-bold mb-2">You've identified the real devices. Now let's get rid of the rest.</h2>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">Disabling unused devices is the single most effective way to stop audio from drifting.</p>
+          <a href="/guide/lock-it-down.html" class="btn btn-primary btn-lg px-4">
+            Lock it down <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-3">
+        <a href="/guide/find-your-devices.html" class="text-decoration-none">
+          <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>Find your devices
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Audio Keeps Breaking | AudioFix.tools</title>
+<meta name="description" content="Learn why your computer keeps switching audio devices. Understand the audio chain, hidden defaults, and the five silent triggers that break your sound.">
+<meta property="og:title" content="Why Your Audio Keeps Breaking | AudioFix.tools">
+<meta property="og:description" content="It's not you. Learn why your OS silently switches audio devices and what triggers it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/why-it-happens.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Your Audio Keeps Breaking | AudioFix.tools">
+<meta name="twitter:description" content="It's not you. Learn why your OS silently switches audio devices and what triggers it.">
+<link rel="canonical" href="https://audiofix.tools/guide/why-it-happens.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/why-it-happens.html#webpage",
+      "url": "https://audiofix.tools/guide/why-it-happens.html",
+      "name": "Why Your Audio Keeps Breaking",
+      "description": "Learn why your computer keeps switching audio devices. Understand the audio chain, hidden defaults, and the five silent triggers that break your sound.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" },
+      "breadcrumb": { "@id": "https://audiofix.tools/guide/why-it-happens.html#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/why-it-happens.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why It Happens"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://audiofix.tools/guide/why-it-happens.html#article",
+      "headline": "Why Your Audio Keeps Breaking",
+      "description": "Learn why your computer keeps switching audio devices. Understand the audio chain, hidden defaults, and the five silent triggers that break your sound.",
+      "author": {
+        "@type": "Person",
+        "name": "Bogdan Odulinski"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://audiofix.tools/#organization",
+        "name": "AudioFix.tools",
+        "url": "https://audiofix.tools/"
+      },
+      "mainEntityOfPage": { "@id": "https://audiofix.tools/guide/why-it-happens.html#webpage" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#lead-summary", "#nugget-chain p", "#nugget-devices p"]
+      }
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+/* Chain diagram connectors */
+.chain-arrow { color: var(--bs-tertiary-color); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">Guide</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="/guide/why-it-happens.html" aria-current="page">Why it happens</a></li>
+              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
+            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
+          </a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="border-bottom">
+    <div class="container" style="max-width:720px;">
+      <ol class="breadcrumb py-2 mb-0 small">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item">Guide</li>
+        <li class="breadcrumb-item active" aria-current="page">Why It Happens</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="py-5" style="max-width:720px; margin:0 auto;" aria-labelledby="page-heading">
+    <div class="container">
+
+      <!-- H1 + Lead -->
+      <header class="mb-5">
+        <h1 id="page-heading" class="display-5 fw-bold mb-3">Why your audio keeps breaking</h1>
+        <p id="lead-summary" class="lead" style="color: var(--bs-secondary-color);">
+          It's not you. It's too many variables between Windows and your ears&mdash;and any one of them can silently break the chain.
+        </p>
+      </header>
+
+      <!-- Nugget 1: Audio is a chain -->
+      <section id="audio-chain" class="mb-5" aria-labelledby="nugget-chain-heading">
+        <h2 id="nugget-chain-heading" class="fs-4 fw-bold mb-3">Audio is a chain, and every link can break</h2>
+        <div id="nugget-chain">
+          <p>Your sound travels through a chain: App, OS default, driver, physical device, your ears. For microphones, it's reversed. A break at <em>any</em> point means silence&mdash;or the wrong device.</p>
+        </div>
+
+        <!-- Chain diagram -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-2 py-3 my-3 rounded-3 border" role="img" aria-label="Audio signal chain: App to OS Default to Driver to Device to You">
+          <span class="badge text-bg-primary fs-6 px-3 py-2"><i class="bi bi-music-note-beamed me-1" aria-hidden="true"></i>App</span>
+          <i class="bi bi-arrow-right chain-arrow fs-5" aria-hidden="true"></i>
+          <span class="badge text-bg-primary fs-6 px-3 py-2"><i class="bi bi-pc-display me-1" aria-hidden="true"></i>OS Default</span>
+          <i class="bi bi-arrow-right chain-arrow fs-5" aria-hidden="true"></i>
+          <span class="badge text-bg-primary fs-6 px-3 py-2"><i class="bi bi-gear me-1" aria-hidden="true"></i>Driver</span>
+          <i class="bi bi-arrow-right chain-arrow fs-5" aria-hidden="true"></i>
+          <span class="badge text-bg-primary fs-6 px-3 py-2"><i class="bi bi-plug me-1" aria-hidden="true"></i>Device</span>
+          <i class="bi bi-arrow-right chain-arrow fs-5" aria-hidden="true"></i>
+          <span class="badge text-bg-success fs-6 px-3 py-2"><i class="bi bi-ear me-1" aria-hidden="true"></i>You</span>
+        </div>
+      </section>
+
+      <!-- Nugget 2: Too many devices -->
+      <section id="too-many-devices" class="mb-5" aria-labelledby="nugget-devices-heading">
+        <h2 id="nugget-devices-heading" class="fs-4 fw-bold mb-3">Your OS has too many devices</h2>
+        <div id="nugget-devices">
+          <p>Windows registers every audio-capable device it has ever seen&mdash;HDMI monitors, docking stations, Bluetooth headsets, USB webcams, virtual drivers. A typical PC has 4&ndash;8 output devices and 3&ndash;5 input devices. Most have useless names.</p>
+        </div>
+
+        <!-- Device list mockup -->
+        <div class="card border mb-3">
+          <div class="card-body p-3">
+            <pre class="mb-0" style="font-family:'IBM Plex Mono',monospace; font-size:0.85em; white-space:pre-wrap;" tabindex="0" role="region" aria-label="Example Windows audio device list"><code><span style="color:var(--brand-green);">&blacktriangleright;</span> [1] Speakers (Realtek(R) Audio)            <span class="badge text-bg-success">DEFAULT</span>
+  [2] LG TV (Intel(R) Display Audio)
+  [3] Digital Audio (S/PDIF)
+  [4] Speakers (USB PnP Audio Device)       <span style="color:var(--brand-amber);">&larr; what is this?</span>
+  [5] Headphones (Realtek(R) Audio)</code></pre>
+          </div>
+        </div>
+
+        <!-- Accordion: What are all these devices? -->
+        <div class="accordion" id="accordionDevices">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDevices" aria-expanded="false" aria-controls="collapseDevices">
+                What are all these devices?
+              </button>
+            </h3>
+            <div id="collapseDevices" class="accordion-collapse collapse" data-bs-parent="#accordionDevices">
+              <div class="accordion-body">
+                <ul class="mb-0">
+                  <li><strong>Realtek(R) Audio</strong>&mdash;your motherboard or laptop's built-in audio chip. Usually your main speakers or headphone jack.</li>
+                  <li><strong>Intel(R) Display Audio</strong>&mdash;HDMI or DisplayPort audio routed through your GPU to a monitor or TV.</li>
+                  <li><strong>Digital Audio (S/PDIF)</strong>&mdash;an optical or coaxial output, often unused on modern PCs.</li>
+                  <li><strong>USB PnP Audio Device</strong>&mdash;a catch-all name for docking stations, USB webcams, USB hubs with audio, or cheap USB sound adapters.</li>
+                  <li><strong>Headphones (Realtek)</strong>&mdash;the same Realtek chip, but detected as headphones when something is plugged into the 3.5mm jack.</li>
+                  <li><strong>Stereo Mix</strong>&mdash;a virtual input device that captures whatever your speakers are playing. The audio equivalent of that junk drawer everyone has but nobody opens.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nugget 3: Five things that silently move your default -->
+      <section id="silent-triggers" class="mb-5" aria-labelledby="nugget-triggers-heading">
+        <h2 id="nugget-triggers-heading" class="fs-4 fw-bold mb-3">Five things that silently move your default</h2>
+        <p>The "default device" is just a pointer. These events can move it without telling you:</p>
+
+        <ol class="list-group list-group-numbered list-group-flush mb-3">
+          <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
+            <div>
+              <strong><i class="bi bi-plug me-1" aria-hidden="true"></i>Plugging in HDMI / DisplayPort</strong><br>
+              <span style="color:var(--bs-secondary-color);">Monitor audio gets promoted to default.</span>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
+            <div>
+              <strong><i class="bi bi-bluetooth me-1" aria-hidden="true"></i>Bluetooth connect / disconnect</strong><br>
+              <span style="color:var(--bs-secondary-color);">A new endpoint appears or disappears, reshuffling the list.</span>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
+            <div>
+              <strong><i class="bi bi-arrow-repeat me-1" aria-hidden="true"></i>Windows Update</strong><br>
+              <span style="color:var(--bs-secondary-color);">Can reset preferences or add virtual devices.</span>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
+            <div>
+              <strong><i class="bi bi-box-seam me-1" aria-hidden="true"></i>Driver installation</strong><br>
+              <span style="color:var(--bs-secondary-color);">New virtual audio devices appear out of nowhere.</span>
+            </div>
+          </li>
+          <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
+            <div>
+              <strong><i class="bi bi-app-indicator me-1" aria-hidden="true"></i>Apps with their own audio settings</strong><br>
+              <span style="color:var(--bs-secondary-color);">Zoom, Teams, Discord, and others can switch to their own preferred device, ignoring the OS default entirely.</span>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Accordion: Why does this happen at the OS level? -->
+        <div class="accordion" id="accordionTriggers">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTriggers" aria-expanded="false" aria-controls="collapseTriggers">
+                Why does this happen at the OS level?
+              </button>
+            </h3>
+            <div id="collapseTriggers" class="accordion-collapse collapse" data-bs-parent="#accordionTriggers">
+              <div class="accordion-body">
+                <p class="mb-2">Windows uses a Plug and Play (PnP) event system. Every time a device connects or disconnects, the OS re-evaluates the device list. The audio subsystem (Core Audio, via <code>IMMDeviceEnumerator</code>) maintains a priority ranking for endpoints.</p>
+                <p class="mb-0">When a new device appears, Windows often promotes it to default using a "most recently activated" heuristic. There is no built-in way to say "never change my default"&mdash;which is exactly why the problem keeps coming back.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nugget 4: This isn't new -->
+      <section id="not-new" class="mb-5" aria-labelledby="nugget-history-heading">
+        <h2 id="nugget-history-heading" class="fs-4 fw-bold mb-3">This isn't new. It's been this way for 30 years.</h2>
+        <p>Audio device management hasn't fundamentally changed since Windows 95 introduced Plug and Play. The same architecture that made sense for one sound card and one set of speakers now manages a dozen endpoints&mdash;and the OS was never designed for that many.</p>
+      </section>
+
+      <!-- Nugget 5: Output vs. Input -->
+      <section id="output-vs-input" class="mb-5" aria-labelledby="nugget-symptoms-heading">
+        <h2 id="nugget-symptoms-heading" class="fs-4 fw-bold mb-3">Output breaks and input breaks look different</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="card h-100 border">
+              <div class="card-body">
+                <h3 class="card-title fs-6 fw-semibold mb-3"><i class="bi bi-speaker me-2" aria-hidden="true"></i>Output (speakers / headphones)</h3>
+                <ul class="mb-0 list-unstyled">
+                  <li class="mb-2"><i class="bi bi-x-circle text-danger me-1" aria-hidden="true"></i>No sound at all</li>
+                  <li class="mb-2"><i class="bi bi-x-circle text-danger me-1" aria-hidden="true"></i>Sound from wrong speakers (monitor, turned-off display)</li>
+                  <li><i class="bi bi-x-circle text-danger me-1" aria-hidden="true"></i>Sound was working, then stopped after plugging something in</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border">
+              <div class="card-body">
+                <h3 class="card-title fs-6 fw-semibold mb-3"><i class="bi bi-mic me-2" aria-hidden="true"></i>Input (microphone)</h3>
+                <ul class="mb-0 list-unstyled">
+                  <li class="mb-2"><i class="bi bi-x-circle text-danger me-1" aria-hidden="true"></i>Nobody can hear you on calls</li>
+                  <li class="mb-2"><i class="bi bi-x-circle text-danger me-1" aria-hidden="true"></i>Wrong mic active (webcam across room instead of USB mic)</li>
+                  <li><i class="bi bi-x-circle text-danger me-1" aria-hidden="true"></i>"Stereo Mix" capturing desktop audio instead of your voice</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nugget 6: Volume and mute -->
+      <section id="volume-check" class="mb-5" aria-labelledby="nugget-volume-heading">
+        <h2 id="nugget-volume-heading" class="fs-4 fw-bold mb-3">Volume and mute&mdash;the obvious check nobody does</h2>
+        <p>Before anything else: Is the volume at zero? Is the device muted (hardware <em>or</em> software)? Is the physical device actually turned on? These account for a surprising number of "broken audio" reports.</p>
+        <div class="alert alert-info d-flex align-items-start gap-2" role="alert">
+          <i class="bi bi-info-circle-fill flex-shrink-0 mt-1" aria-hidden="true"></i>
+          <div>We'll cover exactly how to check these in the next guide.</div>
+        </div>
+      </section>
+
+      <!-- Next step card -->
+      <section id="next-step" class="mb-4" aria-labelledby="next-step-heading">
+        <div class="card border-primary">
+          <div class="card-body text-center py-4">
+            <h2 id="next-step-heading" class="fs-5 fw-bold mb-2">Now that you know why it breaks, let's see what your OS actually sees.</h2>
+            <a href="/guide/find-your-devices.html" class="btn btn-primary btn-lg mt-2">
+              Find your devices <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

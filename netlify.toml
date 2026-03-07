@@ -1,0 +1,15 @@
+# Netlify configuration
+# Delete this file if not deploying to Netlify
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.ps1"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Content-Disposition = "attachment"
