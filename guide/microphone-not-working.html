@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microphone Not Working on Windows 11? How to Fix It | AudioFix.tools</title>
+<meta name="description" content="Mic not picking up your voice on Windows 11 or 10? Check your default input device, test the mic level meter, fix privacy permissions, and stop Windows from switching.">
+<meta property="og:title" content="Microphone Not Working on Windows 11? How to Fix It | AudioFix.tools">
+<meta property="og:description" content="Mic not picking up your voice on Windows 11 or 10? Check your default input device, test the mic level meter, fix privacy permissions, and stop Windows from switching.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/microphone-not-working.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Microphone Not Working on Windows 11? How to Fix It | AudioFix.tools">
+<meta name="twitter:description" content="Mic not picking up your voice on Windows 11 or 10? Check your default input device, test the mic level meter, fix privacy permissions, and stop Windows from switching.">
+<link rel="canonical" href="https://audiofix.tools/guide/microphone-not-working.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/microphone-not-working.html#webpage",
+      "url": "https://audiofix.tools/guide/microphone-not-working.html",
+      "name": "Microphone Not Working on Windows 11? How to Fix It | AudioFix.tools",
+      "description": "Mic not picking up your voice on Windows 11 or 10? Check your default input device, test the mic level meter, fix privacy permissions, and stop Windows from switching.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/microphone-not-working.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Microphone Fix"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/microphone-not-working.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my microphone not working on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common cause is that Windows has the wrong default input device selected. Instead of your real microphone, Windows may be listening to Stereo Mix (a virtual loopback device that records system audio, not your voice), an unused line-in port, or a disconnected Bluetooth headset. Other causes include microphone privacy permissions being turned off, the mic being muted via a physical switch on the headset, or the mic volume being set to zero in Sound Settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix my microphone on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings by pressing Win+R, typing ms-settings:sound, and pressing Enter. Scroll to the Input section and check which device is selected — switch it to your actual microphone. Then check microphone privacy settings (Win+R, type ms-settings:privacy-microphone) and make sure both the main toggle and the per-app toggles are on. Test by speaking into the mic and watching the input level meter in Sound Settings. Finally, disable Stereo Mix and any unused input devices to prevent Windows from switching away from your mic in the future."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I test my microphone on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R, type ms-settings:sound, press Enter) and scroll to the Input section. Select your microphone from the dropdown. You will see an input level meter — speak or clap near the mic and watch for the bar to move. If the bar moves, Windows is receiving audio from your mic. If it does not move, check that the mic volume is above zero, that the correct device is selected, and that privacy permissions are enabled."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my mic work in some apps but not others?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many apps — including Zoom, Microsoft Teams, Discord, and OBS — have their own audio input device settings that override the Windows default. If your mic works in some apps but not others, open the audio or voice settings inside the app that is not working and check which input device it is using. It may be set to a different device than your Windows default, or it may be set to 'Default' but picking up a stale preference. Windows also has a separate Communications device role that some apps use instead of the standard default."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="true">Guide</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
+              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
+            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
+          </a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item">Guide</li>
+      <li class="breadcrumb-item active" aria-current="page">Microphone Fix</li>
+    </ol>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 720px;">
+      <h1 id="page-heading" class="display-5 fw-bold mb-3">Microphone not working on Windows 11?</h1>
+      <p class="lead" style="color: var(--bs-secondary-color);">If your microphone stopped picking up your voice, Windows probably switched your default input device. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd>), scroll to <strong>Input</strong>, and check which device is selected. If it says <em>Stereo Mix</em> or an unfamiliar name, that's your problem &mdash; switch it to your real microphone.</p>
+    </div>
+  </section>
+
+  <!-- Section 1: Check your default input device -->
+  <section class="pb-5" aria-labelledby="check-default-heading" id="check-default">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="check-default-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-mic me-2 text-info" aria-hidden="true"></i>Check your default input device</h2>
+
+      <p>Windows records audio from one device at a time: the <strong>default input device</strong>. If that device is set to Stereo Mix (a virtual loopback that captures system audio instead of your voice), a disconnected Bluetooth headset, or a line-in port with nothing plugged into it, your mic will appear to be "not working" &mdash; even though the hardware is fine.</p>
+
+      <p>Open Sound Settings right now:</p>
+
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-3 fs-5">
+        <kbd>Win</kbd> <span aria-hidden="true">+</span><span class="visually-hidden">plus</span> <kbd>R</kbd>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        <span>type <code>ms-settings:sound</code></span>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        <kbd>Enter</kbd>
+      </div>
+
+      <p>Scroll down to the <strong>Input</strong> section. The device shown in the dropdown is where Windows is listening for your voice right now.</p>
+
+      <!-- Device mockup card -->
+      <div class="card border mb-3">
+        <div class="card-header fw-semibold"><i class="bi bi-gear me-2" aria-hidden="true"></i>Sound Settings &mdash; Input</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex align-items-center">
+            <i class="bi bi-mic-fill me-2 text-success" aria-hidden="true"></i>
+            <span>Microphone (Realtek Audio) <span class="badge text-bg-success ms-2">YOUR MIC</span></span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle-fill me-2 text-danger" aria-hidden="true"></i>
+            <span>Stereo Mix (Realtek Audio) <span class="badge text-bg-danger ms-2">IMPOSTOR</span></span>
+          </li>
+          <li class="list-group-item d-flex align-items-center">
+            <i class="bi bi-bluetooth me-2" aria-hidden="true" style="color: var(--bs-tertiary-color);"></i>
+            <span style="color: var(--bs-tertiary-color);">Headset (WH-1000XM5 Hands-Free)</span>
+          </li>
+        </ul>
+      </div>
+
+      <p><strong>Click the dropdown and select your actual microphone.</strong> If you're not sure which one it is, look for a name that includes "Microphone" plus your audio hardware brand (Realtek, USB, your headset model).</p>
+
+      <div class="alert alert-success py-2" role="alert">
+        <i class="bi bi-check-circle me-2" aria-hidden="true"></i><strong>This single step fixes most "mic not working" problems.</strong> Speak into the mic &mdash; if the input level meter starts moving, you're done. The rest of this page covers the other causes.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Check microphone privacy settings -->
+  <section class="pb-5" aria-labelledby="privacy-heading" id="privacy-settings">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="privacy-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-shield-lock me-2 text-warning" aria-hidden="true"></i>Check microphone privacy settings</h2>
+
+      <p>Windows 11 has a privacy toggle that controls whether apps are allowed to access your microphone at all. If this toggle is off, every app will behave as if you have no microphone &mdash; Zoom will say "no mic detected," Discord will show silence, and the input level meter in Sound Settings won't move.</p>
+
+      <p>Open the microphone privacy page directly:</p>
+
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-3 fs-5">
+        <kbd>Win</kbd> <span aria-hidden="true">+</span><span class="visually-hidden">plus</span> <kbd>R</kbd>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        <span>type <code>ms-settings:privacy-microphone</code></span>
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        <kbd>Enter</kbd>
+      </div>
+
+      <p>Check these two toggles:</p>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><i class="bi bi-toggle-on me-2 text-success" aria-hidden="true"></i><strong>Microphone access</strong> &mdash; the master switch at the top. This must be <strong>On</strong>.</li>
+        <li class="list-group-item"><i class="bi bi-toggle-on me-2 text-success" aria-hidden="true"></i><strong>Let apps access your microphone</strong> &mdash; the second toggle. This must also be <strong>On</strong>.</li>
+      </ul>
+
+      <p>Below those toggles, you'll see a list of individual apps with their own mic permission toggles. If a specific app can't hear you, check that its toggle is on in this list.</p>
+
+      <div class="alert alert-danger py-2" role="alert">
+        <i class="bi bi-exclamation-octagon me-2" aria-hidden="true"></i><strong>If the master Microphone access toggle is off, no app can use your mic.</strong> This is the single most common cause of "mic not working" when the correct device is already selected. Windows Updates have been known to reset this toggle.
+      </div>
+
+      <div class="alert alert-info py-2" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i><strong>Desktop apps vs. Store apps:</strong> Traditional desktop apps (like the desktop version of Zoom or Discord) are controlled by the "Let desktop apps access your microphone" toggle at the bottom of the page. If you only turned on permissions for Store apps, your desktop apps may still be blocked.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Test the mic level meter -->
+  <section class="pb-5" aria-labelledby="test-heading" id="test-mic">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="test-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-soundwave me-2 text-info" aria-hidden="true"></i>Test the mic level meter</h2>
+
+      <p>The fastest way to confirm your microphone is working is to watch the input level meter in Sound Settings. It shows real-time audio input &mdash; if the bar moves when you speak or clap, Windows is receiving audio from your mic.</p>
+
+      <ol class="mb-3">
+        <li class="mb-2">Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd>).</li>
+        <li class="mb-2">Scroll to <strong>Input</strong> and make sure your microphone is selected.</li>
+        <li class="mb-2">Speak into the mic at normal volume, or clap near it.</li>
+        <li class="mb-2">Watch the <strong>input level bar</strong> next to your device &mdash; it should bounce in response.</li>
+      </ol>
+
+      <table class="table table-bordered" aria-label="Mic level test results and what they mean">
+        <caption class="visually-hidden">What the mic level meter result means and what to do next</caption>
+        <thead>
+          <tr>
+            <th scope="col">Result</th>
+            <th scope="col">What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bar moves when you speak</td>
+            <td>Your mic is working at the OS level. If a specific app still can't hear you, the problem is in that app's settings.</td>
+          </tr>
+          <tr>
+            <td>Bar doesn't move at all</td>
+            <td>Windows is not receiving audio. Check: correct device selected, privacy permissions on, mic volume above zero, no physical mute engaged.</td>
+          </tr>
+          <tr>
+            <td>Bar is maxed out / clipping constantly</td>
+            <td>Mic gain is too high. Click your input device, then lower the <strong>Input volume</strong> slider.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>For a more thorough test &mdash; including how to test each input device one by one &mdash; see the full walkthrough at <a href="/guide/test-your-devices.html">Test your devices</a>.</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Check for hardware mute -->
+  <section class="pb-5" aria-labelledby="hardware-mute-heading" id="hardware-mute">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="hardware-mute-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-mic-mute me-2 text-danger" aria-hidden="true"></i>Check for hardware mute</h2>
+
+      <p>Before you go deeper into software settings, check the microphone itself. Many headsets and microphones have physical mute controls that are easy to trigger accidentally &mdash; and they override everything Windows does.</p>
+
+      <div class="alert alert-warning py-2" role="alert">
+        <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i><strong>Common hardware mute mechanisms that catch people off guard:</strong>
+        <ul class="mb-0 mt-2">
+          <li><strong>Boom arm flip-to-mute:</strong> Many gaming headsets (HyperX, SteelSeries, Corsair) mute the mic when you flip the boom arm up. You won't see any indicator in Windows.</li>
+          <li><strong>Inline mute button:</strong> Some headsets have a mute switch on the cable itself, partway between the headset and the plug.</li>
+          <li><strong>USB mic mute button:</strong> Microphones like the Blue Yeti and Elgato Wave have a capacitive or physical mute button on the body. A red light usually indicates muted.</li>
+          <li><strong>Keyboard mute key:</strong> Many laptops and keyboards have a dedicated mic mute key (often <kbd>F4</kbd> or a function key with a mic icon). Check if there's a muted-mic indicator on your screen.</li>
+        </ul>
+      </div>
+
+      <p>If you find a hardware mute engaged, toggle it off and re-check the input level meter in Sound Settings. The bar should start moving when you speak.</p>
+    </div>
+  </section>
+
+  <!-- Section 5: Why does the mic work in some apps but not others? -->
+  <section class="pb-5" aria-labelledby="app-level-heading" id="app-level">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="app-level-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-window-stack me-2 text-info" aria-hidden="true"></i>Why does the mic work in some apps but not others?</h2>
+
+      <p>If your microphone works in Sound Settings (the level meter moves) but a specific app can't hear you, the problem is almost certainly the app's own audio settings &mdash; not Windows.</p>
+
+      <p>Apps like <strong>Zoom</strong>, <strong>Microsoft Teams</strong>, <strong>Discord</strong>, and <strong>OBS</strong> each have their own input device selector that overrides the Windows default. If Zoom is set to use "Headset (Bluetooth)" but you're using a USB mic, Zoom won't hear you &mdash; even though Windows is picking up your voice just fine.</p>
+
+      <p><strong>Where to check:</strong></p>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><i class="bi bi-camera-video me-2" aria-hidden="true"></i><strong>Zoom:</strong> Settings <i class="bi bi-chevron-right mx-1" aria-hidden="true"></i> Audio <i class="bi bi-chevron-right mx-1" aria-hidden="true"></i> Microphone dropdown</li>
+        <li class="list-group-item"><i class="bi bi-microsoft-teams me-2" aria-hidden="true"></i><strong>Teams:</strong> Settings <i class="bi bi-chevron-right mx-1" aria-hidden="true"></i> Devices <i class="bi bi-chevron-right mx-1" aria-hidden="true"></i> Microphone dropdown</li>
+        <li class="list-group-item"><i class="bi bi-discord me-2" aria-hidden="true"></i><strong>Discord:</strong> User Settings <i class="bi bi-chevron-right mx-1" aria-hidden="true"></i> Voice & Video <i class="bi bi-chevron-right mx-1" aria-hidden="true"></i> Input Device</li>
+      </ul>
+
+      <div class="alert alert-info py-2" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i><strong>The Communications device complication:</strong> Windows actually has two separate default input devices &mdash; the standard <em>Default</em> and a special <em>Communications</em> device. Some voice apps use the Communications role instead of the standard Default. You can check both in the old Sound control panel: press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>mmsys.cpl</code>, <kbd>Enter</kbd>, then click the <strong>Recording</strong> tab.
+      </div>
+
+      <p>For the full explanation of why Windows has two default devices and how apps choose between them, see <a href="/guide/why-it-happens.html">Why it happens</a>.</p>
+    </div>
+  </section>
+
+  <!-- Section 6: Prevent it from happening again -->
+  <section class="pb-5" aria-labelledby="prevent-heading" id="prevent">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="prevent-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-shield-check me-2 text-success" aria-hidden="true"></i>Prevent it from happening again</h2>
+
+      <p>Now that your microphone is working, the question is: how do you stop Windows from switching away from it next time?</p>
+
+      <p>The answer is the same as for output devices: <strong>disable every input device you don't actually use.</strong> Windows can only switch your default to a device that's enabled. If Stereo Mix, unused line-in ports, and old Bluetooth headset profiles are all disabled, Windows has nowhere to drift to.</p>
+
+      <p>The most common impostor to disable is <strong>Stereo Mix</strong>. Stereo Mix is a virtual device that captures your computer's output audio (what you hear through your speakers) and presents it as microphone input. It's useful for recording system audio, but if Windows accidentally selects it as your default input, every app will "hear" your computer's audio playback instead of your voice &mdash; or hear nothing at all if no audio is playing.</p>
+
+      <p>To disable Stereo Mix quickly:</p>
+
+      <ol class="mb-3">
+        <li class="mb-2">Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>mmsys.cpl</code>, press <kbd>Enter</kbd>.</li>
+        <li class="mb-2">Click the <strong>Recording</strong> tab.</li>
+        <li class="mb-2">Right-click <strong>Stereo Mix</strong> and select <strong>Disable</strong>.</li>
+        <li class="mb-2">While you're here, right-click and disable any other input devices you never use.</li>
+      </ol>
+
+      <p>For the full walkthrough on identifying and disabling all unused audio devices (both input and output), see <a href="/guide/lock-it-down.html">Lock it down</a>.</p>
+    </div>
+  </section>
+
+  <!-- CTA Card -->
+  <section class="pb-5" aria-labelledby="cta-heading">
+    <div class="container" style="max-width: 720px;">
+      <div class="card border">
+        <div class="card-body text-center py-4">
+          <h2 id="cta-heading" class="fs-4 fw-semibold mb-2">Want the automated fix?</h2>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">Our free PowerShell script tests every input and output device, identifies the working ones, and disables the impostors &mdash; all in under a minute.</p>
+          <a href="/tool/" class="btn btn-primary btn-lg px-4">
+            Get the script <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

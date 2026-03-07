@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bluetooth Audio Not Working on Windows 11? How to Fix It | AudioFix.tools</title>
+<meta name="description" content="Bluetooth headphones or speaker connected but no sound on Windows 11? Fix Bluetooth audio by checking the default device, re-pairing, and removing Hands-Free profile conflicts.">
+<meta property="og:title" content="Bluetooth Audio Not Working on Windows 11? How to Fix It | AudioFix.tools">
+<meta property="og:description" content="Bluetooth headphones or speaker connected but no sound on Windows 11? Fix Bluetooth audio by checking the default device, re-pairing, and removing Hands-Free profile conflicts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/bluetooth-audio-not-working.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bluetooth Audio Not Working on Windows 11? How to Fix It | AudioFix.tools">
+<meta name="twitter:description" content="Bluetooth headphones or speaker connected but no sound on Windows 11? Fix Bluetooth audio by checking the default device, re-pairing, and removing Hands-Free profile conflicts.">
+<link rel="canonical" href="https://audiofix.tools/guide/bluetooth-audio-not-working.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/bluetooth-audio-not-working.html#webpage",
+      "url": "https://audiofix.tools/guide/bluetooth-audio-not-working.html",
+      "name": "Bluetooth Audio Not Working on Windows 11? How to Fix It | AudioFix.tools",
+      "description": "Bluetooth headphones or speaker connected but no sound on Windows 11? Fix Bluetooth audio by checking the default device, re-pairing, and removing Hands-Free profile conflicts.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/bluetooth-audio-not-working.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bluetooth Audio Fix"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/bluetooth-audio-not-working.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why are my Bluetooth headphones connected but no sound on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you pair Bluetooth headphones with Windows 11, they register as two separate audio devices: a high-quality stereo profile (listed as 'Headphones') and a low-quality Hands-Free AG Audio profile (listed as 'Headset'). If Windows sets the wrong one as default, or if neither is selected as the output device, you'll see the headphones as connected in Bluetooth settings but hear no sound. Open Sound Settings (Win+R, type ms-settings:sound, press Enter) and make sure the stereo 'Headphones' profile is selected as your output device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix Bluetooth audio on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings by pressing Win+R, typing ms-settings:sound, and pressing Enter. In the Output section, select the stereo profile of your Bluetooth device (it will be listed as 'Headphones' with your device name, not 'Headset'). If the device doesn't appear, go to Settings > Bluetooth & devices (ms-settings:bluetooth), remove the device, put your headphones back into pairing mode, and re-pair them. After pairing, return to Sound Settings and select the device as default output."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Headset and Headphones in Windows Bluetooth?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Windows, 'Headphones' refers to the A2DP (Advanced Audio Distribution Profile), which provides high-quality stereo audio but no microphone support. 'Headset' refers to the Hands-Free AG Audio profile (HFP), which provides mono audio at telephone quality (8-16 kHz) but includes microphone input. Windows creates both entries automatically when you pair a Bluetooth headset. For listening to music, videos, or any audio, you want the 'Headphones' (stereo) profile. Only use the 'Headset' (Hands-Free) profile when you need the microphone for calls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my Bluetooth audio sound bad or robotic on Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If your Bluetooth audio sounds robotic, metallic, or like a phone call from the 1990s, Windows has switched to the Hands-Free AG Audio profile instead of the stereo profile. This happens automatically when a communication app (Zoom, Teams, Discord) activates the microphone, which forces Bluetooth to switch from the high-quality A2DP codec to the low-quality HFP codec. To fix it, open Sound Settings (Win+R, type ms-settings:sound) and change the output device from 'Headset (YourDevice Hands-Free AG Audio)' to 'Headphones (YourDevice)'. If you need the mic, consider using a separate USB or built-in microphone so the headphones can stay on the stereo profile."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="true">Guide</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
+              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
+              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
+            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
+          </a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item">Guide</li>
+      <li class="breadcrumb-item active" aria-current="page">Bluetooth Audio Fix</li>
+    </ol>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 720px;">
+      <h1 id="page-heading" class="display-5 fw-bold mb-3">Bluetooth audio not working on Windows 11?</h1>
+      <p class="lead" style="color: var(--bs-secondary-color);">If your Bluetooth headphones are connected but there's no sound, Windows is probably routing audio to the wrong device. Bluetooth headsets show up as <strong>two separate devices</strong> in Windows: one for high-quality stereo audio and one for the hands-free (mono) profile. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd>) and check which output device is selected.</p>
+    </div>
+  </section>
+
+  <!-- Section 1: The Bluetooth dual-device problem -->
+  <section class="pb-5" aria-labelledby="dual-device-heading" id="dual-device">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="dual-device-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-bluetooth me-2 text-info" aria-hidden="true"></i>The Bluetooth dual-device problem</h2>
+
+      <p>When you pair a Bluetooth headset with Windows, the operating system doesn't create one audio device &mdash; it creates <strong>two</strong>. This is because Bluetooth audio uses different profiles for different purposes, and Windows exposes each profile as a separate audio endpoint.</p>
+
+      <p>Think of it like a single phone that has two phone numbers: one for personal calls and one for work. Same physical device, but the system treats them as entirely separate lines.</p>
+
+      <p>Here's what you'll see in Sound Settings after pairing a headset called "Sony WH-1000XM5":</p>
+
+      <div class="table-responsive mb-3">
+        <table class="table table-bordered" aria-label="Comparison of Bluetooth audio profiles in Windows">
+          <thead>
+            <tr>
+              <th scope="col">Device name in Windows</th>
+              <th scope="col">Bluetooth profile</th>
+              <th scope="col">Audio quality</th>
+              <th scope="col">Microphone</th>
+              <th scope="col">Use for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Headphones</strong> (Sony WH-1000XM5)</td>
+              <td>A2DP (Advanced Audio Distribution)</td>
+              <td>Stereo, 44.1&ndash;96 kHz, high quality</td>
+              <td>No</td>
+              <td>Music, videos, games</td>
+            </tr>
+            <tr>
+              <td><strong>Headset</strong> (Sony WH-1000XM5 Hands-Free AG Audio)</td>
+              <td>HFP (Hands-Free Profile)</td>
+              <td>Mono, 8&ndash;16 kHz, telephone quality</td>
+              <td>Yes</td>
+              <td>Voice calls only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-danger py-2" role="alert">
+        <i class="bi bi-exclamation-octagon me-2" aria-hidden="true"></i><strong>If Hands-Free is your default output device, audio will sound robotic and low quality.</strong> This is the single most common cause of "bad Bluetooth audio" on Windows. The Hands-Free profile is designed for voice calls &mdash; it's mono and limited to telephone-grade frequency range. It was never meant for music or video.
+      </div>
+
+      <p>Windows can pick either profile as the default when you connect, and it doesn't always pick the right one. Communication apps like Zoom, Teams, and Discord make this worse: when they activate your microphone, Bluetooth is forced to switch from the stereo A2DP profile to the mono Hands-Free profile. That's a hardware-level limitation of Bluetooth &mdash; it can't do high-quality stereo and mic at the same time.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Set the correct Bluetooth device as default -->
+  <section class="pb-5" aria-labelledby="set-default-heading" id="set-default">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="set-default-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-speaker me-2 text-success" aria-hidden="true"></i>Set the correct Bluetooth device as default</h2>
+
+      <p>The fix is to make sure Windows sends audio to the <strong>stereo (Headphones)</strong> profile, not the Hands-Free one. Here's how:</p>
+
+      <ol class="mb-3">
+        <li class="mb-2">Open Sound Settings: press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, press <kbd>Enter</kbd>.</li>
+        <li class="mb-2">Under <strong>Output</strong>, look at the device dropdown. If it says anything with "Hands-Free" in the name, that's the wrong profile.</li>
+        <li class="mb-2">Click the dropdown and select the entry that says <strong>"Headphones (YourDeviceName)"</strong> &mdash; the one <em>without</em> "Hands-Free" in its name.</li>
+        <li class="mb-2">Play some audio. You should hear full stereo sound at normal quality.</li>
+      </ol>
+
+      <div class="alert alert-success py-2" role="alert">
+        <i class="bi bi-check-circle me-2" aria-hidden="true"></i><strong>This fixes most "connected but no sound" and "robotic audio" problems.</strong> If you hear clear stereo audio after switching, you're done. Read on to prevent it from happening again.
+      </div>
+
+      <h3 class="fs-5 fw-semibold mt-4 mb-2">What if you need the microphone?</h3>
+
+      <p>If you need to use your headset's built-in mic for calls, you have two options:</p>
+
+      <ul class="mb-3">
+        <li class="mb-2"><strong>Use a separate microphone for calls.</strong> Keep the headphones on the stereo profile for output, and use your laptop's built-in mic or a USB microphone for input. This gives you the best of both worlds: high-quality audio <em>and</em> a working mic without the profile switch.</li>
+        <li class="mb-2"><strong>Set Hands-Free as the Communications device only.</strong> In Sound Settings, scroll down and click <strong>"More sound settings"</strong> to open the classic Sound control panel. On the <strong>Playback</strong> tab, right-click the Hands-Free device and select <strong>"Set as Default Communication Device."</strong> This tells Windows to use it only for calls (Zoom, Teams), while keeping the stereo profile as the default for everything else.</li>
+      </ul>
+
+      <div class="alert alert-warning py-2" role="alert">
+        <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>Even with the Communication Device trick, apps that activate the Bluetooth mic will still force a profile switch at the hardware level. The only way to avoid the quality drop entirely during calls is to use a non-Bluetooth microphone.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Bluetooth not connecting at all? -->
+  <section class="pb-5" aria-labelledby="not-connecting-heading" id="not-connecting">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="not-connecting-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-x-circle me-2 text-danger" aria-hidden="true"></i>Bluetooth not connecting at all?</h2>
+
+      <p>If your Bluetooth device doesn't show up in Sound Settings at all, the problem is at the connection level, not the audio level. Work through this checklist:</p>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is Bluetooth turned on?</strong> Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:bluetooth</code>, press <kbd>Enter</kbd>. Make sure the Bluetooth toggle is on.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is your device in pairing mode?</strong> Most Bluetooth headphones need to be put into pairing mode manually (usually by holding the power button for 5&ndash;7 seconds until an LED flashes). Check your device's manual for the exact method.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is the device paired to another source?</strong> Many Bluetooth headphones can only connect to one device at a time. If they're connected to your phone, they won't connect to your PC. Disconnect them from the other device first.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Remove and re-pair.</strong> In Bluetooth settings (<code>ms-settings:bluetooth</code>), find your device, click the three-dot menu, and select <strong>Remove device</strong>. Then put your headphones into pairing mode and add them again. This clears out stale pairing data that can cause connection failures.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Check the Bluetooth adapter.</strong> Open Device Manager (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>X</kbd>, select <strong>Device Manager</strong>). Expand <strong>Bluetooth</strong>. If you see a yellow warning triangle on your Bluetooth adapter, right-click it and select <strong>Update driver</strong>.</li>
+      </ul>
+
+      <div class="alert alert-info py-2" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>After re-pairing, wait about 10 seconds for Windows to install the audio drivers for the device. You'll see a notification that the device is ready. Only then will it appear in Sound Settings.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Audio cuts out or stutters -->
+  <section class="pb-5" aria-labelledby="stutters-heading" id="stutters">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="stutters-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-activity me-2 text-warning" aria-hidden="true"></i>Audio cuts out or stutters</h2>
+
+      <p>If your Bluetooth audio is connected and playing, but it drops out, skips, or stutters, the issue is usually signal quality &mdash; not a software setting. Bluetooth audio is surprisingly sensitive to physical conditions.</p>
+
+      <ul class="mb-3">
+        <li class="mb-2"><strong>Stay within range.</strong> Bluetooth audio quality degrades beyond about 10 meters (33 feet), especially through walls. If you walk to another room, expect dropouts.</li>
+        <li class="mb-2"><strong>Reduce wireless interference.</strong> Wi-Fi routers, USB 3.0 devices, microwave ovens, and other Bluetooth devices all operate in the 2.4 GHz band and can cause interference. If your PC has a USB 3.0 external drive right next to the Bluetooth adapter, try moving one of them.</li>
+        <li class="mb-2"><strong>Check battery level.</strong> Low battery on Bluetooth headphones can cause audio artifacts and connection instability. Charge your device and test again.</li>
+        <li class="mb-2"><strong>Update your Bluetooth driver.</strong> Open Device Manager (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>X</kbd>, select <strong>Device Manager</strong>), expand <strong>Bluetooth</strong>, right-click your adapter, and select <strong>Update driver</strong>. Alternatively, check your PC manufacturer's support site for a newer Bluetooth driver.</li>
+        <li class="mb-2"><strong>Disable Bluetooth power management.</strong> Windows may turn off the Bluetooth adapter to save power. In Device Manager, right-click your Bluetooth adapter, select <strong>Properties</strong>, go to the <strong>Power Management</strong> tab, and uncheck <strong>"Allow the computer to turn off this device to save power."</strong></li>
+      </ul>
+
+      <div class="alert alert-info py-2" role="alert">
+        <i class="bi bi-lightbulb me-2" aria-hidden="true"></i>If stuttering only happens during video calls, it's likely the profile switching problem described above. When your mic activates, Bluetooth switches to the Hands-Free profile, and you may hear a brief audio interruption during the switch.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Prevent Bluetooth from hijacking your default -->
+  <section class="pb-5" aria-labelledby="prevent-heading" id="prevent">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="prevent-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-shield-check me-2 text-success" aria-hidden="true"></i>Prevent Bluetooth from hijacking your default</h2>
+
+      <p>Every time you connect a Bluetooth audio device, Windows promotes it to the default output. That means if you're happily listening through your desk speakers and then turn on your Bluetooth headphones to charge them (while still near your PC), Windows will silently switch all audio to the headphones. Your desk speakers go silent, and you won't know why until you check Sound Settings.</p>
+
+      <p>There are two strategies to prevent this:</p>
+
+      <h3 class="fs-5 fw-semibold mt-4 mb-2">1. Disable the Hands-Free profile entirely</h3>
+
+      <p>If you never use your Bluetooth headset's built-in microphone (because you have a USB mic or use your laptop's mic), you can disable the Hands-Free profile so it never interferes:</p>
+
+      <ol class="mb-3">
+        <li class="mb-2">Open Sound Settings: <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, press <kbd>Enter</kbd>.</li>
+        <li class="mb-2">Scroll down and click <strong>"More sound settings"</strong> to open the classic Sound control panel.</li>
+        <li class="mb-2">On the <strong>Playback</strong> tab, find the Hands-Free entry (it will say "Headset" and include "Hands-Free AG Audio"). Right-click it and select <strong>Disable</strong>.</li>
+        <li class="mb-2">Switch to the <strong>Recording</strong> tab and disable the Hands-Free microphone entry there too.</li>
+      </ol>
+
+      <p>With the Hands-Free profile disabled, Windows can't accidentally switch to it, and communication apps can't force the profile change. Your headphones will only use the high-quality stereo profile.</p>
+
+      <h3 class="fs-5 fw-semibold mt-4 mb-2">2. Disable Bluetooth audio devices when not in use</h3>
+
+      <p>If you only use Bluetooth headphones occasionally, disable both Bluetooth audio entries (Headphones and Headset) in the Sound control panel when you're done. Windows can't promote a disabled device to default. When you need the headphones again, re-enable the stereo profile.</p>
+
+      <div class="alert alert-info py-2" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>This is the same principle behind the broader "lock it down" strategy: fewer enabled devices means fewer opportunities for Windows to switch on you. Read <a href="/guide/lock-it-down.html">Lock it down</a> for the full approach, including how to disable HDMI audio, Stereo Mix, and other phantom devices.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Card -->
+  <section class="pb-5" aria-labelledby="cta-heading">
+    <div class="container" style="max-width: 720px;">
+      <div class="card border">
+        <div class="card-body text-center py-4">
+          <h2 id="cta-heading" class="fs-4 fw-semibold mb-2">Want the automated fix?</h2>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">Our free PowerShell script tests every audio device, identifies the working ones, and disables the impostors &mdash; including rogue Bluetooth profiles &mdash; all in under a minute.</p>
+          <a href="/tool/" class="btn btn-primary btn-lg px-4">
+            Get the script <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>
