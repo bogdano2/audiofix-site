@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Why Your Audio Keeps Breaking | AudioFix.tools</title>
-<meta name="description" content="Learn why your computer keeps switching audio devices. Understand the audio chain, hidden defaults, and the five silent triggers that break your sound.">
-<meta property="og:title" content="Why Your Audio Keeps Breaking | AudioFix.tools">
-<meta property="og:description" content="It's not you. Learn why your OS silently switches audio devices and what triggers it.">
+<title>Why Windows Keeps Switching Your Audio Device | AudioFix.tools</title>
+<meta name="description" content="Windows silently changes your default speakers and microphone. Learn the 5 triggers that cause it — HDMI, Bluetooth, updates, drivers, and apps — and why it's been this way for 30 years.">
+<meta property="og:title" content="Why Windows Keeps Switching Your Audio Device | AudioFix.tools">
+<meta property="og:description" content="5 things that silently move your default audio device on Windows — and why this has been happening for 30 years.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://audiofix.tools/guide/why-it-happens.html">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Why Your Audio Keeps Breaking | AudioFix.tools">
-<meta name="twitter:description" content="It's not you. Learn why your OS silently switches audio devices and what triggers it.">
+<meta name="twitter:title" content="Why Windows Keeps Switching Your Audio Device | AudioFix.tools">
+<meta name="twitter:description" content="5 things that silently move your default audio device on Windows — and why this has been happening for 30 years.">
 <link rel="canonical" href="https://audiofix.tools/guide/why-it-happens.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +36,8 @@
       "@type": "WebPage",
       "@id": "https://audiofix.tools/guide/why-it-happens.html#webpage",
       "url": "https://audiofix.tools/guide/why-it-happens.html",
-      "name": "Why Your Audio Keeps Breaking",
-      "description": "Learn why your computer keeps switching audio devices. Understand the audio chain, hidden defaults, and the five silent triggers that break your sound.",
+      "name": "Why Windows Keeps Switching Your Audio Device | AudioFix.tools",
+      "description": "Windows silently changes your default speakers and microphone. Learn the 5 triggers that cause it — HDMI, Bluetooth, updates, drivers, and apps — and why it's been this way for 30 years.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" },
       "breadcrumb": { "@id": "https://audiofix.tools/guide/why-it-happens.html#breadcrumb" }
     },
@@ -84,6 +84,44 @@
         "@type": "SpeakableSpecification",
         "cssSelector": ["#lead-summary", "#nugget-chain p", "#nugget-devices p"]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/why-it-happens.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does Windows keep switching my audio device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows uses a Plug and Play event system that re-evaluates the device list every time a device connects or disconnects. The audio subsystem promotes new devices to default using a 'most recently activated' heuristic. Five common triggers cause this: plugging in HDMI/DisplayPort, Bluetooth connect/disconnect, Windows Update, driver installation, and apps with their own audio settings (Zoom, Teams, Discord)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many audio devices does a typical Windows PC have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A typical Windows PC has 4–8 output devices and 3–5 input devices. Windows registers every audio-capable device it has ever seen — HDMI monitors, docking stations, Bluetooth headsets, USB webcams, and virtual drivers. Most have useless names, and many are impostors like Stereo Mix that aren't real audio devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does this happen at the OS level?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows uses a Plug and Play (PnP) event system. Every time a device connects or disconnects, the OS re-evaluates the device list. The audio subsystem (Core Audio, via IMMDeviceEnumerator) maintains a priority ranking for endpoints. When a new device appears, Windows often promotes it to default. There is no built-in way to say 'never change my default' — which is exactly why the problem keeps coming back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Has Windows audio switching always been a problem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Audio device management hasn't fundamentally changed since Windows 95 introduced Plug and Play. The same architecture that made sense for one sound card and one set of speakers now manages a dozen endpoints — and the OS was never designed for that many."
+          }
+        }
+      ]
     }
   ]
 }

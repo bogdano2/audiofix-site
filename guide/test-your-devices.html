@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Your Devices — AudioFix.tools</title>
-<meta name="description" content="Prove which audio device is your real speakers and microphone. Play sound, switch outputs, watch the mic level meter, and confirm with Windows' built-in test.">
-<meta property="og:title" content="Test Your Devices — AudioFix.tools">
-<meta property="og:description" content="Prove which audio device is your real speakers and microphone using Windows Sound Settings.">
+<title>How to Test Speakers and Microphone on Windows 11 | AudioFix.tools</title>
+<meta name="description" content="Test which audio output device is your real speakers and which input is your real microphone on Windows 11/10. Play sound, switch devices, watch the mic level meter.">
+<meta property="og:title" content="How to Test Speakers and Microphone on Windows 11 | AudioFix.tools">
+<meta property="og:description" content="Play sound, switch devices, watch the mic meter — find out which audio device is actually your speakers and microphone.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://audiofix.tools/guide/test-your-devices.html">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Test Your Devices — AudioFix.tools">
-<meta name="twitter:description" content="Prove which audio device is your real speakers and microphone using Windows Sound Settings.">
+<meta name="twitter:title" content="How to Test Speakers and Microphone on Windows 11 | AudioFix.tools">
+<meta name="twitter:description" content="Play sound, switch devices, watch the mic meter — find out which audio device is actually your speakers and microphone.">
 <link rel="canonical" href="https://audiofix.tools/guide/test-your-devices.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +36,8 @@
       "@type": "WebPage",
       "@id": "https://audiofix.tools/guide/test-your-devices.html#webpage",
       "url": "https://audiofix.tools/guide/test-your-devices.html",
-      "name": "Test Your Devices — AudioFix.tools",
-      "description": "Prove which audio device is your real speakers and microphone. Play sound, switch outputs, watch the mic level meter, and confirm with Windows' built-in test.",
+      "name": "How to Test Speakers and Microphone on Windows 11 | AudioFix.tools",
+      "description": "Test which audio output device is your real speakers and which input is your real microphone on Windows 11/10. Play sound, switch devices, watch the mic level meter.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" },
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -90,6 +90,44 @@
           "position": 3,
           "name": "Confirm with the built-in mic test",
           "text": "Click on the input device name to open its properties, scroll to Test your microphone, click Start test, speak for 3-5 seconds, then click Stop test. Any result above 0% confirms this mic hears you."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/test-your-devices.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I test my speakers on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound). Play audio from any source (YouTube, Spotify, etc.). Use the output device dropdown to switch between devices one at a time. The device where you hear sound is your real speakers. Note its name — you'll need it to set it as your permanent default."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I test my microphone on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound). Look at the input section and watch the level meter next to your microphone. Speak or clap — if the meter moves, that device is picking up your voice. For a precise test, click the device name, scroll to 'Test your microphone', click Start test, speak for 3–5 seconds, then click Stop test. Any result above 0% confirms the mic works."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is there no sound from any audio device on Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If no device produces sound, check three things: (1) Make sure your volume is not at zero — press the Volume Up key or click the speaker icon in the taskbar. (2) Check that audio is not muted — look for a mute icon or an X on the speaker icon. (3) Try a different audio source to rule out app-specific issues. If still silent, the problem may be a driver issue or a hardware connection problem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my mic test show 0% on every device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the microphone test shows 0% on every device, check that your mic is not muted in Sound Settings, the volume slider is not at zero, and the mic is not physically muted (many headsets have a hardware mute button or flip-to-mute boom arm). Also check app-level permissions: go to Settings → Privacy & security → Microphone and make sure microphone access is turned on."
+          }
         }
       ]
     }

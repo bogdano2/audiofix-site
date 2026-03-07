@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lock It Down — Disable Unused Audio Devices | AudioFix.tools</title>
-<meta name="description" content="Disable unused audio devices on Windows to prevent silent default switching. Set your tested device as default, disable the rest, and lock your audio config.">
-<meta property="og:title" content="Lock It Down — Disable Unused Audio Devices | AudioFix.tools">
-<meta property="og:description" content="Disable unused audio devices on Windows to prevent silent default switching. Set defaults, disable the rest, lock your config.">
+<title>How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools</title>
+<meta name="description" content="Stop Windows from switching your default audio device. Set your correct speakers and microphone as default, then disable unused devices to prevent future drift.">
+<meta property="og:title" content="How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools">
+<meta property="og:description" content="Set your correct audio device as default and disable unused devices to stop Windows from silently switching.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://audiofix.tools/guide/lock-it-down.html">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lock It Down — Disable Unused Audio Devices | AudioFix.tools">
-<meta name="twitter:description" content="Disable unused audio devices on Windows to prevent silent default switching. Set defaults, disable the rest, lock your config.">
+<meta name="twitter:title" content="How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools">
+<meta name="twitter:description" content="Set your correct audio device as default and disable unused devices to stop Windows from silently switching.">
 <link rel="canonical" href="https://audiofix.tools/guide/lock-it-down.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +36,8 @@
       "@type": "WebPage",
       "@id": "https://audiofix.tools/guide/lock-it-down.html#webpage",
       "url": "https://audiofix.tools/guide/lock-it-down.html",
-      "name": "Lock It Down — Disable Unused Audio Devices | AudioFix.tools",
-      "description": "Disable unused audio devices on Windows to prevent silent default switching. Set your tested device as default, disable the rest, and lock your audio config.",
+      "name": "How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools",
+      "description": "Stop Windows from switching your default audio device. Set your correct speakers and microphone as default, then disable unused devices to prevent future drift.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" },
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -102,6 +102,44 @@
           "position": 5,
           "name": "Verify your cleanup",
           "text": "Return to Sound Settings (ms-settings:sound) and confirm: output dropdown shows only your real devices, input dropdown shows only your real microphone, both are marked as default, and volume is at a reasonable level."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/lock-it-down.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I stop Windows from switching my audio device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set your correct device as default for all three audio roles (Console, Multimedia, and Communications), then disable every unused audio device. Fewer active devices means fewer opportunities for Windows to silently switch your default. Open Sound Settings (Win+R → ms-settings:sound), scroll to 'More sound settings', and right-click unused devices to disable them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I disable unused audio devices on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound), scroll to Advanced, and click 'More sound settings'. In the Playback tab, right-click any device you don't use — HDMI outputs you never listen through, Stereo Mix, S/PDIF, virtual audio cables — and select Disable. Repeat in the Recording tab. Keep only the devices you actually use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the three audio roles in Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows has three separate default audio roles: Console (system sounds, most apps), Multimedia (media players, games), and Communications (voice calls — Zoom, Teams, Discord). Each role can point to a different device. If they're not all set to the same device, some apps may use the 'wrong' output. Right-click your preferred device and set it as both Default Device and Default Communication Device to cover all three."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my audio breaks again after fixing it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Update, new driver installations, and plugging in new HDMI or Bluetooth devices can re-enable previously disabled devices or shift your default. If audio breaks again, re-open Sound Settings and check if a disabled device has been re-enabled, or if your default has changed. The fix is the same: set your correct device as default and re-disable the impostors."
+          }
         }
       ]
     }

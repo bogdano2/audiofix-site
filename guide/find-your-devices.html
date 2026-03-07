@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find Your Audio Devices on Windows | AudioFix.tools</title>
-<meta name="description" content="Learn how to find every audio device Windows is managing, identify which ones matter, and check your defaults. The first step to fixing broken audio.">
-<meta property="og:title" content="Find Your Audio Devices on Windows | AudioFix.tools">
-<meta property="og:description" content="See what your OS sees. Find every audio device Windows is managing, spot the impostors, and verify your defaults.">
+<title>How to Find and Check Default Audio Devices on Windows 11 | AudioFix.tools</title>
+<meta name="description" content="Open Windows Sound Settings and find every audio device your PC is managing. Check which output and input device is set as default, and spot impostors like Stereo Mix.">
+<meta property="og:title" content="How to Find and Check Default Audio Devices on Windows 11 | AudioFix.tools">
+<meta property="og:description" content="See every audio device Windows is managing, check your defaults, and spot impostors. Step-by-step with keyboard shortcuts.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://audiofix.tools/guide/find-your-devices.html">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Find Your Audio Devices on Windows | AudioFix.tools">
-<meta name="twitter:description" content="See what your OS sees. Find every audio device Windows is managing, spot the impostors, and verify your defaults.">
+<meta name="twitter:title" content="How to Find and Check Default Audio Devices on Windows 11 | AudioFix.tools">
+<meta name="twitter:description" content="See every audio device Windows is managing, check your defaults, and spot impostors. Step-by-step with keyboard shortcuts.">
 <link rel="canonical" href="https://audiofix.tools/guide/find-your-devices.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +36,8 @@
       "@type": "WebPage",
       "@id": "https://audiofix.tools/guide/find-your-devices.html#webpage",
       "url": "https://audiofix.tools/guide/find-your-devices.html",
-      "name": "Find Your Audio Devices on Windows | AudioFix.tools",
-      "description": "Learn how to find every audio device Windows is managing, identify which ones matter, and check your defaults.",
+      "name": "How to Find and Check Default Audio Devices on Windows 11 | AudioFix.tools",
+      "description": "Open Windows Sound Settings and find every audio device your PC is managing. Check which output and input device is set as default, and spot impostors like Stereo Mix.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" }
     },
     {
@@ -92,6 +92,44 @@
           "position": 4,
           "name": "Check what is set as default",
           "text": "Verify that the device marked DEFAULT for both output and input is the device you actually want to use."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/find-your-devices.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I open Sound Settings on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Press Win+R, type ms-settings:sound, and press Enter. This opens Sound Settings directly in under 3 seconds. You can also right-click the speaker icon in the system tray and select Sound settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find my default audio device on Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound). The Output section shows your current default speakers or headphones. The Input section shows your current default microphone. The device shown in each dropdown is the one Windows is currently sending audio to or receiving audio from."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Stereo Mix in Windows audio devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stereo Mix is not a real microphone — it's a loopback device that records whatever is playing through your speakers. It appears in your input device list but will never pick up your voice. It's an impostor that can confuse Windows into setting it as your default input device, causing your microphone to appear broken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check which audio devices my PC has?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound) and scroll to the Advanced section. Click 'More sound settings' to see the full list of output and input devices. Every device with a green checkmark is currently set as default. Devices with a red down arrow are disabled."
+          }
         }
       ]
     }

@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AudioFix.tools — Fix Your Broken Audio</title>
-<meta name="description" content="Your computer's audio keeps breaking. We'll show you every breakpoint and teach you to fix each one. Free guides and tools for Windows, macOS, Linux.">
-<meta property="og:title" content="AudioFix.tools — Fix Your Broken Audio">
-<meta property="og:description" content="It's not you. It's your computer. Learn exactly where audio breaks and how to fix it.">
+<title>Fix Audio Not Working on Windows 11/10 — Speakers, Headphones, Mic | AudioFix.tools</title>
+<meta name="description" content="No sound or microphone not working on Windows? Learn why audio devices silently switch and how to fix it. Free step-by-step guide and PowerShell troubleshooter.">
+<meta property="og:title" content="Fix Audio Not Working on Windows 11/10 | AudioFix.tools">
+<meta property="og:description" content="No sound? Mic not working? Learn why Windows silently switches audio devices and how to fix it permanently.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://audiofix.tools/">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AudioFix.tools — Fix Your Broken Audio">
-<meta name="twitter:description" content="It's not you. It's your computer. Learn exactly where audio breaks and how to fix it.">
+<meta name="twitter:title" content="Fix Audio Not Working on Windows 11/10 | AudioFix.tools">
+<meta name="twitter:description" content="No sound? Mic not working? Learn why Windows silently switches audio devices and how to fix it permanently.">
 <link rel="canonical" href="https://audiofix.tools/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +36,8 @@
       "@type": "WebPage",
       "@id": "https://audiofix.tools/#webpage",
       "url": "https://audiofix.tools/",
-      "name": "AudioFix.tools — Fix Your Broken Audio",
-      "description": "Your computer's audio keeps breaking. We'll show you every breakpoint and teach you to fix each one. Free guides and tools for Windows, macOS, Linux.",
+      "name": "Fix Audio Not Working on Windows 11/10 — Speakers, Headphones, Mic | AudioFix.tools",
+      "description": "No sound or microphone not working on Windows? Learn why audio devices silently switch and how to fix it. Free step-by-step guide and PowerShell troubleshooter.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" },
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -52,10 +52,46 @@
       "applicationCategory": "UtilitiesApplication",
       "offers": {
         "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+        "price": "5.00",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "5.00",
+          "priceCurrency": "USD",
+          "description": "Pay what you want (minimum $5)"
+        }
       },
-      "description": "Free PowerShell script that identifies, tests, sets, and locks your correct audio devices on Windows in under 2 minutes."
+      "description": "PowerShell script that identifies, tests, sets, and locks your correct audio devices on Windows in under 2 minutes."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my audio not working on Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows silently switches your default audio device when you plug in HDMI monitors, connect Bluetooth headsets, install driver updates, or run Windows Update. Your speakers or microphone stop working because audio is being routed to a different device. The fix is to identify your correct devices, set them as default, and disable the unused ones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix my speakers or headphones not working on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound), check the output device dropdown to see which device is set as default, and switch it to your actual speakers or headphones. If the problem recurs, disable unused output devices (HDMI audio, Stereo Mix, S/PDIF) through More sound settings to prevent Windows from switching again."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix my microphone not working on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Sound Settings (Win+R → ms-settings:sound) and check the input device dropdown. Make sure your real microphone is selected as default. Check that it's not muted and the volume is above zero. Also check app permissions: Settings → Privacy & security → Microphone. If the mic test shows 0%, check for a hardware mute button on your headset."
+          }
+        }
+      ]
     }
   ]
 }
