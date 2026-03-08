@@ -87,20 +87,40 @@
       <div class="text-center mb-5">
         <div class="display-1 mb-3" aria-hidden="true"><i class="bi bi-check-circle text-success"></i></div>
         <h1 id="thanks-heading" class="display-5 fw-bold mb-3">Thank you for your purchase!</h1>
-        <p class="fs-5" style="color: var(--bs-secondary-color);">Your download link is on its way to your inbox.</p>
+        <p class="fs-5" style="color: var(--bs-secondary-color);">Your download is ready.</p>
       </div>
 
-      <div class="card border-success mb-4">
+      <!-- Immediate download -->
+      <div class="card border-success mb-4" id="download-card">
+        <div class="card-body text-center">
+          <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-download me-2 text-success" aria-hidden="true"></i>Download your script</h2>
+          <div id="download-status">
+            <div class="spinner-border spinner-border-sm text-secondary me-2" role="status" aria-hidden="true"></div>
+            <span style="color: var(--bs-secondary-color);">Preparing your download&hellip;</span>
+          </div>
+          <div id="download-ready" class="d-none">
+            <a id="download-link" href="#" class="btn btn-success btn-lg px-4 mb-3">
+              <i class="bi bi-download me-2" aria-hidden="true"></i>Download AudioFix.zip
+            </a>
+            <p class="small mb-0" style="color: var(--bs-tertiary-color);">This download link expires in <strong>72 hours</strong>. A copy has also been sent to your email.</p>
+          </div>
+          <div id="download-error" class="d-none">
+            <div class="alert alert-info mb-0" role="alert">
+              <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+              Download link couldn't be loaded here — no worries, check your email for the link. It may take a minute to arrive.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email backup -->
+      <div class="card mb-4">
         <div class="card-body">
-          <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-envelope-check me-2 text-success" aria-hidden="true"></i>Check your email</h2>
-          <p class="mb-2">We've sent a download link to the email address you used at checkout. The email contains:</p>
-          <ul class="mb-3">
-            <li><strong>AudioFix.zip</strong> — the script and a quick-start README</li>
-            <li>The download link is valid for <strong>72 hours</strong></li>
-          </ul>
+          <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-envelope-check me-2" aria-hidden="true"></i>Also in your inbox</h2>
+          <p class="mb-2">We've sent the same download link to the email address you used at checkout. Both links are valid for <strong>72 hours</strong>.</p>
           <div class="alert alert-warning mb-0 small" role="alert">
             <i class="bi bi-exclamation-triangle me-1" aria-hidden="true"></i>
-            <strong>Don't see it?</strong> Check your spam or junk folder. The email comes from <code>noreply@audiofix.tools</code>.
+            <strong>Don't see it?</strong> Check your spam or junk folder. The email comes from <code>noreply@audiofix.tools</code>. If your link has expired, reply to the email and we'll send a new one.
           </div>
         </div>
       </div>
@@ -179,6 +199,33 @@
     var page = a.getAttribute('data-page');
     if (page) a.href = '/guide/' + os + '/' + page + '.html';
   });
+})();
+</script>
+<script>
+// Fetch download link from Worker using session ID
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get('session_id');
+  if (!sessionId) {
+    document.getElementById('download-status').classList.add('d-none');
+    document.getElementById('download-error').classList.remove('d-none');
+    return;
+  }
+  fetch('https://dl.audiofix.tools/session-download?session_id=' + encodeURIComponent(sessionId))
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      document.getElementById('download-status').classList.add('d-none');
+      if (data.downloadUrl) {
+        document.getElementById('download-link').href = data.downloadUrl;
+        document.getElementById('download-ready').classList.remove('d-none');
+      } else {
+        document.getElementById('download-error').classList.remove('d-none');
+      }
+    })
+    .catch(function() {
+      document.getElementById('download-status').classList.add('d-none');
+      document.getElementById('download-error').classList.remove('d-none');
+    });
 })();
 </script>
 </body>

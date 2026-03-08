@@ -28,6 +28,9 @@ export async function sendDownloadEmail(
             The zip contains <strong>AudioFix.ps1</strong> and a README with instructions.
             Right-click the .ps1 file and select "Run with PowerShell" to get started.
           </p>
+          <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#e65100;background:#fff3e0;padding:8px 12px;border-radius:4px;">
+            <strong>This link expires in 72 hours.</strong> If it has expired, reply to this email and we'll send a new one.
+          </p>
           <p style="margin:0;font-size:13px;line-height:1.5;color:#71717a;">
             Questions? Reply to this email or visit
             <a href="https://audiofix.tools" style="color:#38bdf8;">audiofix.tools</a>.
