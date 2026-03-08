@@ -132,14 +132,17 @@ pre.code-viewer { max-height: 420px; overflow-y: auto; font-family: 'IBM Plex Mo
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guide</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
-              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="/tool/" aria-current="page">The Script</a>
@@ -432,6 +435,22 @@ try { scriptText = atob(SCRIPT_B64); } catch(e) { scriptText = '// Error decodin
 const lines = scriptText.split('\n');
 document.getElementById('lineCount').textContent = lines.length + ' lines \u00b7 ' + Math.round(scriptText.length/1024) + ' KB';
 document.getElementById('codeContent').textContent = scriptText;
+</script>
+<script>
+(function(){
+  var detect = function() {
+    var ua = navigator.userAgent;
+    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
+    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
+    return 'windows';
+  };
+  var os = localStorage.getItem('os') || detect();
+  localStorage.setItem('os', os);
+  document.querySelectorAll('.guide-link').forEach(function(a) {
+    var page = a.getAttribute('data-page');
+    if (page) a.href = '/guide/' + os + '/' + page + '.html';
+  });
+})();
 </script>
 </body>
 </html>

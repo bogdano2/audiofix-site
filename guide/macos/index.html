@@ -8,12 +8,12 @@
 <meta property="og:title" content="Fix Audio on macOS — Coming Soon | AudioFix.tools">
 <meta property="og:description" content="A macOS guide for fixing audio device switching using CoreAudio and Audio MIDI Setup is coming soon.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://audiofix.tools/guide/fix-macos.html">
+<meta property="og:url" content="https://audiofix.tools/guide/macos/">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fix Audio on macOS — Coming Soon | AudioFix.tools">
 <meta name="twitter:description" content="A macOS guide for fixing audio device switching using CoreAudio and Audio MIDI Setup is coming soon.">
-<link rel="canonical" href="https://audiofix.tools/guide/fix-macos.html">
+<link rel="canonical" href="https://audiofix.tools/guide/macos/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,15 +34,15 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://audiofix.tools/guide/fix-macos.html#webpage",
-      "url": "https://audiofix.tools/guide/fix-macos.html",
+      "@id": "https://audiofix.tools/guide/macos/#webpage",
+      "url": "https://audiofix.tools/guide/macos/",
       "name": "Fix Audio on macOS — Coming Soon | AudioFix.tools",
       "description": "A macOS guide for fixing audio device switching using CoreAudio and Audio MIDI Setup is coming soon. Learn how to find, test, and lock down your correct audio devices.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" }
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://audiofix.tools/guide/fix-macos.html#breadcrumb",
+      "@id": "https://audiofix.tools/guide/macos/#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -114,14 +114,17 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guide</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
-              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -174,11 +177,11 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
       <div class="alert alert-info" role="alert">
         <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
-        <strong>In the meantime:</strong> The concepts in our <a href="/guide/why-audio-breaks.html" class="alert-link">guide to why audio breaks</a> apply to every operating system. Understanding why your OS switches devices is the first step to fixing it, regardless of platform.
+        <strong>In the meantime:</strong> The concepts in our <a href="/guide/why-it-happens.html" class="alert-link">guide to why audio breaks</a> apply to every operating system. Understanding why your OS switches devices is the first step to fixing it, regardless of platform.
       </div>
 
       <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4 mb-5">
-        <a href="/guide/why-audio-breaks.html" class="btn btn-primary btn-lg px-4">
+        <a href="/guide/why-it-happens.html" class="btn btn-primary btn-lg px-4">
           <i class="bi bi-book me-2" aria-hidden="true"></i>Read why audio breaks
         </a>
         <a href="/tool/" class="btn btn-outline-secondary btn-lg px-4">
@@ -230,6 +233,22 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function(){
+  var detect = function() {
+    var ua = navigator.userAgent;
+    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
+    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
+    return 'windows';
+  };
+  var os = localStorage.getItem('os') || detect();
+  localStorage.setItem('os', os);
+  document.querySelectorAll('.guide-link').forEach(function(a) {
+    var page = a.getAttribute('data-page');
+    if (page) a.href = '/guide/' + os + '/' + page + '.html';
   });
 })();
 </script>

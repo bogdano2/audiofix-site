@@ -145,14 +145,17 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guide</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
-              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/lock-it-down.html">Lock it down</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -227,7 +230,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
               <i class="bi bi-list-check fs-2 mb-3" style="color: var(--brand-green);" aria-hidden="true"></i>
               <h3 class="card-title fs-5 fw-semibold">Find your devices</h3>
               <p class="card-text" style="color: var(--bs-secondary-color);">See what your OS sees. Find your defaults. Spot the impostors.</p>
-              <a href="/guide/find-your-devices.html" class="btn btn-outline-primary btn-sm mt-auto align-self-start">Read more</a>
+              <a href="/guide/windows/find-your-devices.html" class="btn btn-outline-primary btn-sm mt-auto align-self-start guide-link" data-page="find-your-devices">Read more</a>
             </div>
           </div>
         </div>
@@ -239,7 +242,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
               <i class="bi bi-soundwave fs-2 mb-3" style="color: var(--brand-amber);" aria-hidden="true"></i>
               <h3 class="card-title fs-5 fw-semibold">Test what's real</h3>
               <p class="card-text" style="color: var(--bs-secondary-color);">Prove which device is your actual speakers and which is your actual mic.</p>
-              <a href="/guide/test-your-devices.html" class="btn btn-outline-primary btn-sm mt-auto align-self-start">Read more</a>
+              <a href="/guide/windows/test-your-devices.html" class="btn btn-outline-primary btn-sm mt-auto align-self-start guide-link" data-page="test-your-devices">Read more</a>
             </div>
           </div>
         </div>
@@ -251,7 +254,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
               <i class="bi bi-shield-lock fs-2 mb-3" style="color: var(--brand-red);" aria-hidden="true"></i>
               <h3 class="card-title fs-5 fw-semibold">Lock it down</h3>
               <p class="card-text" style="color: var(--bs-secondary-color);">Disable the devices you don't use. Prevent future drift.</p>
-              <a href="/guide/lock-it-down.html" class="btn btn-outline-primary btn-sm mt-auto align-self-start">Read more</a>
+              <a href="/guide/windows/lock-it-down.html" class="btn btn-outline-primary btn-sm mt-auto align-self-start guide-link" data-page="lock-it-down">Read more</a>
             </div>
           </div>
         </div>
@@ -438,6 +441,22 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function(){
+  var detect = function() {
+    var ua = navigator.userAgent;
+    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
+    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
+    return 'windows';
+  };
+  var os = localStorage.getItem('os') || detect();
+  localStorage.setItem('os', os);
+  document.querySelectorAll('.guide-link').forEach(function(a) {
+    var page = a.getAttribute('data-page');
+    if (page) a.href = '/guide/' + os + '/' + page + '.html';
   });
 })();
 </script>

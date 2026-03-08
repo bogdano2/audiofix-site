@@ -8,12 +8,12 @@
 <meta property="og:title" content="How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools">
 <meta property="og:description" content="Set your correct audio device as default and disable unused devices to stop Windows from silently switching.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://audiofix.tools/guide/lock-it-down.html">
+<meta property="og:url" content="https://audiofix.tools/guide/windows/lock-it-down.html">
 <meta property="og:image" content="https://audiofix.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools">
 <meta name="twitter:description" content="Set your correct audio device as default and disable unused devices to stop Windows from silently switching.">
-<link rel="canonical" href="https://audiofix.tools/guide/lock-it-down.html">
+<link rel="canonical" href="https://audiofix.tools/guide/windows/lock-it-down.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +34,8 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://audiofix.tools/guide/lock-it-down.html#webpage",
-      "url": "https://audiofix.tools/guide/lock-it-down.html",
+      "@id": "https://audiofix.tools/guide/windows/lock-it-down.html#webpage",
+      "url": "https://audiofix.tools/guide/windows/lock-it-down.html",
       "name": "How to Disable Unused Audio Devices on Windows 11 | AudioFix.tools",
       "description": "Stop Windows from switching your default audio device. Set your correct speakers and microphone as default, then disable unused devices to prevent future drift.",
       "isPartOf": { "@id": "https://audiofix.tools/#website" },
@@ -46,7 +46,7 @@
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://audiofix.tools/guide/lock-it-down.html#breadcrumb",
+      "@id": "https://audiofix.tools/guide/windows/lock-it-down.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -63,13 +63,19 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Windows",
+          "item": "https://audiofix.tools/guide/windows/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Lock It Down"
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://audiofix.tools/guide/lock-it-down.html#howto",
+      "@id": "https://audiofix.tools/guide/windows/lock-it-down.html#howto",
       "name": "How to disable unused audio devices on Windows",
       "description": "Set your tested audio device as the system default, then disable all unused output and input devices to prevent Windows from silently switching defaults.",
       "step": [
@@ -107,7 +113,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://audiofix.tools/guide/lock-it-down.html#faq",
+      "@id": "https://audiofix.tools/guide/windows/lock-it-down.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -194,14 +200,17 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guide</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/guide/why-it-happens.html">Why it happens</a></li>
-              <li><a class="dropdown-item" href="/guide/find-your-devices.html">Find your devices</a></li>
-              <li><a class="dropdown-item" href="/guide/test-your-devices.html">Test your devices</a></li>
-              <li><a class="dropdown-item active" href="/guide/lock-it-down.html" aria-current="page">Lock it down</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link active" href="/guide/windows/lock-it-down.html" data-page="lock-it-down" aria-current="page">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -227,6 +236,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
     <ol class="breadcrumb mb-0">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
       <li class="breadcrumb-item">Guide</li>
+      <li class="breadcrumb-item">Windows</li>
       <li class="breadcrumb-item active" aria-current="page">Lock It Down</li>
     </ol>
   </nav>
@@ -237,6 +247,11 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
       <!-- H1 & Lead -->
       <h1 id="page-heading" class="display-5 fw-bold mb-3">Lock it down</h1>
+      <div class="d-flex gap-2 mb-3" role="tablist" aria-label="Select operating system">
+        <a href="/guide/windows/lock-it-down.html" class="btn btn-primary btn-sm active" role="tab" aria-selected="true" aria-current="page"><i class="bi bi-windows me-1" aria-hidden="true"></i>Windows</a>
+        <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="macos"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS</a>
+        <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="linux"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux</a>
+      </div>
       <p id="lead-text" class="lead mb-5" style="color: var(--bs-secondary-color);">You've identified your real devices. Now disable everything else so Windows can't silently switch to the wrong one.</p>
 
       <!-- Nugget 1: This is the most important step -->
@@ -493,7 +508,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
       <!-- Navigation links -->
       <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
-        <a href="/guide/test-your-devices.html" class="btn btn-outline-secondary px-4">
+        <a href="/guide/windows/test-your-devices.html" class="btn btn-outline-secondary px-4">
           <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Test your devices
         </a>
         <a href="/guide/why-it-happens.html" class="btn btn-outline-secondary px-4">
@@ -531,6 +546,27 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function(){
+  var detect = function() {
+    var ua = navigator.userAgent;
+    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
+    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
+    return 'windows';
+  };
+  var os = localStorage.getItem('os') || detect();
+  localStorage.setItem('os', os);
+  document.querySelectorAll('.guide-link').forEach(function(a) {
+    var page = a.getAttribute('data-page');
+    if (page) a.href = '/guide/' + os + '/' + page + '.html';
+  });
+  document.querySelectorAll('.os-switch').forEach(function(a) {
+    a.addEventListener('click', function() {
+      localStorage.setItem('os', a.getAttribute('data-os'));
+    });
   });
 })();
 </script>
