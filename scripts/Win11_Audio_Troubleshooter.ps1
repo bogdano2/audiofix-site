@@ -1059,22 +1059,15 @@ if ($madeChanges) {
     Write-Host ""
     Write-Host "  ┌──────────────────────────────────────────────────────────────────┐" -ForegroundColor Magenta
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
-    Write-Host "  |   This tool is free, open source, and has zero dependencies.     |" -ForegroundColor Magenta
+    Write-Host "  |   This tool has zero dependencies and zero telemetry.            |" -ForegroundColor Magenta
     Write-Host "  |   No data leaves your machine. No third-party code runs.         |" -ForegroundColor Magenta
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
-    Write-Host "  |   If it saved you time or a support call, consider buying        |" -ForegroundColor Magenta
-    Write-Host "  |   the developer a coffee to keep it maintained and help          |" -ForegroundColor Magenta
-    Write-Host "  |   bring it to macOS and Linux.                                   |" -ForegroundColor Magenta
+    Write-Host "  |   Your purchase helps keep it maintained and funds macOS         |" -ForegroundColor Magenta
+    Write-Host "  |   and Linux versions. Thank you for your support!                |" -ForegroundColor Magenta
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
-    Write-Host "  |   -> https://ko-fi.com/YOURKOFINAME                              |" -ForegroundColor Cyan
+    Write-Host "  |   -> https://audiofix.tools                                      |" -ForegroundColor Cyan
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
     Write-Host "  └──────────────────────────────────────────────────────────────────┘" -ForegroundColor Magenta
-    Write-Host ""
-
-    $openKofi = Read-YesNo "Open the support page in your browser?"
-    if ($openKofi) {
-        Start-Process "https://ko-fi.com/YOURKOFINAME"
-    }
 }
 
 Write-Host ""
