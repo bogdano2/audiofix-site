@@ -1062,12 +1062,18 @@ if ($madeChanges) {
     Write-Host "  |   This tool has zero dependencies and zero telemetry.            |" -ForegroundColor Magenta
     Write-Host "  |   No data leaves your machine. No third-party code runs.         |" -ForegroundColor Magenta
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
-    Write-Host "  |   Your purchase helps keep it maintained and funds macOS         |" -ForegroundColor Magenta
-    Write-Host "  |   and Linux versions. Thank you for your support!                |" -ForegroundColor Magenta
+    Write-Host "  |   If this fixed your audio, a $5 purchase helps keep it          |" -ForegroundColor Magenta
+    Write-Host "  |   maintained and funds macOS and Linux versions.                 |" -ForegroundColor Magenta
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
-    Write-Host "  |   -> https://audiofix.tools                                      |" -ForegroundColor Cyan
+    Write-Host "  |   -> https://audiofix.tools/tool/                                |" -ForegroundColor Cyan
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
     Write-Host "  └──────────────────────────────────────────────────────────────────┘" -ForegroundColor Magenta
+    Write-Host ""
+
+    $openSupport = Read-YesNo "Open the purchase page in your browser?"
+    if ($openSupport) {
+        Start-Process "https://audiofix.tools/tool/"
+    }
 }
 
 Write-Host ""
