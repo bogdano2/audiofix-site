@@ -1,0 +1,18 @@
+name = "audiofix-delivery"
+main = "src/index.ts"
+compatibility_date = "2025-12-01"
+
+workers_dev = true
+
+[[routes]]
+pattern = "dl.audiofix.tools"
+custom_domain = true
+
+[[r2_buckets]]
+binding = "DOWNLOADS_BUCKET"
+bucket_name = "audiofix-downloads"
+
+# Secrets (set via `wrangler secret put`):
+#   STRIPE_WEBHOOK_SECRET
+#   RESEND_API_KEY
+#   HMAC_SECRET
