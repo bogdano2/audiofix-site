@@ -1065,14 +1065,14 @@ if ($madeChanges) {
     Write-Host "  |   If this fixed your audio, a $5 purchase helps keep it          |" -ForegroundColor Magenta
     Write-Host "  |   maintained and funds macOS and Linux versions.                 |" -ForegroundColor Magenta
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
-    Write-Host "  |   -> https://audiofix.tools/tool/                                |" -ForegroundColor Cyan
+    Write-Host "  |   -> https://buy.stripe.com/test_dRm6oI2Gj5BFgb06j7aAw00       |" -ForegroundColor Cyan
     Write-Host "  |                                                                  |" -ForegroundColor Magenta
     Write-Host "  └──────────────────────────────────────────────────────────────────┘" -ForegroundColor Magenta
     Write-Host ""
 
     $openSupport = Read-YesNo "Open the purchase page in your browser?"
     if ($openSupport) {
-        Start-Process "https://audiofix.tools/tool/"
+        Start-Process "https://buy.stripe.com/test_dRm6oI2Gj5BFgb06j7aAw00"
     }
 }
 
