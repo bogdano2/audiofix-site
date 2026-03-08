@@ -1,6 +1,6 @@
 # AudioFix.tools — Implementation Directives
 
-**Version:** 3.4
+**Version:** 3.5
 **Date:** March 8, 2026
 **Owner:** Bogdan Odulinski
 **Status:** Active — applies to all current and future work
@@ -429,7 +429,73 @@ Every release or significant change must pass:
 - All secrets (Stripe keys, webhook secret, Resend API key, HMAC secret) are stored via `wrangler secret put` — never in code or `wrangler.toml`.
 - Worker source code lives in `/worker/` within the repo. It contains no secrets.
 
-## 7. Deployment & Hosting
+## 7. Desktop App & MCP Server (.NET 10)
+
+### 7.1 Architecture
+
+The desktop app lives in `/dotnet/` and is a .NET 10 solution with four projects:
+
+| Project | Purpose |
+|---|---|
+| `AudioFix.Core` | Audio logic — direct COM interop to Windows Core Audio. No UI dependency. |
+| `AudioFix.Mcp` | MCP server — 8 tools exposed via the official .NET ModelContextProtocol SDK. |
+| `AudioFix.Tray` | System tray app — Win32 P/Invoke (`Shell_NotifyIcon`), no WinForms/WPF/WinUI. |
+| `AudioFix.Package` | MSIX packaging — manifest, icons, Windows Copilot ODR registration. |
+
+### 7.2 Design Principles
+
+- **One binary, two modes.** `AudioFix.Tray.exe` runs the tray icon + MCP server together by default. With `--mcp-only`, it runs headless (for Claude Desktop / Copilot to launch as a child process).
+- **Core is UI-agnostic.** `AudioFix.Core` has no UI dependency. A WinUI 3 project can be added later for a richer settings panel without touching audio logic.
+- **No framework dependency for tray.** The tray icon uses raw Win32 P/Invoke (`Shell_NotifyIconW`, `CreatePopupMenu`, `TrackPopupMenu`). This avoids WinForms/WPF dependency and is NativeAOT-compatible.
+- **Direct COM interop.** Audio operations use direct COM calls to `IMMDeviceEnumerator`, `IPolicyConfig`, `IAudioEndpointVolume`, and `IAudioMeterInformation`. No PowerShell middleman.
+- **Elevation via manifest.** `app.manifest` uses `highestAvailable` — admin users get one UAC prompt at launch; standard users run without elevation (most features still work).
+
+### 7.3 MCP Tools
+
+The server exposes 8 tools: `list_devices`, `get_default_device`, `set_default_device`, `test_device`, `get_volume`, `set_volume`, `toggle_device`, `diagnose`.
+
+- `toggle_device` (enable/disable) requires administrator privileges. The tool checks elevation at runtime and returns a helpful error message if not elevated — it never triggers an unexpected UAC prompt.
+- `diagnose` is the orchestrator — it inspects all devices, volume, mute state, and reports issues with recommendations.
+
+### 7.4 MSIX & Windows Copilot
+
+- MSIX manifest registers the app as an MCP server with the Windows On-Device Agent Registry (ODR) via `uap3:AppExtension` with `com.microsoft.windows.ai.mcpServer`.
+- `mcpServerConfig.json` provides static tool descriptions for fast discovery without launching the server.
+- `patch-claude-config.ps1` auto-patches Claude Desktop's config to register the MCP server.
+- MSIX packaging requires Windows (the `.wapproj` build uses Windows SDK tools). CI/CD on a Windows runner is the recommended build path.
+
+### 7.5 Cross-Platform Node MCP Server
+
+A separate Node.js MCP server lives in `/mcp/` for macOS and Linux. It uses:
+- macOS: `SwitchAudioSource` (optional), `osascript`, `afplay`, `system_profiler`
+- Linux: `pactl` (PulseAudio/PipeWire), `speaker-test`
+- Windows: PowerShell with inline C# interop (fallback for users without .NET)
+
+The Node server is secondary to the .NET app on Windows. It exists primarily for cross-platform coverage.
+
+### 7.6 Build & Test
+
+```bash
+# Build (from any OS — cross-compiles on macOS)
+cd dotnet && dotnet build
+
+# Run tray app (Windows only — requires COM)
+dotnet run --project AudioFix.Tray
+
+# Run MCP server headless (Windows only)
+dotnet run --project AudioFix.Tray -- --mcp-only
+
+# Publish self-contained single file (Windows x64)
+dotnet publish AudioFix.Tray -c Release -r win-x64 --self-contained
+```
+
+### 7.7 No Telemetry
+
+The desktop app and MCP server must never phone home, collect data, send analytics, or make any network request. All operations are local. This is non-negotiable and consistent with the script's zero-telemetry policy.
+
+---
+
+## 8. Deployment & Hosting (Site)
 
 - **Static site only.** No server-side processing, no build step, no SSG framework required (though one may be adopted later if the site grows beyond single-page).
 - **Hosting:** GitHub Pages with custom domain `audiofix.tools`. DNS managed by Cloudflare (proxied, SSL mode: Full).
@@ -440,7 +506,7 @@ Every release or significant change must pass:
 
 ---
 
-## 8. Pre-Release Checklist
+## 9. Pre-Release Checklist
 
 Before any deployment or significant merge:
 
@@ -467,6 +533,15 @@ Before any deployment or significant merge:
 - [ ] Post-purchase thank-you page displays download link
 - [ ] Download email delivers and contains valid download link
 - [ ] Download link serves correct `.zip` file from R2
+
+**Desktop app (when modifying `dotnet/`):**
+
+- [ ] Solution builds with zero warnings: `dotnet build dotnet/AudioFix.slnx`
+- [ ] MCP server responds to `initialize` JSON-RPC call
+- [ ] `mcpServerConfig.json` static_responses match actual server output
+- [ ] `toggle_device` checks elevation before attempting — never triggers surprise UAC
+- [ ] No network requests, no telemetry, no phone-home behavior
+- [ ] `app.manifest` uses `highestAvailable` (not `requireAdministrator`)
 
 ---
 

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="AudioFix.Core/AudioFix.Core.csproj" />
+  <Project Path="AudioFix.Mcp/AudioFix.Mcp.csproj" />
+  <Project Path="AudioFix.Tray/AudioFix.Tray.csproj" />
+</Solution>

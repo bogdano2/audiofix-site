@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap uap3 uap5 uap10 desktop rescap">
+
+  <Identity
+    Name="AppThrive.AudioFix"
+    Version="1.0.0.0"
+    Publisher="CN=AppThrive, O=AppThrive, C=US"
+    ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>AudioFix</DisplayName>
+    <PublisherDisplayName>AppThrive</PublisherDisplayName>
+    <Description>Fix audio device switching on Windows. System tray app with MCP server for Claude Desktop and Windows Copilot.</Description>
+    <Logo>Images\StoreLogo.png</Logo>
+  </Properties>
+
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+
+  <Dependencies>
+    <TargetDeviceFamily
+      Name="Windows.Desktop"
+      MinVersion="10.0.22621.0"
+      MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="allowElevation" />
+  </Capabilities>
+
+  <Applications>
+    <!-- Main tray app — runs elevated for full device control -->
+    <Application Id="AudioFixTray"
+      Executable="AudioFix.Tray.exe"
+      uap10:RuntimeBehavior="packagedClassicApp"
+      uap10:TrustLevel="mediumIL"
+      EntryPoint="Windows.FullTrustApplication">
+
+      <uap:VisualElements
+        DisplayName="AudioFix"
+        Description="Audio device manager and troubleshooter"
+        Square150x150Logo="Images\Square150x150Logo.png"
+        Square44x44Logo="Images\Square44x44Logo.png"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+      </uap:VisualElements>
+
+      <Extensions>
+        <!-- Run at login (disabled by default — user opts in) -->
+        <desktop:Extension Category="windows.startupTask"
+          Executable="AudioFix.Tray.exe"
+          EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask
+            TaskId="AudioFixStartup"
+            Enabled="false"
+            DisplayName="AudioFix" />
+        </desktop:Extension>
+
+        <!-- Execution alias for CLI usage -->
+        <uap5:Extension Category="windows.appExecutionAlias">
+          <uap5:AppExecutionAlias>
+            <uap5:ExecutionAlias Alias="audiofix.exe" />
+          </uap5:AppExecutionAlias>
+        </uap5:Extension>
+
+        <!-- MCP Server registration with Windows On-Device Agent Registry -->
+        <uap3:Extension Category="windows.appExtension">
+          <uap3:AppExtension
+            Name="com.microsoft.windows.ai.mcpServer"
+            Id="AudioFixMcp"
+            DisplayName="AudioFix Audio Manager"
+            PublicFolder="Assets">
+            <uap3:Properties>
+              <Registration>mcpServerConfig.json</Registration>
+            </uap3:Properties>
+          </uap3:AppExtension>
+        </uap3:Extension>
+      </Extensions>
+
+    </Application>
+  </Applications>
+</Package>
