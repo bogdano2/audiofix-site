@@ -87,7 +87,7 @@
   --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
   --bs-code-color: #c4b5fd;
   --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
-  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+  --brand-amber: #fbbf24; --brand-red: #f87171;
 }
 [data-bs-theme="dark"] {
   --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
@@ -105,9 +105,7 @@
 }
 code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 .hero-gradient::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(var(--bs-primary-rgb),.07) 0%, transparent 60%); pointer-events: none; }
-.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
-.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
-.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+#themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
 pre.code-viewer { max-height: 420px; overflow-y: auto; font-family: 'IBM Plex Mono', monospace; font-size: 0.82em; }
 [data-bs-theme="dark"] pre.code-viewer code { color: #4ade80; }
 @media (prefers-reduced-motion: reduce) {
@@ -149,9 +147,6 @@ pre.code-viewer { max-height: 420px; overflow-y: auto; font-family: 'IBM Plex Mo
           </li>
         </ul>
         <div class="d-flex align-items-center gap-2">
-          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)">
-            <i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support
-          </a>
           <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
             <i class="bi bi-moon-fill" aria-hidden="true"></i>
           </button>
