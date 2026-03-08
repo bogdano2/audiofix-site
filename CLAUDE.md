@@ -1,7 +1,7 @@
 # AudioFix.tools — Implementation Directives
 
-**Version:** 3.3
-**Date:** March 7, 2026
+**Version:** 3.4
+**Date:** March 8, 2026
 **Owner:** Bogdan Odulinski
 **Status:** Active — applies to all current and future work
 
@@ -110,7 +110,7 @@ All content is written for a **non-technical primary audience** — but must nev
   4. If custom CSS is needed, place it in a `<style>` block with clear comments.
 - **All UI elements** must use Bootstrap components. Do not hand-write CSS for patterns Bootstrap already provides (navbars, buttons, cards, alerts, tables, badges, accordions, modals, list groups, progress bars, tabs, etc.).
 - **Navigation** must use `navbar` with `navbar-toggler` + `collapse` for mobile. Never hide nav links with CSS `display:none` at breakpoints — use Bootstrap's responsive collapse.
-- **Buttons** must use `btn` classes. Style variants via `btn-primary`, `btn-outline-light`, etc. Custom gradients (e.g., Ko-fi) are permitted as supplemental CSS on top of a `btn` base.
+- **Buttons** must use `btn` classes. Style variants via `btn-primary`, `btn-outline-light`, etc.
 - **Callouts / alerts** must use `alert` component with contextual classes (`alert-danger`, `alert-warning`, `alert-success`, `alert-info`).
 - **Tables** must use `table` classes (`table-dark`, `table-striped`, `table-bordered`). Never build table-like layouts with CSS grid or flexbox.
 - **Cards** for any boxed content — feature grids, roadmap items, requirement blocks, support banners.
@@ -143,7 +143,7 @@ Reliable references for structural inspiration (layout only — never copy code)
 
 - Target **<50 lines** of custom CSS. Permitted uses:
   - Brand-specific color tokens beyond Bootstrap's palette
-  - Ko-fi / donation button gradients
+  - Payment button styling
   - Code viewer max-height and scroll behavior
   - Hero section gradient overlays
   - Animations (bounce, fade) if `prefers-reduced-motion` is respected
@@ -390,17 +390,57 @@ Every release or significant change must pass:
 
 ---
 
-## 6. Deployment & Hosting
+## 6. Payment & Digital Delivery
+
+### 6.1 Payment Provider
+
+- **Stripe** is the sole payment provider. No other checkout systems (LemonSqueezy, Gumroad, Ko-fi, etc.).
+- Use **Stripe Payment Links** for checkout. No embedded checkout or overlays — same-tab redirect to Stripe's hosted checkout page.
+- Payment methods: **card** (includes Apple Pay and Google Pay on supported devices) + **Link** (Stripe's one-click checkout). No Amazon Pay or other methods.
+- After successful checkout, Stripe redirects to a dedicated thank-you page with `{CHECKOUT_SESSION_ID}` appended as a query parameter.
+- Stripe test mode is used during development. Live mode product/price/payment-link/webhook must be created separately with `--live` flag before go-live.
+
+### 6.2 Digital Delivery Architecture
+
+- **Cloudflare Worker** (`dl.audiofix.tools`) handles fulfillment:
+  - `POST /webhook` — receives Stripe `checkout.session.completed` webhook, generates HMAC-signed download token, sends email via Resend
+  - `GET /dl?token=xxx` — validates token signature + expiry, streams file from R2
+  - `GET /session-download?session_id=cs_xxx` — verifies session is paid via Stripe API, returns download URL (used by thank-you page for immediate download)
+- **Cloudflare R2** stores the downloadable `.zip` file. Files are private — only accessible through the Worker.
+- **Resend** sends transactional emails from `noreply@audiofix.tools` with the download link.
+- Download tokens are HMAC-SHA256 signed and expire after **72 hours**. No database required.
+- The thank-you page provides both an immediate download button (via session verification) and directs the user to check email for a backup link.
+- Both the email and thank-you page must clearly state the 72-hour expiry with instructions for getting a new link.
+
+### 6.3 Delivery Format
+
+- Downloadable product is a `.zip` file (not raw `.ps1`) to avoid browser download security warnings.
+- Zip contains: the script file + a `README.txt` with quick-start instructions.
+- Source code is visible on the tool page (base64-decoded into a code viewer) as a trust/transparency signal — this is intentional, not a leak.
+
+### 6.4 Script Support Prompt
+
+- After a successful run, the script displays a support message with a link to the Stripe checkout URL.
+- The prompt must ask "Open the purchase page in your browser?" and only open it if the user says yes.
+- **Never auto-launch URLs.** The user must explicitly opt in. Uninvited browser tabs erode trust.
+
+### 6.5 Secrets Management
+
+- All secrets (Stripe keys, webhook secret, Resend API key, HMAC secret) are stored via `wrangler secret put` — never in code or `wrangler.toml`.
+- Worker source code lives in `/worker/` within the repo. It contains no secrets.
+
+## 7. Deployment & Hosting
 
 - **Static site only.** No server-side processing, no build step, no SSG framework required (though one may be adopted later if the site grows beyond single-page).
-- **Hosting:** Any static host (Netlify, GitHub Pages, Cloudflare Pages, S3+CloudFront, or FTP).
-- **HTTPS required.** All static hosts above provide this by default.
+- **Hosting:** GitHub Pages with custom domain `audiofix.tools`. DNS managed by Cloudflare (proxied, SSL mode: Full).
+- **Cloudflare Worker:** Deployed separately via `wrangler deploy` from `/worker/` directory. Custom domain: `dl.audiofix.tools`.
+- **HTTPS required.** Cloudflare handles edge SSL for the main site; GitHub Pages serves as origin.
 - **Analytics:** If added, use a privacy-respecting, cookie-free tool (Plausible, Fathom, Cloudflare Web Analytics). No Google Analytics. No tracking pixels.
 - **No telemetry in scripts.** Downloadable tools must never phone home, collect data, or make network requests.
 
 ---
 
-## 7. Pre-Release Checklist
+## 8. Pre-Release Checklist
 
 Before any deployment or significant merge:
 
@@ -423,7 +463,10 @@ Before any deployment or significant merge:
 - [ ] Keyboard-only walkthrough completed
 - [ ] Screen reader walkthrough completed (NVDA or VoiceOver)
 - [ ] 200% zoom test: no content loss or horizontal scroll
-- [ ] Download button functions in Chrome, Firefox, Edge, Safari
+- [ ] Stripe checkout button functions in Chrome, Firefox, Edge, Safari
+- [ ] Post-purchase thank-you page displays download link
+- [ ] Download email delivers and contains valid download link
+- [ ] Download link serves correct `.zip` file from R2
 
 ---
 
