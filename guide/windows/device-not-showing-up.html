@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Device Not Showing Up on Windows 11? How to Fix It | AudioFix.tools</title>
+<meta name="description" content="Wired speakers, USB headset, or audio device not appearing in Windows 11 Sound Settings? Check Device Manager for disabled devices, update or reinstall drivers, and find the right driver safely.">
+<meta property="og:title" content="Audio Device Not Showing Up on Windows 11? How to Fix It | AudioFix.tools">
+<meta property="og:description" content="Wired speakers, USB headset, or audio device not appearing in Windows 11 Sound Settings? Check Device Manager for disabled devices, update or reinstall drivers, and find the right driver safely.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audiofix.tools/guide/windows/device-not-showing-up.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Audio Device Not Showing Up on Windows 11? How to Fix It | AudioFix.tools">
+<meta name="twitter:description" content="Wired speakers, USB headset, or audio device not appearing in Windows 11 Sound Settings? Check Device Manager for disabled devices, update or reinstall drivers, and find the right driver safely.">
+<link rel="canonical" href="https://audiofix.tools/guide/windows/device-not-showing-up.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/windows/device-not-showing-up.html#webpage",
+      "url": "https://audiofix.tools/guide/windows/device-not-showing-up.html",
+      "name": "Audio Device Not Showing Up on Windows 11? How to Fix It | AudioFix.tools",
+      "description": "Wired speakers, USB headset, or audio device not appearing in Windows 11 Sound Settings? Check Device Manager for disabled devices, update or reinstall drivers, and find the right driver safely.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/windows/device-not-showing-up.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://audiofix.tools/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Windows",
+          "item": "https://audiofix.tools/guide/windows/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Device Not Showing Up"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://audiofix.tools/guide/windows/device-not-showing-up.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my audio device not showing up in Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most commonly, the device is disabled in Device Manager. Windows has built-in driver support for the vast majority of audio hardware, so a truly missing driver is rare. Other causes include a bad physical connection, a USB port issue, or a corrupted driver."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix 'No audio output device is installed' on Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Device Manager (Win+R, devmgmt.msc), expand Sound, video and game controllers, look for devices with a down arrow (disabled) or yellow triangle (error). Right-click and Enable or Update driver. If the category is missing entirely, try View > Show hidden devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I safely download audio drivers for Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only download drivers from the device manufacturer's website (e.g., Realtek, Creative) or your PC manufacturer's support page (Dell, HP, Lenovo). Never use third-party driver update tools or download sites — they frequently bundle adware or malware."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I get professional help for audio issues?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the device doesn't appear in Device Manager even after showing hidden devices, reinstalling drivers, and trying different ports, the issue may be hardware-level (a dead port, damaged cable, or failed audio chip). A professional technician can diagnose whether it's a software or hardware problem."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171; --brand-kofi: #ff5e5b;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+.btn-kofi { background: linear-gradient(135deg, #ff5e5b, #ff9472); color: #fff !important; border: none; }
+.btn-kofi:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-kofi:focus-visible, #themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/"><i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <a href="https://ko-fi.com/YOURKOFINAME" class="btn btn-sm btn-kofi" target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi (opens in new tab)"><i class="bi bi-heart-fill me-1" aria-hidden="true"></i>Support</a>
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode"><i class="bi bi-moon-fill" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <div class="container" style="max-width: 720px;">
+    <nav aria-label="Breadcrumb" class="mt-3">
+      <ol class="breadcrumb mb-0 small">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/guide/">Guide</a></li>
+        <li class="breadcrumb-item"><a href="/guide/windows/">Windows</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Device Not Showing Up</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Page Header -->
+  <section class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 720px;">
+      <h1 id="page-heading" class="display-5 fw-bold mb-3">Audio device not showing up on Windows 11?</h1>
+      <div class="d-flex gap-2 mb-3" role="tablist" aria-label="Select operating system">
+        <a href="/guide/windows/device-not-showing-up.html" class="btn btn-primary btn-sm active" role="tab" aria-selected="true" aria-current="page"><i class="bi bi-windows me-1" aria-hidden="true"></i>Windows</a>
+        <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="macos"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS</a>
+        <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="linux"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux</a>
+      </div>
+      <p class="lead" style="color: var(--bs-secondary-color);">If a wired or USB audio device isn't showing up in Sound Settings, the most common cause is the device being disabled in Device Manager &mdash; not a missing driver. Windows has built-in driver support for the vast majority of audio hardware, so this is rarer than you'd think.</p>
+    </div>
+  </section>
+
+  <!-- Section 1: Check Device Manager -->
+  <section class="pb-5" aria-labelledby="check-device-manager">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="check-device-manager" class="h3 fw-bold mb-3"><i class="bi bi-pc-display me-2" aria-hidden="true"></i>Check Device Manager for disabled devices</h2>
+      <p>Sound Settings only shows devices that Windows considers active and available. Device Manager goes deeper &mdash; it tracks every piece of hardware Windows knows about, including devices that are disabled, disconnected, or broken. If your audio device vanished from Sound Settings, this is where you'll find it.</p>
+
+      <ol class="mb-4">
+        <li class="mb-2">Press <kbd>Win</kbd>+<kbd>R</kbd>, type <code>devmgmt.msc</code>, press <kbd>Enter</kbd>. This opens Device Manager directly.</li>
+        <li class="mb-2">Expand the <strong>Sound, video and game controllers</strong> category by clicking the arrow next to it.</li>
+        <li class="mb-2">Look for your audio device in the list. It may have a <strong>down arrow</strong> <span aria-hidden="true">&darr;</span> (meaning it's disabled) or a <strong>yellow triangle</strong> <span aria-hidden="true">&#9888;</span> (meaning there's a driver error).</li>
+        <li class="mb-2">Right-click the disabled device and select <strong>Enable device</strong>.</li>
+        <li class="mb-2">Open Sound Settings again (<kbd>Win</kbd>+<kbd>R</kbd>, type <code>ms-settings:sound</code>, press <kbd>Enter</kbd>) &mdash; the device should now appear in the output or input list.</li>
+      </ol>
+
+      <div class="alert alert-success" role="alert">
+        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i><strong>This fixes the problem the majority of the time.</strong> A disabled device is invisible to Sound Settings but still known to Windows. Enabling it brings it right back.
+      </div>
+
+      <div class="alert alert-info" role="alert">
+        <i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i><strong>Don't see "Sound, video and game controllers" at all?</strong> Click <strong>View</strong> &rarr; <strong>Show hidden devices</strong> in the Device Manager menu bar. The entire category may be hidden because every device in it is currently disabled.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Show hidden devices -->
+  <section class="pb-5" aria-labelledby="show-hidden-devices">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="show-hidden-devices" class="h3 fw-bold mb-3"><i class="bi bi-eye me-2" aria-hidden="true"></i>Show hidden devices</h2>
+      <p>Windows hides devices that have been disconnected or disabled. They're still registered in the system &mdash; Windows remembers they existed &mdash; but they won't appear in Device Manager's default view. This is a common reason people think a device has completely vanished: it's there, just invisible.</p>
+
+      <ol class="mb-4">
+        <li class="mb-2">In Device Manager, click <strong>View</strong> in the menu bar, then select <strong>Show hidden devices</strong>.</li>
+        <li class="mb-2">Expand <strong>Sound, video and game controllers</strong> again. You may see new entries that weren't visible before.</li>
+        <li class="mb-2">Grayed-out or ghosted entries are hidden devices &mdash; they're installed but not currently active.</li>
+        <li class="mb-2">Right-click any grayed-out audio device you recognize and select <strong>Enable device</strong>.</li>
+      </ol>
+
+      <div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i><strong>Device appears but won't enable?</strong> If your device shows up grayed out but refuses to enable, the driver may be corrupted. The next section covers how to fix that.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Update the driver -->
+  <section class="pb-5" aria-labelledby="update-driver">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="update-driver" class="h3 fw-bold mb-3"><i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>Update the driver from Device Manager</h2>
+      <p>When you click "Update driver" in Device Manager, Windows checks two places: its own local driver store (a cache of drivers that shipped with Windows or arrived via Windows Update) and Microsoft's online driver catalog. It does <em>not</em> search third-party websites &mdash; this is a safe, built-in process.</p>
+
+      <ol class="mb-4">
+        <li class="mb-2">In Device Manager, right-click your audio device (even if it has a yellow triangle or error icon).</li>
+        <li class="mb-2">Select <strong>Update driver</strong>.</li>
+        <li class="mb-2">Click <strong>Search automatically for drivers</strong>.</li>
+        <li class="mb-2">Wait for Windows to search. It will either install a newer driver or tell you that the best available driver is already installed.</li>
+      </ol>
+
+      <p>If Windows says the best driver is already installed but the device still isn't working, try a clean reinstall: right-click the device &rarr; <strong>Uninstall device</strong> &rarr; check the box labeled <strong>"Attempt to remove the driver for this device"</strong> &rarr; click <strong>Uninstall</strong>. Then, in the Device Manager menu bar, click <strong>Action</strong> &rarr; <strong>Scan for hardware changes</strong>. Windows will rediscover the hardware and install a fresh copy of the driver from scratch.</p>
+
+      <p style="color: var(--bs-secondary-color);">This approach works when Windows has the correct driver but it became corrupted &mdash; perhaps by a failed update, a power interruption during install, or a conflict with another driver. The reinstall gives Windows a clean slate. If the driver simply isn't in Windows Update at all, you'll need to get it from the manufacturer directly.</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Find the driver from the manufacturer -->
+  <section class="pb-5" aria-labelledby="find-driver">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="find-driver" class="h3 fw-bold mb-3"><i class="bi bi-download me-2" aria-hidden="true"></i>Find the driver from the manufacturer</h2>
+      <p>If Device Manager can't find a working driver through Windows Update, you'll need to download it directly from the company that made the device. This is the only reliable source for drivers that Windows doesn't already have.</p>
+
+      <h3 class="h5 fw-semibold mt-4 mb-3">How to identify your device</h3>
+      <ul class="mb-4">
+        <li class="mb-2">Check the physical device itself for a manufacturer name and model number &mdash; it's usually printed on the bottom or back.</li>
+        <li class="mb-2">Check the device's original packaging or manual if you still have it.</li>
+        <li class="mb-2">In Device Manager, right-click the unknown or broken device &rarr; <strong>Properties</strong> &rarr; <strong>Details</strong> tab &rarr; select <strong>Hardware Ids</strong> from the Property dropdown. This shows the vendor and product ID (e.g., <code>USB\VID_1235&PID_8211</code>) that you can search for online to identify the manufacturer.</li>
+      </ul>
+
+      <h3 class="h5 fw-semibold mt-4 mb-3">Where to download drivers</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered" aria-label="Audio device manufacturers and their driver download locations">
+          <thead>
+            <tr>
+              <th scope="col">Manufacturer</th>
+              <th scope="col">Where to find drivers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Realtek</td>
+              <td>Realtek's official download center</td>
+            </tr>
+            <tr>
+              <td>Creative (Sound Blaster)</td>
+              <td>Creative's support and downloads page</td>
+            </tr>
+            <tr>
+              <td>Your laptop brand (Dell, HP, Lenovo, ASUS)</td>
+              <td>The manufacturer's support page &mdash; enter your model number</td>
+            </tr>
+            <tr>
+              <td>Intel (display/HDMI audio)</td>
+              <td>Intel's driver support assistant</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-danger border-danger" role="alert">
+        <h3 class="alert-heading h5 fw-bold"><i class="bi bi-shield-exclamation me-2" aria-hidden="true"></i>Never download drivers from third-party "driver update" sites</h3>
+        <p>Sites like "DriverBooster," "DriverEasy," "DriverPack Solution," and similar tools are <strong>not trustworthy sources</strong> for drivers. Here's why:</p>
+        <ul class="mb-2">
+          <li>They frequently bundle <strong>adware, potentially unwanted programs (PUPs), or outright malware</strong> with their downloads.</li>
+          <li>They may install <strong>incorrect or outdated drivers</strong> that cause more problems than they solve.</li>
+          <li>Their "free scans" are designed to alarm you into paying for software you don't need.</li>
+        </ul>
+        <p class="mb-2"><strong>The only safe sources are:</strong> the device manufacturer's website, your PC manufacturer's support page, and Windows Update.</p>
+        <p class="mb-0">If a website asks you to install a "driver scanner" or "driver updater tool," close the tab.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: When to get professional help -->
+  <section class="pb-5" aria-labelledby="professional-help">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="professional-help" class="h3 fw-bold mb-3"><i class="bi bi-person-badge me-2" aria-hidden="true"></i>When to get professional help</h2>
+      <p>If you've checked Device Manager, shown hidden devices, tried updating and reinstalling the driver, and downloaded from the manufacturer &mdash; and the device <em>still</em> doesn't appear &mdash; the issue is likely hardware-level. You've done real diagnostic work to get here, and that matters.</p>
+
+      <h3 class="h5 fw-semibold mt-4 mb-3">Possible hardware causes</h3>
+      <ul class="list-group mb-4">
+        <li class="list-group-item"><i class="bi bi-usb-plug me-2" aria-hidden="true"></i>A dead audio jack or USB port &mdash; try a different port on your computer</li>
+        <li class="list-group-item"><i class="bi bi-plug me-2" aria-hidden="true"></i>A damaged cable or connector &mdash; try a different cable if possible</li>
+        <li class="list-group-item"><i class="bi bi-motherboard me-2" aria-hidden="true"></i>A failed onboard audio chip, especially on older motherboards</li>
+        <li class="list-group-item"><i class="bi bi-pc-display-horizontal me-2" aria-hidden="true"></i>A front panel audio header that isn't connected to the motherboard &mdash; common in custom-built PCs</li>
+      </ul>
+
+      <div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i>At this point, a professional technician can diagnose whether it's a software or hardware problem. You've already ruled out the most common software causes &mdash; that's valuable diagnostic information to share with them.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Once the device appears -->
+  <section class="pb-5" aria-labelledby="device-appeared">
+    <div class="container" style="max-width: 720px;">
+      <h2 id="device-appeared" class="h3 fw-bold mb-3 text-success"><i class="bi bi-check-circle me-2" aria-hidden="true"></i>Once the device appears</h2>
+      <p>If you got the device to show up &mdash; whether by enabling it in Device Manager, updating the driver, or downloading from the manufacturer &mdash; head back to the guide to make sure it's properly configured.</p>
+      <p>Devices that required manual intervention are especially prone to default-switching issues. Windows may not prioritize them correctly, or they may disappear again after an update. Setting the device as your default and disabling unused devices prevents this from happening again.</p>
+
+      <div class="card border-primary">
+        <div class="card-body text-center py-4">
+          <h3 class="fs-5 fw-bold mb-2">Continue the guide</h3>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">Confirm the device is listed, test it, and lock your defaults so it doesn't drift.</p>
+          <a href="/guide/windows/find-your-devices.html" class="btn btn-primary btn-lg px-4 guide-link" data-page="find-your-devices">
+            Find your devices <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);"><i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.</p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">Built by <a href="https://ko-fi.com/YOURKOFINAME" target="_blank" rel="noopener noreferrer" aria-label="Bogdan Odulinski on Ko-fi (opens in new tab)">Bogdan Odulinski</a></p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function(){
+  var detect = function() {
+    var ua = navigator.userAgent;
+    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
+    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
+    return 'windows';
+  };
+  var os = localStorage.getItem('os') || detect();
+  localStorage.setItem('os', os);
+  document.querySelectorAll('.guide-link').forEach(function(a) {
+    var page = a.getAttribute('data-page');
+    if (page) a.href = '/guide/' + os + '/' + page + '.html';
+  });
+  document.querySelectorAll('.os-switch').forEach(function(a) {
+    a.addEventListener('click', function() {
+      localStorage.setItem('os', a.getAttribute('data-os'));
+    });
+  });
+})();
+</script>
+</body>
+</html>
