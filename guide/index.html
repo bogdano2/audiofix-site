@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Troubleshooting Guides — Windows, macOS, Linux | AudioFix.tools</title>
+<meta name="description" content="Free step-by-step guides to fix audio device switching on Windows, macOS, and Linux. Learn why your sound breaks and how to fix it permanently.">
+<meta property="og:title" content="Audio Troubleshooting Guides | AudioFix.tools">
+<meta property="og:description" content="Free step-by-step guides to fix audio device switching on Windows, macOS, and Linux.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://audiofix.tools/guide/">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Audio Troubleshooting Guides | AudioFix.tools">
+<meta name="twitter:description" content="Free step-by-step guides to fix audio device switching on Windows, macOS, and Linux.">
+<link rel="canonical" href="https://audiofix.tools/guide/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://audiofix.tools/guide/#webpage",
+      "url": "https://audiofix.tools/guide/",
+      "name": "Audio Troubleshooting Guides — Windows, macOS, Linux | AudioFix.tools",
+      "description": "Free step-by-step guides to fix audio device switching on Windows, macOS, and Linux. Learn why your sound breaks and how to fix it permanently.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" },
+      "breadcrumb": { "@id": "https://audiofix.tools/guide/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://audiofix.tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Brand tokens & theme overrides */
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+#themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tool/">The Script</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Guide</li>
+    </ol>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 760px;">
+      <h1 id="page-heading" class="display-5 fw-bold text-center mb-3">Audio Troubleshooting Guides</h1>
+      <p class="lead text-center mb-5" style="color: var(--bs-secondary-color);">Your computer silently switches audio devices more often than you'd think. These guides explain why it happens and how to stop it &mdash; on any operating system.</p>
+
+      <!-- Start Here -->
+      <div class="card border mb-4">
+        <div class="card-body">
+          <h2 class="fs-4 fw-semibold mb-3"><i class="bi bi-book me-2" aria-hidden="true"></i>Start here</h2>
+          <p style="color: var(--bs-secondary-color);">Before diving into platform-specific fixes, understand why every operating system has this problem. The concepts apply to Windows, macOS, and Linux equally.</p>
+          <a href="/guide/why-it-happens.html" class="btn btn-primary">
+            <i class="bi bi-arrow-right me-1" aria-hidden="true"></i>Why your audio keeps breaking
+          </a>
+        </div>
+      </div>
+
+      <!-- Platform Cards -->
+      <h2 class="fs-4 fw-semibold mb-3">Choose your platform</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+
+        <div class="col">
+          <div class="card h-100 border-success">
+            <div class="card-body text-center">
+              <i class="bi bi-windows fs-1 mb-2 text-success" aria-hidden="true"></i>
+              <h3 class="fs-5 fw-semibold">Windows</h3>
+              <span class="badge text-bg-success mb-3"><i class="bi bi-check-circle me-1" aria-hidden="true"></i>Available</span>
+              <p class="small mb-3" style="color: var(--bs-secondary-color);">8 guides covering output, input, Bluetooth, default devices, and more.</p>
+              <a href="/guide/windows/" class="btn btn-outline-success btn-sm">View Windows guides</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 border-warning">
+            <div class="card-body text-center">
+              <i class="bi bi-apple fs-1 mb-2 text-warning" aria-hidden="true"></i>
+              <h3 class="fs-5 fw-semibold">macOS</h3>
+              <span class="badge text-bg-warning text-dark mb-3"><i class="bi bi-clock me-1" aria-hidden="true"></i>Coming soon</span>
+              <p class="small mb-3" style="color: var(--bs-secondary-color);">CoreAudio, Audio MIDI Setup, and aggregate devices.</p>
+              <a href="/guide/macos/" class="btn btn-outline-warning btn-sm">View macOS page</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 border-warning">
+            <div class="card-body text-center">
+              <i class="bi bi-ubuntu fs-1 mb-2 text-warning" aria-hidden="true"></i>
+              <h3 class="fs-5 fw-semibold">Linux</h3>
+              <span class="badge text-bg-warning text-dark mb-3"><i class="bi bi-clock me-1" aria-hidden="true"></i>Coming soon</span>
+              <p class="small mb-3" style="color: var(--bs-secondary-color);">PulseAudio, PipeWire, and ALSA configuration.</p>
+              <a href="/guide/linux/" class="btn btn-outline-warning btn-sm">View Linux page</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);">
+      <i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.
+    </p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">
+      Built by Bogdan Odulinski
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+<script>
+(function(){
+  var detect = function() {
+    var ua = navigator.userAgent;
+    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
+    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
+    return 'windows';
+  };
+  var os = localStorage.getItem('os') || detect();
+  localStorage.setItem('os', os);
+  document.querySelectorAll('.guide-link').forEach(function(a) {
+    var page = a.getAttribute('data-page');
+    if (page) a.href = '/guide/' + os + '/' + page + '.html';
+  });
+})();
+</script>
+</body>
+</html>
