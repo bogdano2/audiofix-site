@@ -234,7 +234,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
         <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
-      <p class="lead" style="color: var(--bs-secondary-color);">To connect Bluetooth headphones, earbuds, or a speaker to Windows 11, put your device in pairing mode, open Bluetooth Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:bluetooth</code>, <kbd>Enter</kbd>), click <strong>Add device</strong>, select <strong>Bluetooth</strong>, and click your device when it appears.</p>
+      <p class="lead" style="color: var(--bs-secondary-color);">To connect Bluetooth headphones, earbuds, or a speaker to Windows 11, put your device in pairing mode, open Bluetooth Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:bluetooth"><code>ms-settings:bluetooth</code></a>, <kbd>Enter</kbd>), click <strong>Add device</strong>, select <strong>Bluetooth</strong>, and click your device when it appears.</p>
     </div>
   </section>
 
@@ -274,7 +274,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <p>With your device in pairing mode, it's time to tell Windows to look for it. This part is straightforward:</p>
 
       <ol class="mb-3">
-        <li class="mb-2">Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:bluetooth</code>, press <kbd>Enter</kbd>.</li>
+        <li class="mb-2">Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:bluetooth"><code>ms-settings:bluetooth</code></a>, press <kbd>Enter</kbd>.</li>
         <li class="mb-2">Make sure <strong>Bluetooth</strong> is toggled <strong>On</strong> at the top of the page.</li>
         <li class="mb-2">Click <strong>Add device</strong>.</li>
         <li class="mb-2">Select <strong>Bluetooth</strong> (the first option in the list).</li>
@@ -296,7 +296,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
       <p>Bluetooth headsets show up as <strong>two separate devices</strong> in Windows &mdash; one for high-quality stereo audio (labeled "Headphones") and one for the hands-free mono profile (labeled "Headset" or "Hands-Free AG Audio"). If Windows set the wrong one as default, you'll hear no sound or terrible quality.</p>
 
-      <p>This is the most common post-pairing issue, and it has a straightforward fix. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd>) and make sure the <strong>stereo "Headphones"</strong> profile is selected as your output device &mdash; not the "Headset" one.</p>
+      <p>This is the most common post-pairing issue, and it has a straightforward fix. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:sound"><code>ms-settings:sound</code></a>, <kbd>Enter</kbd>) and make sure the <strong>stereo "Headphones"</strong> profile is selected as your output device &mdash; not the "Headset" one.</p>
 
       <p>See our full guide: <a href="/guide/windows/bluetooth-audio-not-working.html">Bluetooth audio not working &rarr;</a></p>
     </div>
@@ -311,7 +311,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
       <ul class="list-group mb-3">
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is your device in pairing mode?</strong> The light should be flashing, not solid. A solid light usually means the device is on but not discoverable.</li>
-        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is Bluetooth turned on in Windows?</strong> Open <code>ms-settings:bluetooth</code> and check the toggle at the top.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is Bluetooth turned on in Windows?</strong> Open <a href="ms-settings:bluetooth"><code>ms-settings:bluetooth</code></a> and check the toggle at the top.</li>
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is the device already connected to another phone or tablet?</strong> Most Bluetooth audio devices can only maintain one active connection. Disconnect from the other device first, or turn off Bluetooth on it.</li>
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is the device within range?</strong> Stay within 1&ndash;2 meters during the initial pairing. You can move further away after pairing is complete.</li>
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Have you tried removing and re-pairing?</strong> If the device was previously paired, it may have stale pairing data. In Bluetooth settings, click the device &rarr; <strong>Remove device</strong>, then put the device in pairing mode and add it again.</li>

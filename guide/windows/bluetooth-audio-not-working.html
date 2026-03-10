@@ -203,7 +203,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
         <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
-      <p class="lead" style="color: var(--bs-secondary-color);">If your Bluetooth headphones are connected but there's no sound, Windows is probably routing audio to the wrong device. Bluetooth headsets show up as <strong>two separate devices</strong> in Windows: one for high-quality stereo audio and one for the hands-free (mono) profile. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd>) and check which output device is selected.</p>
+      <p class="lead" style="color: var(--bs-secondary-color);">If your Bluetooth headphones are connected but there's no sound, Windows is probably routing audio to the wrong device. Bluetooth headsets show up as <strong>two separate devices</strong> in Windows: one for high-quality stereo audio and one for the hands-free (mono) profile. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:sound"><code>ms-settings:sound</code></a>, <kbd>Enter</kbd>) and check which output device is selected.</p>
     </div>
   </section>
 
@@ -264,7 +264,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <p>The fix is to make sure Windows sends audio to the <strong>stereo (Headphones)</strong> profile, not the Hands-Free one. Here's how:</p>
 
       <ol class="mb-3">
-        <li class="mb-2">Open Sound Settings: press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, press <kbd>Enter</kbd>.</li>
+        <li class="mb-2">Open Sound Settings: press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:sound"><code>ms-settings:sound</code></a>, press <kbd>Enter</kbd>.</li>
         <li class="mb-2">Under <strong>Output</strong>, look at the device dropdown. If it says anything with "Hands-Free" in the name, that's the wrong profile.</li>
         <li class="mb-2">Click the dropdown and select the entry that says <strong>"Headphones (YourDeviceName)"</strong> &mdash; the one <em>without</em> "Hands-Free" in its name.</li>
         <li class="mb-2">Play some audio. You should hear full stereo sound at normal quality.</li>
@@ -297,10 +297,10 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <p>If your Bluetooth device doesn't show up in Sound Settings at all, the problem is at the connection level, not the audio level. Work through this checklist:</p>
 
       <ul class="list-group mb-3">
-        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is Bluetooth turned on?</strong> Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:bluetooth</code>, press <kbd>Enter</kbd>. Make sure the Bluetooth toggle is on.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is Bluetooth turned on?</strong> Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:bluetooth"><code>ms-settings:bluetooth</code></a>, press <kbd>Enter</kbd>. Make sure the Bluetooth toggle is on.</li>
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is your device in pairing mode?</strong> Most Bluetooth headphones need to be put into pairing mode manually (usually by holding the power button for 5&ndash;7 seconds until an LED flashes). Check your device's manual for the exact method.</li>
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Is the device paired to another source?</strong> Many Bluetooth headphones can only connect to one device at a time. If they're connected to your phone, they won't connect to your PC. Disconnect them from the other device first.</li>
-        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Remove and re-pair.</strong> In Bluetooth settings (<code>ms-settings:bluetooth</code>), find your device, click the three-dot menu, and select <strong>Remove device</strong>. Then put your headphones into pairing mode and add them again. This clears out stale pairing data that can cause connection failures.</li>
+        <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Remove and re-pair.</strong> In Bluetooth settings (<a href="ms-settings:bluetooth"><code>ms-settings:bluetooth</code></a>), find your device, click the three-dot menu, and select <strong>Remove device</strong>. Then put your headphones into pairing mode and add them again. This clears out stale pairing data that can cause connection failures.</li>
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i><strong>Check the Bluetooth adapter.</strong> Open Device Manager (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>X</kbd>, select <strong>Device Manager</strong>). Expand <strong>Bluetooth</strong>. If you see a yellow warning triangle on your Bluetooth adapter, right-click it and select <strong>Update driver</strong>.</li>
       </ul>
 
@@ -345,7 +345,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <p>If you never use your Bluetooth headset's built-in microphone (because you have a USB mic or use your laptop's mic), you can disable the Hands-Free profile so it never interferes:</p>
 
       <ol class="mb-3">
-        <li class="mb-2">Open Sound Settings: <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, press <kbd>Enter</kbd>.</li>
+        <li class="mb-2">Open Sound Settings: <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:sound"><code>ms-settings:sound</code></a>, press <kbd>Enter</kbd>.</li>
         <li class="mb-2">Scroll down and click <strong>"More sound settings"</strong> to open the classic Sound control panel.</li>
         <li class="mb-2">On the <strong>Playback</strong> tab, find the Hands-Free entry (it will say "Headset" and include "Hands-Free AG Audio"). Right-click it and select <strong>Disable</strong>.</li>
         <li class="mb-2">Switch to the <strong>Recording</strong> tab and disable the Hands-Free microphone entry there too.</li>
