@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Your Audio Devices on macOS — Coming Soon | AudioFix.tools</title>
+<meta name="description" content="A macOS guide for testing audio output and input devices to confirm which ones actually work is coming soon.">
+<meta property="og:title" content="Test Your Audio Devices on macOS — Coming Soon | AudioFix.tools">
+<meta property="og:description" content="A macOS guide for testing audio output and input devices is coming soon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://audiofix.tools/guide/macos/test-your-devices.html">
+<meta property="og:image" content="https://audiofix.tools/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Test Your Audio Devices on macOS — Coming Soon | AudioFix.tools">
+<meta name="twitter:description" content="A macOS guide for testing audio output and input devices is coming soon.">
+<link rel="canonical" href="https://audiofix.tools/guide/macos/test-your-devices.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://audiofix.tools/#website",
+      "url": "https://audiofix.tools/",
+      "name": "AudioFix.tools",
+      "description": "Free guides and tools to fix computer audio device switching problems on Windows, macOS, and Linux."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://audiofix.tools/guide/macos/test-your-devices.html#webpage",
+      "url": "https://audiofix.tools/guide/macos/test-your-devices.html",
+      "name": "Test Your Audio Devices on macOS — Coming Soon | AudioFix.tools",
+      "description": "A macOS guide for testing audio output and input devices to confirm which ones actually work is coming soon.",
+      "isPartOf": { "@id": "https://audiofix.tools/#website" },
+      "breadcrumb": { "@id": "https://audiofix.tools/guide/macos/test-your-devices.html#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://audiofix.tools/guide/macos/test-your-devices.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://audiofix.tools/" },
+        { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://audiofix.tools/guide/" },
+        { "@type": "ListItem", "position": 3, "name": "macOS", "item": "https://audiofix.tools/guide/macos/" },
+        { "@type": "ListItem", "position": 4, "name": "Test Your Devices" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bs-body-font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  --bs-code-color: #c4b5fd;
+  --brand-blue: #38bdf8; --brand-indigo: #818cf8; --brand-green: #34d399;
+  --brand-amber: #fbbf24; --brand-red: #f87171;
+}
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0e17; --bs-body-color: #e2e8f0;
+  --bs-secondary-color: #94a3b8; --bs-tertiary-color: #64748b;
+  --bs-border-color: #1e293b;
+  --bs-primary: #6366f1; --bs-primary-rgb: 99,102,241;
+  --bs-link-color: #38bdf8; --bs-link-hover-color: #7dd3fc;
+}
+[data-bs-theme="light"] {
+  --bs-body-bg: #f8fafc; --bs-body-color: #1e293b;
+  --bs-secondary-color: #475569; --bs-tertiary-color: #94a3b8;
+  --bs-border-color: #e2e8f0;
+  --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229;
+  --bs-link-color: #2563eb; --bs-link-hover-color: #1d4ed8;
+}
+code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+#themeToggle:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/"><i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a></li>
+          <li class="nav-item"><a class="nav-link" href="/guide/windows/find-your-devices.html">Find</a></li>
+          <li class="nav-item"><a class="nav-link" href="/guide/windows/test-your-devices.html">Test</a></li>
+          <li class="nav-item"><a class="nav-link" href="/guide/windows/lock-it-down.html">Lock it down</a></li>
+          <li class="nav-item"><a class="nav-link" href="/tool/">The Script</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-secondary border-0" id="themeToggle" type="button" aria-label="Toggle light and dark mode"><i class="bi bi-moon-fill" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <nav aria-label="Breadcrumb" class="container mt-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/guide/">Guide</a></li>
+      <li class="breadcrumb-item"><a href="/guide/macos/">macOS</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Test Your Devices</li>
+    </ol>
+  </nav>
+
+  <section class="py-5" aria-labelledby="page-heading">
+    <div class="container" style="max-width: 760px;">
+      <div class="text-center mb-5">
+        <span class="badge text-bg-warning text-dark fs-6 mb-3"><i class="bi bi-clock me-1" aria-hidden="true"></i>Coming Soon</span>
+        <h1 id="page-heading" class="display-5 fw-bold mb-3">Test Your Audio Devices on macOS</h1>
+        <p class="lead" style="color: var(--bs-secondary-color);">We're building a macOS-specific guide for testing each audio device &mdash; playing test tones through outputs and recording through inputs to confirm what actually works.</p>
+      </div>
+
+      <div class="alert alert-info" role="alert">
+        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+        <strong>In the meantime:</strong> The <a href="/guide/windows/test-your-devices.html" class="alert-link">Windows version of this guide</a> covers the same concepts. The tools differ, but the approach is identical: play sound through each output and record through each input to prove which devices are real.
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4 mb-5">
+        <a href="/guide/why-it-happens.html" class="btn btn-primary btn-lg px-4"><i class="bi bi-book me-2" aria-hidden="true"></i>Read why audio breaks</a>
+        <a href="/guide/macos/" class="btn btn-outline-secondary btn-lg px-4"><i class="bi bi-apple me-2" aria-hidden="true"></i>macOS guide overview</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="py-4 border-top">
+  <div class="container text-center">
+    <p class="mb-1 small" style="color: var(--bs-tertiary-color);"><i class="bi bi-soundwave me-1" aria-hidden="true"></i>AudioFix.tools &mdash; Free, open, no telemetry.</p>
+    <p class="mb-0 small" style="color: var(--bs-tertiary-color);">Built by Bogdan Odulinski</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  const getPreferred = () => localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  const apply = t => {
+    document.documentElement.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    const icon = document.getElementById('themeToggle')?.querySelector('i');
+    if (icon) { icon.className = t === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; }
+  };
+  apply(getPreferred());
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

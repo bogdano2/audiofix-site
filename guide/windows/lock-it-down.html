@@ -202,13 +202,13 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+            <a class="nav-link" href="/guide/windows/find-your-devices.html">Find</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+            <a class="nav-link" href="/guide/windows/test-your-devices.html">Test</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link active" href="/guide/windows/lock-it-down.html" data-page="lock-it-down" aria-current="page">Lock it down</a>
+            <a class="nav-link active" href="/guide/windows/lock-it-down.html" aria-current="page">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -244,8 +244,8 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <h1 id="page-heading" class="display-5 fw-bold mb-3">Lock it down</h1>
       <div class="d-flex gap-2 mb-3" role="tablist" aria-label="Select operating system">
         <a href="/guide/windows/lock-it-down.html" class="btn btn-primary btn-sm active" role="tab" aria-selected="true" aria-current="page"><i class="bi bi-windows me-1" aria-hidden="true"></i>Windows</a>
-        <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="macos"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS</a>
-        <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="linux"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux</a>
+        <a href="/guide/macos/lock-it-down.html" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
+        <a href="/guide/linux/lock-it-down.html" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
       <p id="lead-text" class="lead mb-5" style="color: var(--bs-secondary-color);">You've identified your real devices. Now disable everything else so Windows can't silently switch to the wrong one.</p>
 
@@ -541,27 +541,6 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
-  });
-})();
-</script>
-<script>
-(function(){
-  var detect = function() {
-    var ua = navigator.userAgent;
-    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
-    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
-    return 'windows';
-  };
-  var os = localStorage.getItem('os') || detect();
-  localStorage.setItem('os', os);
-  document.querySelectorAll('.guide-link').forEach(function(a) {
-    var page = a.getAttribute('data-page');
-    if (page) a.href = '/guide/' + os + '/' + page + '.html';
-  });
-  document.querySelectorAll('.os-switch').forEach(function(a) {
-    a.addEventListener('click', function() {
-      localStorage.setItem('os', a.getAttribute('data-os'));
-    });
   });
 })();
 </script>

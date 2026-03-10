@@ -111,13 +111,13 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+            <a class="nav-link" href="/guide/windows/find-your-devices.html">Find</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+            <a class="nav-link" href="/guide/windows/test-your-devices.html">Test</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
+            <a class="nav-link" href="/guide/windows/lock-it-down.html">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -231,22 +231,6 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
-  });
-})();
-</script>
-<script>
-(function(){
-  var detect = function() {
-    var ua = navigator.userAgent;
-    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
-    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
-    return 'windows';
-  };
-  var os = localStorage.getItem('os') || detect();
-  localStorage.setItem('os', os);
-  document.querySelectorAll('.guide-link').forEach(function(a) {
-    var page = a.getAttribute('data-page');
-    if (page) a.href = '/guide/' + os + '/' + page + '.html';
   });
 })();
 </script>

@@ -160,13 +160,13 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             <a class="nav-link" href="/guide/why-it-happens.html">Why it happens</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+            <a class="nav-link" href="/guide/windows/find-your-devices.html">Find</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+            <a class="nav-link" href="/guide/windows/test-your-devices.html">Test</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
+            <a class="nav-link" href="/guide/windows/lock-it-down.html">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -200,8 +200,8 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <h1 id="page-heading" class="display-5 fw-bold mb-3">Bluetooth audio not working on Windows 11?</h1>
       <div class="d-flex gap-2 mb-3" role="tablist" aria-label="Select operating system">
         <a href="/guide/windows/bluetooth-audio-not-working.html" class="btn btn-primary btn-sm active" role="tab" aria-selected="true" aria-current="page"><i class="bi bi-windows me-1" aria-hidden="true"></i>Windows</a>
-        <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="macos"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS</a>
-        <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm os-switch" role="tab" aria-selected="false" data-os="linux"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux</a>
+        <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
+        <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
       <p class="lead" style="color: var(--bs-secondary-color);">If your Bluetooth headphones are connected but there's no sound, Windows is probably routing audio to the wrong device. Bluetooth headsets show up as <strong>two separate devices</strong> in Windows: one for high-quality stereo audio and one for the hands-free (mono) profile. Open Sound Settings (<kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>ms-settings:sound</code>, <kbd>Enter</kbd>) and check which output device is selected.</p>
     </div>
@@ -405,27 +405,6 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
-  });
-})();
-</script>
-<script>
-(function(){
-  var detect = function() {
-    var ua = navigator.userAgent;
-    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
-    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
-    return 'windows';
-  };
-  var os = localStorage.getItem('os') || detect();
-  localStorage.setItem('os', os);
-  document.querySelectorAll('.guide-link').forEach(function(a) {
-    var page = a.getAttribute('data-page');
-    if (page) a.href = '/guide/' + os + '/' + page + '.html';
-  });
-  document.querySelectorAll('.os-switch').forEach(function(a) {
-    a.addEventListener('click', function() {
-      localStorage.setItem('os', a.getAttribute('data-os'));
-    });
   });
 })();
 </script>

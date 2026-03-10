@@ -178,13 +178,13 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             <a class="nav-link active" href="/guide/why-it-happens.html" aria-current="page">Why it happens</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/find-your-devices.html" data-page="find-your-devices">Find</a>
+            <a class="nav-link" href="/guide/windows/find-your-devices.html">Find</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/test-your-devices.html" data-page="test-your-devices">Test</a>
+            <a class="nav-link" href="/guide/windows/test-your-devices.html">Test</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link guide-link" href="/guide/windows/lock-it-down.html" data-page="lock-it-down">Lock it down</a>
+            <a class="nav-link" href="/guide/windows/lock-it-down.html">Lock it down</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tool/">The Script</a>
@@ -397,7 +397,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <div class="card border-primary">
           <div class="card-body text-center py-4">
             <h2 id="next-step-heading" class="fs-5 fw-bold mb-2">Now that you know why it breaks, let's see what your OS actually sees.</h2>
-            <a href="/guide/windows/find-your-devices.html" class="btn btn-primary btn-lg mt-2 guide-link" data-page="find-your-devices">
+            <a href="/guide/windows/find-your-devices.html" class="btn btn-primary btn-lg mt-2">
               Find your devices <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
             </a>
           </div>
@@ -434,22 +434,6 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   apply(getPreferred());
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     apply(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
-  });
-})();
-</script>
-<script>
-(function(){
-  var detect = function() {
-    var ua = navigator.userAgent;
-    if (/Macintosh|Mac OS/.test(ua)) return 'macos';
-    if (/Linux/.test(ua) && !/Android/.test(ua)) return 'linux';
-    return 'windows';
-  };
-  var os = localStorage.getItem('os') || detect();
-  localStorage.setItem('os', os);
-  document.querySelectorAll('.guide-link').forEach(function(a) {
-    var page = a.getAttribute('data-page');
-    if (page) a.href = '/guide/' + os + '/' + page + '.html';
   });
 })();
 </script>
