@@ -272,7 +272,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <p>USB headphones have their own built-in sound card (a DAC and amplifier inside the USB plug or inline control box). Windows treats them as a completely separate audio device from your motherboard audio. That means they need their own driver, and if that driver doesn't load correctly, the headphones won't appear in Sound Settings at all.</p>
 
       <ol class="mb-3">
-        <li class="mb-2"><strong>Try a different USB port.</strong> USB 2.0 ports (usually black) are more compatible than USB 3.0 (blue) for older headsets. Avoid USB hubs &mdash; plug directly into the PC.</li>
+        <li class="mb-2"><strong>Try a different USB port.</strong> USB 2.0 ports (usually black) are more compatible than USB 3.0 (blue) for older headsets, because USB 3.0 controllers sometimes handle USB 1.1 audio class devices differently, which can prevent detection entirely. Avoid USB hubs &mdash; plug directly into the PC.</li>
         <li class="mb-2"><strong>Check Device Manager.</strong> Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <code>devmgmt.msc</code>, press <kbd>Enter</kbd>. Look under <strong>Sound, video and game controllers</strong> and <strong>Other devices</strong> for anything with a yellow triangle <i class="bi bi-exclamation-triangle-fill text-warning" aria-hidden="true"></i> or labeled <strong>Unknown device</strong>.</li>
         <li class="mb-2"><strong>Unplug, wait 10 seconds, and replug.</strong> This forces Windows to re-enumerate the USB device. Watch Device Manager while you plug it in &mdash; you should see a new entry appear under Sound controllers.</li>
       </ol>
@@ -359,7 +359,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <div class="card border">
         <div class="card-body text-center py-4">
           <h2 id="cta-heading" class="fs-4 fw-semibold mb-2">Want the automated fix?</h2>
-          <p class="mb-3" style="color: var(--bs-secondary-color);">The AudioFix PowerShell script ($5) scans every audio device on your system, tests them, identifies the working ones, and disables the impostors &mdash; so Windows stops "losing" your headphones.</p>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">The script can't fix a missing driver, but once your headphones appear in Sound Settings, it will set them as default and disable the devices that were hijacking your audio &mdash; so Windows stops routing sound to the wrong place every time your headphones reconnect.</p>
           <a href="/tool/" class="btn btn-primary btn-lg px-4">
             Get the script <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
           </a>

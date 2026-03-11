@@ -234,6 +234,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <a href="/guide/linux/test-your-devices.html" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
       <p id="lead-text" class="lead" style="color: var(--bs-secondary-color);">You found your devices and defaults in the last step. Now let's prove which device is actually your speakers and which is actually your microphone.</p>
+      <p style="color: var(--bs-secondary-color);">You might be staring at four output devices with cryptic names like "Realtek High Definition Audio" and "NVIDIA High Definition Audio." Which one is your actual speakers? The names alone won't tell you &mdash; time to find out by listening.</p>
     </div>
   </section>
 
@@ -242,6 +243,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
     <div class="container" style="max-width: 720px;">
       <h2 id="test-output" class="fs-3 fw-bold mb-3"><i class="bi bi-volume-up me-2" aria-hidden="true"></i>Testing output: play sound, switch devices, listen</h2>
       <p style="color: var(--bs-secondary-color);"><strong>The simplest test.</strong> Play audio from any source (YouTube, Spotify, a video file), then switch between output devices one at a time. Listen for which one produces sound from your actual speakers or headphones.</p>
+      <p style="color: var(--bs-secondary-color);">Why can't you just read the names? Because Windows assigns opaque driver names that often tell you nothing useful &mdash; multiple physical ports can share the same driver entry, and two completely different devices might both be called "Speakers (Realtek(R) Audio)." Listening is the only reliable test.</p>
 
       <div class="card border mb-3">
         <div class="card-body">
@@ -252,6 +254,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             <li class="mb-2">Click each output device in the dropdown</li>
             <li>Listen &mdash; which one plays through your intended speakers?</li>
           </ol>
+          <p class="mt-3 mb-0" style="color: var(--bs-secondary-color);">Why does this work? When you change the default output device, Windows re-routes the active audio stream in real time. That gives you immediate audible feedback &mdash; you'll hear the sound jump to the new device the instant you select it, so there's no guesswork involved.</p>
         </div>
       </div>
 
@@ -331,6 +334,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             <li class="mb-2">Watch the level indicator &mdash; does the bar move?</li>
             <li>If not, try the next device</li>
           </ol>
+          <p class="mt-3 mb-0" style="color: var(--bs-secondary-color);">Why the level bar? It visualizes the raw input signal amplitude before any app processing happens. If the bar moves, it proves the hardware path is working &mdash; the mic is physically picking up sound and delivering it to Windows. No movement means the device either isn't connected or isn't the mic you think it is.</p>
         </div>
       </div>
 

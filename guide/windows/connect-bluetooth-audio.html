@@ -277,8 +277,8 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <li class="mb-2">Press <kbd>Win</kbd><span aria-hidden="true">+</span><span class="visually-hidden">plus</span><kbd>R</kbd>, type <a href="ms-settings:bluetooth"><code>ms-settings:bluetooth</code></a>, press <kbd>Enter</kbd>.</li>
         <li class="mb-2">Make sure <strong>Bluetooth</strong> is toggled <strong>On</strong> at the top of the page.</li>
         <li class="mb-2">Click <strong>Add device</strong>.</li>
-        <li class="mb-2">Select <strong>Bluetooth</strong> (the first option in the list).</li>
-        <li class="mb-2">Wait for your device to appear in the list. This may take a few seconds &mdash; don't click around or close the window while Windows is scanning.</li>
+        <li class="mb-2">Select <strong>Bluetooth</strong> (the first option in the list &mdash; the other options are for different wireless protocols that audio devices don't use).</li>
+        <li class="mb-2">Wait for your device to appear in the list. This may take a few seconds &mdash; don't click around or navigate away, because leaving this screen cancels the Bluetooth discovery scan and you'll have to start over.</li>
         <li class="mb-2">Click your <strong>device name</strong> to pair.</li>
         <li class="mb-2">You should see a <strong>"Connected"</strong> or <strong>"Paired"</strong> confirmation.</li>
       </ol>
@@ -371,6 +371,21 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <li class="mb-1 text-body-secondary">JBL Bluetooth speakers &mdash; coming soon</li>
         <li class="mb-1 text-body-secondary">Bose QuietComfort / 700 &mdash; coming soon</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- CTA Card -->
+  <section class="pb-5" aria-labelledby="cta-heading">
+    <div class="container" style="max-width: 720px;">
+      <div class="card border">
+        <div class="card-body text-center py-4">
+          <h2 id="cta-heading" class="fs-4 fw-semibold mb-2">Want the automated fix?</h2>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">The steps you just followed &mdash; pairing your Bluetooth device, setting it as the default output, and disabling the devices that were stealing your audio &mdash; are exactly what the AudioFix PowerShell script ($5) automates in under a minute.</p>
+          <a href="/tool/" class="btn btn-primary btn-lg px-4">
+            Get the script <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

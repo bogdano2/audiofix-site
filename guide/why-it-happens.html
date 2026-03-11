@@ -222,7 +222,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <h1 id="page-heading" class="display-5 fw-bold mb-3">Why your audio keeps breaking</h1>
         <p class="text-body-secondary mb-3"><i class="bi bi-globe me-1" aria-hidden="true"></i>This page applies to all operating systems.</p>
         <p id="lead-summary" class="lead" style="color: var(--bs-secondary-color);">
-          It's not you. It's too many variables between Windows and your ears&mdash;and any one of them can silently break the chain.
+          It's not you. It's too many variables between your operating system and your ears&mdash;and any one of them can silently break the chain. The concepts on this page apply to Windows, macOS, and Linux alike.
         </p>
       </header>
 
@@ -230,7 +230,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <section id="audio-chain" class="mb-5" aria-labelledby="nugget-chain-heading">
         <h2 id="nugget-chain-heading" class="fs-4 fw-bold mb-3">Audio is a chain, and every link can break</h2>
         <div id="nugget-chain">
-          <p>Your sound travels through a chain: App, OS default, driver, physical device, your ears. For microphones, it's reversed. A break at <em>any</em> point means silence&mdash;or the wrong device.</p>
+          <p>Your sound travels through a chain: App, OS default, driver (the software that connects the OS to the hardware), physical device, your ears. For microphones, it's reversed. A break at <em>any</em> point means silence&mdash;or the wrong device.</p>
         </div>
 
         <!-- Chain diagram -->
@@ -292,31 +292,31 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <!-- Nugget 3: Five things that silently move your default -->
       <section id="silent-triggers" class="mb-5" aria-labelledby="nugget-triggers-heading">
         <h2 id="nugget-triggers-heading" class="fs-4 fw-bold mb-3">Five things that silently move your default</h2>
-        <p>The "default device" is just a pointer. These events can move it without telling you:</p>
+        <p>You plug in your monitor and suddenly your music is playing through its tinny built-in speakers. The "default device" is just a label your OS sticks on one device at a time&mdash;and these events can move that label without asking you:</p>
 
         <ol class="list-group list-group-numbered list-group-flush mb-3">
           <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
             <div>
               <strong><i class="bi bi-plug me-1" aria-hidden="true"></i>Plugging in HDMI / DisplayPort</strong><br>
-              <span style="color:var(--bs-secondary-color);">Monitor audio gets promoted to default.</span>
+              <span style="color:var(--bs-secondary-color);">Your GPU registers a new audio endpoint for the display, and the OS promotes recently-activated devices to default.</span>
             </div>
           </li>
           <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
             <div>
               <strong><i class="bi bi-bluetooth me-1" aria-hidden="true"></i>Bluetooth connect / disconnect</strong><br>
-              <span style="color:var(--bs-secondary-color);">A new endpoint appears or disappears, reshuffling the list.</span>
+              <span style="color:var(--bs-secondary-color);">Each reconnection registers as a new device arrival, because the OS treats every Bluetooth connect event as a fresh plug-in.</span>
             </div>
           </li>
           <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
             <div>
               <strong><i class="bi bi-arrow-repeat me-1" aria-hidden="true"></i>Windows Update</strong><br>
-              <span style="color:var(--bs-secondary-color);">Can reset preferences or add virtual devices.</span>
+              <span style="color:var(--bs-secondary-color);">Updates can replace audio drivers, which re-registers endpoints from scratch&mdash;resetting your preferences in the process.</span>
             </div>
           </li>
           <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
             <div>
               <strong><i class="bi bi-box-seam me-1" aria-hidden="true"></i>Driver installation</strong><br>
-              <span style="color:var(--bs-secondary-color);">New virtual audio devices appear out of nowhere.</span>
+              <span style="color:var(--bs-secondary-color);">New drivers create new Plug and Play device nodes, which the OS sees as brand-new devices and may promote to default.</span>
             </div>
           </li>
           <li class="list-group-item bg-transparent border-start-0 border-end-0 d-flex align-items-start gap-2">
@@ -348,12 +348,13 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <!-- Nugget 4: This isn't new -->
       <section id="not-new" class="mb-5" aria-labelledby="nugget-history-heading">
         <h2 id="nugget-history-heading" class="fs-4 fw-bold mb-3">This isn't new. It's been this way for 30 years.</h2>
-        <p>Audio device management hasn't fundamentally changed since Windows 95 introduced Plug and Play. The same architecture that made sense for one sound card and one set of speakers now manages a dozen endpoints&mdash;and the OS was never designed for that many.</p>
+        <p>Windows Vista rebuilt the audio API from the ground up (WASAPI replaced the old waveOut/DirectSound stack), but the underlying Plug and Play device-arrival behavior&mdash;and the lack of a "pin my default and never change it" mechanism&mdash;has persisted since Windows 95. The same PnP architecture that made sense for one sound card and one set of speakers now manages a dozen endpoints, and no OS has added a reliable way to lock it down.</p>
       </section>
 
       <!-- Nugget 5: Output vs. Input -->
       <section id="output-vs-input" class="mb-5" aria-labelledby="nugget-symptoms-heading">
         <h2 id="nugget-symptoms-heading" class="fs-4 fw-bold mb-3">Output breaks and input breaks look different</h2>
+        <p>You join a video call and nobody can hear you, even though you can hear them perfectly. That asymmetry is the clue: output and input are separate defaults, and they break in different ways.</p>
         <div class="row g-3">
           <div class="col-md-6">
             <div class="card h-100 border">

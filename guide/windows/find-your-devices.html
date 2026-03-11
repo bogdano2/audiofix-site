@@ -272,7 +272,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
           <span class="os-ribbon" aria-label="coming soon">Soon</span>
         </a>
       </div>
-      <p class="lead" style="color: var(--bs-secondary-color);">Before you fix anything, you need to see what your OS sees. Windows might be managing a dozen audio devices you didn't know existed.</p>
+      <p class="lead" style="color: var(--bs-secondary-color);">Your sound disappeared, or someone on a call says they can't hear you. Before you fix anything, you need to see what your OS sees. Windows might be managing a dozen audio devices you didn't know existed.</p>
     </div>
   </section>
 
@@ -342,7 +342,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
     <div class="container" style="max-width: 720px;">
       <h2 id="output-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-speaker me-2 text-info" aria-hidden="true"></i>Find your output devices</h2>
 
-      <p>The Output section at the top of the Sound page shows which device Windows is currently sending sound to. Click the dropdown to see all available output devices.</p>
+      <p>Remember, <a href="/guide/why-it-happens.html">Windows can silently switch your default output</a> to any active device &mdash; so let's see exactly what it considers active. The Output section at the top of the Sound page shows which device Windows is currently sending sound to. Click the dropdown to see all available output devices. This matters because Windows may be managing devices you never configured, and any one of them can become the default without warning.</p>
 
       <div class="card border mb-3">
         <div class="card-body device-mockup">
@@ -363,7 +363,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
     <div class="container" style="max-width: 720px;">
       <h2 id="input-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-mic me-2 text-info" aria-hidden="true"></i>Find your input devices</h2>
 
-      <p>Scroll down to the Input section. This shows which microphone Windows is currently listening to.</p>
+      <p>Scroll down to the Input section. This shows which microphone Windows is currently listening to. Getting this right is critical &mdash; if Windows picks the wrong input (for example, Stereo Mix instead of your actual microphone), no one will hear you on calls, and you'll have no obvious indication that anything is wrong.</p>
 
       <div class="card border mb-3">
         <div class="card-body device-mockup">
@@ -424,7 +424,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
             </tr>
             <tr>
               <td>Stereo Mix</td>
-              <td>Loopback &mdash; records system audio</td>
+              <td>Loopback (feeds your speaker output back as a fake input) &mdash; records system audio</td>
               <td><span class="badge text-bg-danger" aria-label="No, almost never as default">Almost never</span></td>
             </tr>
             <tr>
@@ -478,7 +478,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
     <div class="container" style="max-width: 720px;">
       <h2 id="volume-heading" class="fs-3 fw-bold mb-3"><i class="bi bi-sliders me-2 text-info" aria-hidden="true"></i>Quick volume and mute check</h2>
 
-      <p>While you're here, verify the basics.</p>
+      <p>While you're here, verify the basics. Volume at zero or a hardware mute switch is the single most common false alarm &mdash; the right device is selected, but the signal is physically blocked before it reaches your ears or your call.</p>
 
       <ul class="list-group mb-3">
         <li class="list-group-item"><i class="bi bi-square me-2" aria-hidden="true"></i>Output volume slider is above zero</li>

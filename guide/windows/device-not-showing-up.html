@@ -206,6 +206,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
   <section class="pb-5" aria-labelledby="check-device-manager">
     <div class="container" style="max-width: 720px;">
       <h2 id="check-device-manager" class="h3 fw-bold mb-3"><i class="bi bi-pc-display me-2" aria-hidden="true"></i>Check Device Manager for disabled devices</h2>
+      <p>You plugged in your speakers or USB headset, but Sound Settings acts like the device doesn't exist. No entry in the output list, no dropdown option, nothing.</p>
       <p>Sound Settings only shows devices that Windows considers active and available. Device Manager goes deeper &mdash; it tracks every piece of hardware Windows knows about, including devices that are disabled, disconnected, or broken. If your audio device vanished from Sound Settings, this is where you'll find it.</p>
 
       <ol class="mb-4">
@@ -289,19 +290,19 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
           <tbody>
             <tr>
               <td>Realtek</td>
-              <td>Realtek's official download center</td>
+              <td>Go to <strong>realtek.com/Downloads</strong>, select <strong>"High Definition Audio Codecs"</strong>, choose your Windows version, and download the installer.</td>
             </tr>
             <tr>
               <td>Creative (Sound Blaster)</td>
-              <td>Creative's support and downloads page</td>
+              <td>Go to <strong>creative.com/support</strong>, enter your product name or model number, then select <strong>Drivers</strong> from the results.</td>
             </tr>
             <tr>
               <td>Your laptop brand (Dell, HP, Lenovo, ASUS)</td>
-              <td>The manufacturer's support page &mdash; enter your model number</td>
+              <td>Go to the manufacturer's support site (e.g., <strong>support.dell.com</strong>, <strong>support.hp.com</strong>, <strong>support.lenovo.com</strong>), enter your laptop model number or service tag, then look under <strong>Drivers &amp; Downloads</strong> for the Audio category.</td>
             </tr>
             <tr>
               <td>Intel (display/HDMI audio)</td>
-              <td>Intel's driver support assistant</td>
+              <td>Go to <strong>intel.com/support</strong> and download the <strong>Intel Driver &amp; Support Assistant</strong> &mdash; it auto-detects your hardware and offers the correct driver.</td>
             </tr>
           </tbody>
         </table>
@@ -354,6 +355,21 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
           <p class="mb-3" style="color: var(--bs-secondary-color);">Confirm the device is listed, test it, and lock your defaults so it doesn't drift.</p>
           <a href="/guide/windows/find-your-devices.html" class="btn btn-primary btn-lg px-4">
             Find your devices <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Card -->
+  <section class="pb-5" aria-labelledby="cta-heading">
+    <div class="container" style="max-width: 720px;">
+      <div class="card border">
+        <div class="card-body text-center py-4">
+          <h2 id="cta-heading" class="fs-4 fw-semibold mb-2">Want the automated fix?</h2>
+          <p class="mb-3" style="color: var(--bs-secondary-color);">The script can't fix a missing driver or dead hardware, but once your device appears in Sound Settings, the AudioFix PowerShell script ($5) will set it as default, test it with audio, and disable the unused devices that caused the problem in the first place.</p>
+          <a href="/tool/" class="btn btn-primary btn-lg px-4">
+            Get the script <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
           </a>
         </div>
       </div>

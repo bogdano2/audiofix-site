@@ -225,6 +225,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <a href="/guide/macos/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
         <a href="/guide/linux/" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
+      <p class="lead">You plugged in a monitor and now your music plays through its tinny built-in speakers. Or you joined a Zoom call and realized Windows picked the wrong microphone. Either way, Windows silently changed your default audio device &mdash; and you need to change it back.</p>
       <p class="lead">To change your default speakers or microphone on Windows 11, open Sound Settings (<kbd>Win</kbd>+<kbd>R</kbd>, type <a href="ms-settings:sound"><code>ms-settings:sound</code></a>, <kbd>Enter</kbd>). Select the device you want from the <strong>Output</strong> dropdown for speakers, or the <strong>Input</strong> dropdown for microphone. The change takes effect immediately.</p>
     </section>
 
@@ -482,7 +483,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <div class="card border text-center">
         <div class="card-body py-5">
           <h2 id="cta-heading" class="h4 fw-bold mb-3"><i class="bi bi-terminal me-2" aria-hidden="true"></i>Want to automate this?</h2>
-          <p class="mb-4" style="color: var(--bs-secondary-color);">The AudioFix PowerShell script ($5) identifies your devices, tests them with audio, disables the impostors, and locks your defaults &mdash; all in one run. No install, no telemetry, fully open source.</p>
+          <p class="mb-4" style="color: var(--bs-secondary-color);">The steps you just followed &mdash; opening Sound Settings, picking the right device from the dropdown, and setting it as default &mdash; are exactly what the AudioFix PowerShell script ($5) automates. It also tests each device with audio, disables the ones you don't use, and locks your defaults so they stick.</p>
           <a href="/tool/" class="btn btn-primary btn-lg">Get the AudioFix Script <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
         </div>
       </div>

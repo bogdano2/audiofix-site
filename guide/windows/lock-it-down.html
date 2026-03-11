@@ -247,7 +247,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
         <a href="/guide/macos/lock-it-down.html" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-apple me-1" aria-hidden="true"></i>macOS <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
         <a href="/guide/linux/lock-it-down.html" class="btn btn-outline-secondary btn-sm" role="tab" aria-selected="false"><i class="bi bi-ubuntu me-1" aria-hidden="true"></i>Linux <span class="badge text-bg-warning text-dark ms-1" style="font-size:.65em;vertical-align:middle">coming soon</span></a>
       </div>
-      <p id="lead-text" class="lead mb-5" style="color: var(--bs-secondary-color);">You've identified your real devices. Now disable everything else so Windows can't silently switch to the wrong one.</p>
+      <p id="lead-text" class="lead mb-5" style="color: var(--bs-secondary-color);">You've done the hard work &mdash; you know which device is your real speakers and which is your real mic. But if you leave all those phantom devices enabled, Windows will eventually switch to one of them at the worst possible moment. Let's lock it down.</p>
 
       <!-- Nugget 1: This is the most important step -->
       <section class="mb-5" aria-labelledby="nugget-important">
@@ -280,7 +280,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
         <div class="alert alert-warning" role="alert">
           <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>
-          <strong>Three audio roles.</strong> Windows has three: Console, Multimedia, and Communications. The Settings UI usually sets Console and Multimedia together, but Communications may need to be set separately. Check all three if available.
+          <strong>Three audio roles.</strong> Windows doesn't just have one default &mdash; it tracks a separate default device for three categories of audio usage, called roles. The three roles are: Console, Multimedia, and Communications. The Settings UI usually sets Console and Multimedia together, but Communications may need to be set separately. Check all three if available.
         </div>
 
         <!-- Accordion: Keyboard-only steps -->
@@ -365,6 +365,8 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
           <li class="mb-2">Go back and repeat for each unwanted output device</li>
         </ol>
 
+        <p>Each device you disable is one fewer candidate for Windows to silently switch to.</p>
+
         <h3 class="fs-5 fw-semibold mb-3">What to disable</h3>
         <div class="table-responsive mb-4">
           <table class="table table-bordered" aria-label="Output devices and whether to disable them">
@@ -440,7 +442,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
       <section class="mb-5" aria-labelledby="nugget-input">
         <h2 id="nugget-input" class="fs-4 fw-bold mb-3"><i class="bi bi-mic-mute me-2" aria-hidden="true"></i>Disable input devices you don't use</h2>
 
-        <p>Same process, now for microphones. Common devices to disable:</p>
+        <p>Windows manages input and output defaults independently. A wrong input default causes the distinct symptom of "nobody can hear me" &mdash; different from the "I can't hear anything" caused by a wrong output. Same process, now for microphones. Common devices to disable:</p>
 
         <ul class="mb-4">
           <li class="mb-2"><strong>Stereo Mix</strong> &mdash; this is not a microphone. It captures whatever plays through your speakers. Disable it unless you specifically need to record system audio.</li>
@@ -479,7 +481,7 @@ code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
 
         <div class="alert alert-info" role="alert">
           <i class="bi bi-terminal me-2" aria-hidden="true"></i>
-          <strong>The AudioFix script ($5) automates this entire process in about 2 minutes.</strong> It plays test tones, shows mic meters, sets all three audio roles, and disables devices &mdash; interactively.
+          <strong>Remember the steps you just did &mdash; setting defaults, disabling unused devices, checking all three audio roles?</strong> The AudioFix script ($5) does all of that automatically in about 2 minutes. It plays test tones (like the manual speaker test), shows mic meters (like the input level check), sets all three roles, and disables devices &mdash; interactively.
         </div>
 
         <div class="text-center">
